@@ -1,0 +1,546 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('tpl/head.html',{title:'首页'}) %>
+        <style>
+            .btn {
+                width: 97px;
+                height: 37px;
+                background: rgb(15, 184, 184);
+                color: antiquewhite;
+                border: none;
+      
+                margin-left: 400px;
+            }
+        </style>
+</head>
+
+<body data-type="index">
+    <%- include('tpl/header.html',{ title : '贝尔英语'}) %>
+        <div class="tpl-page-container tpl-page-header-fixed">
+            <%- include('tpl/nav.html' , {user : 'teacher'}) %>
+
+                <div class="tpl-content-wrapper">
+                    <div class="tpl-content-page-title">
+                        修改模考
+                    </div>
+
+                    <div class="tpl-portlet-components">
+                        <div class="portlet-title">
+                            <div class="caption font-green bold">
+                                <span class="am-icon-code"></span> 选择模考题
+                            </div>
+
+
+                        </div>
+                        <input type="number" value="<%= userToken.id %>" name="tId" id="tid" style="display:none">
+                        <div class="am-form-group">
+                            <label for="user-phone" class="am-u-sm-3 am-form-label">套题难度
+                                <span class="tpl-form-line-small-title"></span>
+                            </label>
+                            <div class="am-u-sm-9">
+                                <select data-am-selected="" name='dId' class="nan">
+                                    <option value="1">高中</option>
+                                    <option value="2">四级</option>
+                                    <option value="3">六级</option>
+                                    <option value="4">托福</option>
+                                    <option value="5">托福TPO5</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="tpl-block" id='spoken1' style="width:100%;">
+
+                            <div class="am-g tpl-amazeui-form">
+
+
+                                <div>
+                                    <div class="caption font-green bold">
+                                        <span class="am-icon-code"></span> 口语
+                                    </div>
+                                    <table id='table' class="am-table am-table-striped am-table-hover table-main">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-num">序号</th>
+                                                <th class="table-title">标题</th>
+                                                <th class="table-id">难度</th>
+                                                <th class="table-set">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                            <button type="button" class="btn1 btn"> 修改口语</button>
+                        </div>
+                        <div class="tpl-block" id='read1' style="display:none; width:100%;">
+
+                            <div class="am-g tpl-amazeui-form">
+
+
+                                <div>
+                                    <div class="caption font-green bold">
+                                        <span class="am-icon-code"></span> 阅读
+                                    </div>
+                                    <table id='tabler' class="am-table am-table-striped am-table-hover table-main">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-num">序号</th>
+                                                <th class="table-title">标题</th>
+                                                <th class="table-id">难度</th>
+                                                <th class="table-set">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                            <button type="button" class="btn2 btn"> 修改阅读</button>
+                        </div>
+                        <div class="tpl-block" id='listen1' style="display:none; width:100%;">
+
+                            <div class="am-g tpl-amazeui-form">
+
+
+                                <div>
+                                    <div class="caption font-green bold">
+                                        <span class="am-icon-code"></span>听力
+                                    </div>
+                                    <table id='tablel' class="am-table am-table-striped am-table-hover table-main">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-num">序号</th>
+                                                <th class="table-title">标题</th>
+                                                <th class="table-id">难度</th>
+                                                <th class="table-set">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <button type="button" class="btn3 btn"> 修改听力</button>
+                            </div>
+                        </div>
+                        <div class="tpl-block " id='wite1' style="display:none; width:100%;">
+
+                            <div class="am-g tpl-amazeui-form">
+
+
+                                <div>
+                                    <div class="caption font-green bold">
+                                        <span class="am-icon-code"></span>写作
+                                    </div>
+                                    <table id='tablew' class="am-table am-table-striped am-table-hover table-main">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-num">序号</th>
+                                                <th class="table-title">标题</th>
+                                                <th class="table-id">难度</th>
+                                                <th class="table-set">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <button type="button" class="btn4 btn"> 修改写作</button>
+                        </div>
+
+                    </div>
+                </div>
+
+<button type="button" class="btnm am-btn am-btn-primary" style="display:none; margin-top: -90px;width:100px;margin-left:900px;">修改套题</button>
+
+
+
+        </div>
+
+        <%- include('tpl/foot.html') %>
+
+            <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js">
+            </script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js">
+            </script>
+            <input type="hidden" id="data_rowsStr" value="<%=data %>">
+            <script>
+                var datas = JSON.parse(unescape($('#data_rowsStr').val()));
+                
+
+                $('.nan option').each(element => {
+                    if ($('.nan option').eq(element).val() == datas[0].dId) {
+                        $('.nan option').eq(element).attr('selected', true);
+                    }
+
+                });
+
+                $('#table').DataTable({
+                    "language": {
+                        "sProcessing": "",
+                        "lengthMenu": "每页显示 _MENU_",
+                        "zeroRecords": "没有找到记录",
+                        "info": " 当前 _PAGE_/ _PAGES_ 页 共_TOTAL_条",
+                        "infoEmpty": "无记录",
+                        "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                        "oPaginate": {
+                            "sFirst": "首页",
+                            "sPrevious": "上一页",
+                            "sNext": "下一页",
+                            "sLast": "尾页"
+                        }
+                    },
+                    ajax: {
+                        post: 'get',
+                        url: '/backend/questionBank/api/findAllSpeakMaterial',
+                        dataSrc: function (json) {
+                            
+                            for (var i = 0; i < json.length; i++) {
+                                json[i]['hao'] = i + 1;
+                            }
+                            return json;
+                        }
+
+
+                    },
+                    columns: [{
+                            data: 'hao'
+                        },
+                        {
+                            data: 'title'
+                        },
+                        {
+                            data: 'level'
+                        },
+                        {
+                            render: function (data, type, row) {
+                                var b = '';
+                                b = '<input type="checkbox" name="options" value="' + row.id +
+                                    '" class="options" /> '
+                                for (j = 0; j < datas[0].sId.length; j++) {
+                                    if (row.id == datas[0].sId[j]) {
+                                        b = '<input type="checkbox" name="options" value="' + row.id +
+                                            '" class="options" checked="checked"/> ';
+                                    }
+                                }
+                                return b;
+                            }
+                        }
+                    ],
+                    "autoWidth": false
+
+
+                });
+
+                var checkedBox = $("input[name='options']:checked");
+                
+
+                $('#tabler').DataTable({
+                    "language": {
+                        "sProcessing": "",
+                        "lengthMenu": "每页显示 _MENU_",
+                        "zeroRecords": "没有找到记录",
+                        "info": " 当前 _PAGE_/ _PAGES_ 页 共_TOTAL_条",
+                        "infoEmpty": "无记录",
+                        "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                        "oPaginate": {
+                            "sFirst": "首页",
+                            "sPrevious": "上一页",
+                            "sNext": "下一页",
+                            "sLast": "尾页"
+                        }
+                    },
+                    ajax: {
+                        post: 'get',
+                        url: '/backend/questionBank/api/findAllReadMaterial',
+                        dataSrc: function (json) {
+                            
+                            for (var i = 0; i < json.length; i++) {
+                                json[i]['hao'] = i + 1;
+                            }
+                            return json;
+                        }
+
+                    },
+                    columns: [{
+                            data: 'hao'
+                        },
+                        {
+                            data: 'title'
+                        },
+                        {
+                            data: 'level'
+                        },
+                        {
+                            data: '',
+                            render: function (data, type, row) {
+                                var b = '';
+                                b = '<input type="checkbox" name="optionr" value="' + row.id +
+                                    '" class="options" /> '
+                                for (j = 0; j < datas[0].rId.length; j++) {
+                                    if (row.id == datas[0].rId[j]) {
+                                        b = '<input type="checkbox" name="optionr" value="' + row.id +
+                                            '" class="options" checked="checked"/> ';
+                                    }
+                                }
+                                return b;
+                            }
+                        }
+                    ],
+                    "autoWidth": false
+
+                });
+                $('#tablel').DataTable({
+                    "language": {
+                        "sProcessing": "",
+                        "lengthMenu": "每页显示 _MENU_",
+                        "zeroRecords": "没有找到记录",
+                        "info": " 当前 _PAGE_/ _PAGES_ 页 共_TOTAL_条",
+                        "infoEmpty": "无记录",
+                        "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                        "oPaginate": {
+                            "sFirst": "首页",
+                            "sPrevious": "上一页",
+                            "sNext": "下一页",
+                            "sLast": "尾页"
+                        }
+                    },
+                    ajax: {
+                        post: 'get',
+                        url: '/backend/questionBank/api/findAllListenMaterial',
+                        dataSrc: function (json) {
+                            
+                            for (var i = 0; i < json.length; i++) {
+                                json[i]['hao'] = i + 1;
+                            }
+                            return json;
+                        }
+
+                    },
+                    columns: [{
+                            data: 'hao'
+                        },
+                        {
+                            data: 'title'
+                        },
+                        {
+                            data: 'level'
+                        },
+                        {
+                            data: '',
+                            render: function (data, type, row) {
+                                var b = '';
+                                b = '<input type="checkbox" name="optionl" value="' + row.id +
+                                    '" class="options" /> '
+                                for (j = 0; j < datas[0].lId.length; j++) {
+                                    if (row.id == datas[0].lId[j]) {
+                                        b = '<input type="checkbox" name="optionl" value="' + row.id +
+                                            '" class="options" checked="checked"/> ';
+                                    }
+                                }
+                                return b;
+                            }
+                        }
+                    ],
+                    "autoWidth": false
+
+                });
+
+                $('#tablew').DataTable({
+                    "language": {
+                        "sProcessing": "",
+                        "lengthMenu": "每页显示 _MENU_",
+                        "zeroRecords": "没有找到记录",
+                        "info": " 当前 _PAGE_/ _PAGES_ 页 共_TOTAL_条",
+                        "infoEmpty": "无记录",
+                        "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                        "oPaginate": {
+                            "sFirst": "首页",
+                            "sPrevious": "上一页",
+                            "sNext": "下一页",
+                            "sLast": "尾页"
+                        }
+                    },
+                    ajax: {
+                        post: 'get',
+                        url: '/backend/questionBank/api/findWrite',
+                        dataSrc: function (json) {
+                            
+                            for (var i = 0; i < json.length; i++) {
+                                json[i]['hao'] = i + 1;
+                            }
+                            return json;
+                        }
+
+                    },
+                    columns: [{
+                            data: 'hao'
+                        },
+                        {
+                            data: 'title'
+                        },
+                        {
+                            data: 'level'
+                        },
+                        {
+                            data: '',
+                            render: function (data, type, row) {
+                                var b = '';
+                                b = '<input type="checkbox" name="optionw" value="' + row.id +
+                                    '" class="options" /> '
+                                for (j = 0; j < datas[0].wId.length; j++) {
+                                    if (row.id == datas[0].wId[j]) {
+                                        b = '<input type="checkbox" name="optionw" value="' + row.id +
+                                            '" class="options" checked="checked"/> ';
+                                    }
+                                }
+                                return b;
+                            }
+                        }
+                    ],
+                    "autoWidth": false
+
+                });
+                var arrs = [];
+                var arrr = [];
+                var arrl = [];
+                var arrw = [];
+                //口语
+                $(document).on('click', '.btn1', function () {
+
+                    arrs = [];
+                    $("input:checkbox[name='options']:checked").each(function () {
+                        
+                        arrs.push($(this).val()); // 每一个被选中项的值
+                    });
+                    if (arrs.length) {
+                        $('#spoken1').css('display', 'none');
+                        $('#read1').css('display', 'block');
+
+                    } else {
+                        alert('请选择')
+                    }
+                })
+                //阅读
+                $(document).on('click', '.btn2', function () {
+                    arrr = [];
+                    $("input:checkbox[name='optionr']:checked").each(function () { // 遍历name=test的多选框
+                        arrr.push($(this).val());
+                        // 每一个被选中项的值
+                    });
+                    if (arrr.length) {
+                        $('#spoken1').css('display', 'none');
+                        $('#read1').css('display', 'none');
+                        $('#listen1').css('display', 'block');
+                    } else {
+                        alert('请选择')
+                    }
+                    
+                })
+                $(document).on('click', '.btn3', function () {
+                    arrl = [];
+                    $("input:checkbox[name='optionl']:checked").each(function () { // 遍历name=test的多选框
+                        arrl.push($(this).val()); // 每一个被选中项的值
+                    });
+                    if (arrl.length) {
+                        $('#spoken1').css('display', 'none');
+                        $('#read1').css('display', 'none');
+                        $('#listen1').css('display', 'none');
+                        $('#wite1').css('display', 'block');
+                    } else {
+                        alert('请选择')
+                    }
+                })
+                //写作
+                $(document).on('click', '.btn4', function () {
+                    arrw = [];
+                    $("input:checkbox[name='optionw']:checked").each(function () { // 遍历name=test的多选框
+                        arrw.push($(this).val()); // 每一个被选中项的值
+                    });
+                    if (arrw.length) {
+                        $('.btnm').css('display', 'block');
+                    } else {
+                        alert('请选择')
+                    }
+
+                })
+
+                $(document).on('click', '.btnm', function () {
+
+                    $('.nan').val();
+                    if ($('.nan').val() && arrs && arrl && arrr && arrw) {
+                        
+                        $.ajax({
+                            type: 'post',
+                            url: '/backend/questionBank/api/updateMockexam',
+                            data: {
+                                id: datas[0].id,
+                                tId: $('#tid').val(),
+                                dId: $('.nan').val(),
+                                sId: arrs,
+                                rId: arrr,
+                                lId: arrl,
+                                wId: arrw
+                            },
+                            success: function (data) {
+                                
+                                if (data == 'success') {
+                                    alert('发布成功');
+                                    window.location.href = '/backend/questionBank/mockxiu?tId=' + $('#tid').val();
+                                }
+                            }
+                        })
+                    } else {
+                        alert('请选择');
+                    }
+
+                })
+                $(document).on('click', '.am-breadcrumb li', function () {
+                    $(this).css('color', 'blue').siblings().css('color', 'black');
+                    if ($(this).text() == '阅读') {
+                        $('#spoken1').css('display', 'none');
+                        $('#read1').css('display', 'block');
+                        $('#listen1').css('display', 'none');
+                        $('#wite1').css('display', 'none');
+
+                    } else if ($(this).text() == '听力') {
+                        $('#spoken1').css('display', 'none');
+                        $('#read1').css('display', 'none');
+                        $('#listen1').css('display', 'block');
+                        $('#wite1').css('display', 'none');
+
+                    } else if ($(this).text() == '写作') {
+                        $('#spoken1').css('display', 'none');
+                        $('#read1').css('display', 'none');
+                        $('#listen1').css('display', 'none');
+                        $('#wite1').css('display', 'block');
+
+
+                    } else if ($(this).text() == '口语') {
+                        $('#spoken1').css('display', 'block');
+                        $('#read1').css('display', 'none');
+                        $('#listen1').css('display', 'none');
+                        $('#wite1').css('display', 'none');
+
+                    }
+
+                })
+            </script>
+</body>
+
+</html>

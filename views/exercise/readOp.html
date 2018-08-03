@@ -1,0 +1,199 @@
+<html class="ks-webkit537 ks-webkit ks-chrome65 ks-chrome" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        查看阅读
+    </title>
+    <link rel="stylesheet" href="/stylesheets/exAll.css">
+    <link rel="stylesheet" href="/stylesheets/tole.css">
+
+</head>
+
+<body>
+    <div class="box">
+        <% question.forEach(val=>{ %>
+            <%var mId=request.session.user.id%>
+                <input type="text" id='rightAnswer' value='<%=val.rightAnswer%>' style="display:none;">
+                <input type="text" id='score' value='<%=val.score%>' style="display:none;">
+                <input type="text" id='isRight' value='<%=val.isRight%>' style="display:none;">
+                <input type="text" id='isD' value='<%=val.isD%>' style="display:none;">
+                <div id="content1" class="tf-navtop">
+                    <div class="nav-box wid1200 margin-auto">
+                        <div class="c top-line pb10">
+                            <div class="left ">
+                                <dl class="nav-logo c">
+                                    <dt>
+                                        <a href="/" class="ziti">
+                                            英贝尔
+                                        </a>
+                                    </dt>
+                                    <dd class="nav-tf">
+                                        <h1>READ</h1>
+                                        <p><%=material[0].englishTitle%></p>
+                                    </dd>
+                                </dl>
+                            </div>
+
+                            <div class="right mt30 aright-left" role="contentRole">
+                                <%if(val.numForRM==1){%>
+                                        <a style="cursor:inherit;display:inline-block;" class="y-blu-but but-afont ml10 n-back">
+                                            <span id="backBtnHide" style="background:#aeaeae;color:#fff;cursor:inherit;" class="BACK-blu-bg" href='/exercise/read/translate?mId=<%=mId%>&mock=<%=mock%>&mockRId=<%=mockRId%>&id=<%=material[0].id%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>'>BACK</span>
+                                        </a>
+                                    <%}else{%>
+                                        <a style="cursor:inherit;display:inline-block;" class="y-blu-but but-afont ml10 n-back">
+                                            <span id="backBtnHide" style="background:blue;color:#fff;cursor:inherit;" href="/exercise/read/translate?mId=<%=mId%>&mock=<%=mock%>&mockRId=<%=mockRId%>&id=<%=material[0].id%>&numForRM=<%=(val.numForRM-1)%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>"
+                                                class="BACK-blu-bg">BACK</span>
+                                        </a>
+                                    <%}%>
+                                        <a style="cursor:pointer;margin-left:4px;" class="y-blu-but but-afont n-next">
+                                    <%if(val.numForRM){%>
+                                        <span id="next" href="/exercise/read/translate?mId=<%=mId%>&mock=<%=mock%>&mockRId=<%=mockRId%>&id=<%=material[0].id%>&numForRM=<%=(val.numForRM+1)%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>"
+                                            class="NEXT-blu-bg">NEXT</span>
+                                    <%}else{%>
+                                        <span id="next" href="/exercise/read/translate?mId=<%=mId%>&mock=<%=mock%>&mockRId=<%=mockRId%>&id=<%=material[0].id%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>"
+                                            class="NEXT-blu-bg">NEXT</span>
+                                    <%}%>
+
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="c mt10">
+                            <div class="left wid200">
+                                <a href='/exercise/read' style='text-decoration: none;' class="ylow-but but-font popbox-link left">
+                                    <dt>退出</dt>
+                                    <dd>练习</dd>
+                                </a>
+                            </div>
+                            <div role="contentRole" class=" top-nav-tile wid800 left">
+                                <p>Question
+                                    <%=val.numForRM%>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wid1200 margin-auto">
+                    <div class="c search_article" id="content" style="height: 501px;">
+                        <div class="wid580 left">
+                            <div class="mt10 single-sle">
+                                <h1>
+                                    <div role="title" style="word-wrap:break-word">
+                                        <p>
+                                            <%=val.question%>
+                                        </p>
+                                        <input type="number" style="display:none" id="numF" value="<%=val.numF%>">
+                                </h1>
+                                <ol>
+                                    <%if(val.isD=='0'){%>
+                                        <p>此题为单选</p>
+                                        <li style="height:60px;">
+                                            <label>
+                                                <input name="optionsRadios" value='A' type="radio">
+                                                <span>A.
+                                                    <%=val.options.A%>
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li style="height:60px;">
+                                            <label>
+                                                <input name="optionsRadios" value='B' type="radio">
+                                                <span>B.
+                                                    <%=val.options.B%>
+                                                </span>
+                                            </label>
+
+                                        </li>
+                                        <li style="height:60px;">
+                                            <label>
+                                                <input name="optionsRadios" value='C' type="radio">
+                                                <span>C.
+                                                    <%=val.options.C%>
+                                                </span>
+                                            </label>
+
+                                        </li>
+                                        <li style="height:60px;">
+                                            <label>
+                                                <input name="optionsRadios" value='D' type="radio">
+                                                <span>D.
+                                                    <%=val.options.D%>
+                                                </span>
+                                            </label>
+
+                                        </li>
+                                        <%}else{%>
+                                            <p>此题为多选题</p>
+                                            <li style="height:60px;">
+                                                <label>
+                                                    <input name="chkId" value='A' type="checkbox">
+                                                    <span>
+                                                        A.
+                                                        <%=val.options.A%>
+                                                    </span>
+                                                </label>
+                                            </li>
+                                            <li style="height:60px;">
+                                                <label>
+                                                    <input name="chkId" value='B' type="checkbox">
+                                                    <span>
+                                                        B.
+                                                        <%=val.options.B%>
+                                                    </span>
+                                                </label>
+
+                                            </li>
+                                            <li style="height:60px;">
+                                                <label>
+                                                    <input name="chkId" value='C' type="checkbox">
+                                                    <span>
+                                                        C.
+                                                        <%=val.options.C%>
+                                                    </span>
+                                                </label>
+
+                                            </li>
+                                            <li style="height:60px;">
+                                                <label>
+                                                    <input name="chkId" value='D' type="checkbox">
+                                                    <span>
+                                                        D.
+                                                        <%=val.options.D%>
+                                                    </span>
+                                                </label>
+
+                                            </li>
+
+                                        <%}%>
+                                </ol>
+                                </div>
+                            </div>
+                            <div id="scrollBottom" class="wid600 right r-cboxrd">
+                                <div class="article-box" style="word-wrap:break-word">
+                                    <% material.forEach(el=>{%>
+
+                                        <div style="text-align: center;">
+                                            <strong>
+                                                <%=el.englishTitle%>
+                                            </strong>
+                                        </div>
+                                        <div id="article">
+                                            <%=el.englishMaterial%>
+                                        </div>
+                                </div>
+                                <%})%>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <%})%>
+                </div>
+                <%- include('../template/foot.ejs')  %>
+                    <script src="/javascript/readajax.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,283 @@
+<div class="tpl-content-wrapper">
+    <div class="tpl-content-page-title">
+        发布题目听力
+    </div>
+
+    <div class="tpl-block">
+        <div class="am-g">
+            <div class="tpl-form-body tpl-form-line">
+                <form class="am-form tpl-form-line-form" id='form1' enctype="multipart/form-data" method="POST" action="/backend/questionBank/api/TaddListenMaterial">
+                    <input type="number" value="<%= userToken.id %>" name="tId" id="tid" style="display:none">
+                    <div class="am-form-group">
+                        <label for="user-name" class="am-u-sm-3 am-form-label">标题
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <input type="text" class="tpl-form-input" id="user-name" minlength='1' maxlength="50" name="title" placeholder="请输入标题文字">
+                            <small>标题长度不超过50个字母。</small>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="user-weibo" class="am-u-sm-3 am-form-label">图片
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+
+                            <input type="file" name="img" onchange="change(this)" multiple="multiple" id="img" accept="image/*" />
+
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="fileId" class="am-u-sm-3 am-form-label">添加原文MP4
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <input id="fileId" type="file" onchange="change(this)" accept="audio/*" name="mp4" />
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="user-phone" class="am-u-sm-3 am-form-label">难度
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <select data-am-selected="" name='dId' class="nan">
+                                <option value="1">高中</option>
+                                <option value="2">四级</option>
+                                <option value="3">六级</option>
+                                <option value="4">托福</option>
+                                <option value="5">托福TPO5</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="user-weibo" class="am-u-sm-3 am-form-label">添加情景分类
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <select data-am-selected="" name='topicId' id='op'>
+                                <option value="1">生物</option>
+                                <option value="2">历史</option>
+                                <option value="3">地质</option>
+                                <option value="4">艺术</option>
+                                <option value="5">心理</option>
+                                <option value="6">坏境科学</option>
+                                <option value="7">生态</option>
+                                <option value="8">考古</option>
+                                <option value="9">天文</option>
+                                <option value="10">教育</option>
+                                <option value="11">其他</option>
+
+
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="editor" class="am-u-sm-3 am-form-label">原文内容
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <script id="editor" type="text/plain" style="width:700px;height:400px;" name="original"></script>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="am-u-sm-9 am-u-sm-push-3">
+                            <button type="sumbit" class="am-btn am-btn-primary tpl-btn-bg-color-success " id='go'>提交</button>
+                            <span class="tpl-form-line-small-title">带※项为必填项，请填写完毕后再点击上传</span>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="tpl-block" id='timu' style="display:none;">
+        <div class="am-g">
+            <div class="tpl-form-body tpl-form-line">
+                <form class="am-form tpl-form-line-form" id='form2' enctype="multipart/form-data" method="POST" action="/backend/questionBank/api/TaddListenQuestion">
+                    <input type="number" id='lmid' name='LMId' style="display:none">
+                    <input type="number" value="<%= userToken.id %>" name="tId" style="display:none">
+                    <div class="am-form-group">
+                        <label for="user-phone" class="am-u-sm-3 am-form-label">单选还是多选
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <select data-am-selected="" name='isD' id='isD'>
+                                <option value="0">单选</option>
+                                <option value="1">多选</option>
+
+                            </select>
+
+                        </div>
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <label for="fileId1" class="am-u-sm-3 am-form-label">添加小题题目的MP4
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <input id="fileId1"  onchange="change(this)"type="file" accept="audio/*" name="mp4" />
+                    、
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="fileId2" class="am-u-sm-3 am-form-label">添加小题对话的MP4
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <input id="fileId2" type="file"  onchange="change(this)" accept="audio/*" name="mp4ForQ" />
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="question" class="am-u-sm-3 am-form-label">题目问题
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <textarea class="" rows="5" placeholder="请输入问题详情" name='question' id='question'></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="user-intro" class="am-u-sm-3 am-form-label">小题选项
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <textarea class="" rows="1" name='optionsA' id='optionsA' placeholder="请输入小题选项A"></textarea>
+                            <textarea class="" rows="1" name='optionsB' id='optionsB' placeholder="请输入小题选项B"></textarea>
+                            <textarea class="" rows="1" name='optionsC' id='optionsC' placeholder="请输入小题选项C"></textarea>
+                            <textarea class="" rows="1" name='optionsD' id='optionsD' placeholder="请输入小题选项D"></textarea>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="rightAnswer" class="am-u-sm-3 am-form-label">正确答案
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <textarea class="" rows="2" name='rightAnswer' id='rightAnswer' placeholder="请输入正确答案,必须是大写字母"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="user-intro" class="am-u-sm-3 am-form-label">小题分数
+                            <span class="tpl-form-line-small-title">※</span>
+                        </label>
+                        <div class="am-u-sm-9">
+                            <input type="number" name="score" id="score" placeholder="请输入小题分数">
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="am-u-sm-9 am-u-sm-push-3">
+                            <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success" id='go1'>提交</button>
+                            <span class="tpl-form-line-small-title">带※项为必填项，请填写完毕后再点击上传</span>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 
+     <script src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js">
+    </script>
+    <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js">
+    </script>  -->
+    <script>
+        var ue = UE.getEditor('editor');
+        $("#go").attr("disabled", true);
+        $("#go1").attr("disabled", true);
+        /** 验证文件是否导入成功 */
+        var lmid = {};
+
+        $(function () {
+            $("#form1").ajaxForm(function (data) {
+                
+                if (data[0].id) {
+                    lmid = data;
+                    var tId = $("#tId").val();
+                    $('input').val('');
+                    $('textarea').val('');
+                    ue.setContent("");
+                    $('.tpl-block').eq(0).css('display', 'none');
+                    $('.tpl-block').eq(1).css('display', 'block');
+                    $("#tId").val(tId);
+                    $('#lmid').val(data[0].id);
+                    $("#go").attr("disabled", true);
+                    $("#go1").attr("disabled", true);
+                }
+            });
+        });
+        $('#form1').on("change", function () {
+
+            if ($("#user-name").val() && $(".nan").val() && $("#op").val() && $('#fileId').val() && ue.getContentTxt() &&
+                $("#img").val()) {
+
+                $("#go").attr("disabled", false);
+            } else {
+                $("#go").attr("disabled", true);
+            }
+        });
+        ue.addListener('selectionchange', function (e) {
+            if ($("#user-name").val() && $(".nan").val() && $("#op").val() && $('#fileId').val() && ue.getContentTxt() &&
+                $("#img").val()) {
+                $("#go").attr("disabled", false);
+            } else {
+                $("#go").attr("disabled", true);
+            }
+        });
+        $(function () {
+            $("#form2").ajaxForm(function (data) {
+                if (data == 'success') {
+                    var tId = $("#tId").val();
+                    $('input').val('');
+                    $('textarea').val('');
+                    $('#lmid').val(lmid[0].id);
+                    $("#tId").val(tId);
+                }
+            });
+        });
+        $('#form2').on("change", function () {
+
+            if ($("#isD").val() && $("#fileId1").val() && $("#fileId2").val() && $("#question").val() &&
+                $('#optionsA').val() && $('#optionsB').val() && $('#optionsC').val() && $('#optionsD').val() && $("#score").val() &&
+                $('#rightAnswer').val()) {
+                if ($('#rightAnswer').val()) {
+                    var val = $('#rightAnswer').val();
+                    console.log(val);
+                    var arr = ["A", "B", "C", "D"]
+                    var arr2 = ["AB", "AC", "AD", "BC", "BD", "CD", "ABC", "ABD", "ACD", "BCD", "ABCD"];
+                    //多选
+                    if ($("#isD").val() == "1") {
+                        if (arr2.indexOf(val) + 1 && val.length != 1) {
+                            $("#go1").attr("disabled", false);
+                        } else {
+                            $("#go1").attr("disabled", true)
+                        }
+
+                    } else {
+                        if (arr.indexOf(val) + 1 && val.length == 1) {
+                            $("#go1").attr("disabled", false)
+                        } else {
+                            $("#go1").attr("disabled", true)
+                        }
+                    }
+                }
+
+            } else {
+                $("#go1").attr("disabled", true);
+            }
+        });
+    </script>

@@ -1,0 +1,167 @@
+<html class="ks-webkit537 ks-webkit ks-chrome65 ks-chrome" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        查看听力结果
+    </title>
+    <link rel="stylesheet" href="/stylesheets/exAll.css">
+    <link rel="stylesheet" href="/stylesheets/pop.css">
+    <link rel="stylesheet" href="/stylesheets/tole.css">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/retu.css">
+
+</head>
+
+<body>
+    <div class="box">
+        <%var mId=request.session.user.id%>
+            <% material.forEach(val=>{%>
+                <div id="content1" class="tf-navtop">
+                    <div class="wid1200 margin-auto">
+                        <div class="c pb10">
+                            <div class="left ">
+                                <dl class="Tn-nav-lfont c">
+                                    <dt>
+                                        <a href="/" class="ziti">
+                                            英贝尔
+                                        </a>
+                                    </dt>
+                                    <dd class="Tn-navfont">
+                                        <h2>做题结果：
+                                            <%=val.title%>
+                                        </h2>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="right Tn-rr-bsolo">
+                                <a href='/exercise/listen' style="font-size:12px;" class="Tn-witbut ml10">退出练习</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="wid1200 margin-auto">
+                    <div class="Tn-her-box position">
+                        <audio src="<%=val.mp4%>" id="hearingAudio" style='display:block'>
+                            您的浏览器不支持 audio 与元素。请升级您的浏览器！
+                        </audio>
+                        <div class="audioWrap">
+                            <img src="/images/y_z.png" width="934" height="76" id="wrapSpeed">
+                            <span class="Tn-erdline" id="drag">
+                                <i></i>
+                                <a href="javascript:;" class="Tn-herdrag"></a>
+                            </span>
+                        </div>
+
+                        <a href="javascript:;" title="播放" id="paly" data-id="big" class="Tn-herplay Tn-herrou playPau"></a>
+                        <p class="Tn-hertime">00:00</p>
+                        <div style="height:30px;">
+                            <a href="javascript:;" title="音量" id="volume" class="Tn-hervolume Tn-herrou"></a>
+                            <div class="tlvolumeWrapper" style="left:1200px!important;">
+                                <div class="progress" id="progress">
+                                    <i class="speed" id="speed"></i>
+                                    <span class="ball" id="audoRange"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-auto" id="demo">
+                    <div id="examples" class="c search_article">
+                        <div class=" witbg left leftwitbox" style="height: 501px;">
+                            <!--左侧题目 -->
+                            <div id="content-md" class="content light wid615 right mr20 mCustomScrollbar _mCS_1 mCS-autoHide">
+                                <div id="mCSB_1">
+                                    <div id="mCSB_1_container" class="mCSB_container mCS_x_hidden mCS_no_scrollbar_x">
+                                        <ul class="c Tn-Numquestions">
+
+                                            <% for(var i=0;i< num;i++){%>
+                                                <li>
+                                                    <a href="<%= request.originalUrl.split('&')[0]%>&numForLM=<%=(i+1)%>&mId=<%=mId%>" class="<%=question[0].numForLM == (i+1)?'tn-redNum-hover':'tn-groyNum'%>">
+                                                        <%=(i+1)%>
+                                                    </a>
+                                                </li>
+                                            <%}%>
+                                        </ul>
+                                        <div class="Tn-allcont">
+                                            <% question.forEach(els=>{%>
+                                                <div class="Tn-contentfont">
+                                                    <h1>
+                                                        Question.
+                                                        <%=els.question%>
+                                                    </h1>
+                                                    <p>A.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <%=els.options.A%>
+                                                    </p>
+
+                                                    <p>B.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <%=els.options.B%>
+                                                    </p>
+
+                                                    <p>C.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <%=els.options.C%>
+                                                    </p>
+
+                                                    <p>D.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <%=els.options.D%>
+                                                    </p>
+                                                </div>
+                                                <%})%>
+                                                <% result.forEach(el=>{%>
+                                                    <ol class="c Tn-answer">
+                                                        <li class="left">我的答案
+                                                            <span class="Tn-f-red">
+                                                                <%=el.mAnswer%>
+                                                            </span>
+                                                        </li>
+                                                        <li class="left ml50">正确答案
+                                                            <span class="Tn-f-grenn">
+                                                                <%=el.rightAnswer%>
+                                                            </span>
+                                                        </li>
+                                                    </ol>
+                                                <%})%>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--右侧内容-->
+                        <div class=" witbg left leftgrybox" style="height: 501px;">
+                            <div id="content-md01" class="content light wid590 Tn-rcontbox left ml25 mCustomScrollbar _mCS_2 mCS-autoHide" style="overflow: visible; height: 501px;">
+                                <div id="mCSB_2" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical_horizontal mCSB_outside" tabindex="0" style="max-height: none;">
+                                    <div id="mCSB_2_container" class="mCSB_container mCS_x_hidden mCS_no_scrollbar_x">
+                                        <div class="Tn-rfontall">
+                                            <p style="text-align: center;">
+                                                <strong>
+                                                    <%=val.title%>
+                                                </strong>
+                                            </p>
+                                            <p>
+                                                <%=val.original%>
+                                            </p>
+                                            <p>
+                                                <br>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+         <%})%>
+    </div>
+    <%- include('../template/foot.ejs')  %>
+        <script src="/javascript/spokenR.js"></script>
+        <script src="/javascript/listenRemoveS.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../template/head.ejs',{title:'查看写作'}) %>
+    <link rel="stylesheet" href="/stylesheets/extlist.css">
+    <link rel="stylesheet" href="/stylesheets/spoken.css">
+
+</head>
+
+<body>
+    <!-- 导航   -->
+    <%- include('../template/header.ejs')  %>
+<div>
+
+    <div class="nzkAnalysisWrap">
+        <% material.forEach((val,index)=>{%>
+
+            <h1 class="nzkSubject">
+                <%=val.title%>
+            </h1>
+            <div class="nzkMaterialScience">
+                <div style="display:block">
+                    <div class="nzkSubjectNumber">
+            
+                        <div id="empty" style="display: none;"></div>
+                        <div class="nzkInteractiveWrap clearfix" style="margin-left: 0px; left: 50%; top: 0px; width: 1150px; z-index: 999;">
+                            <ul class="nzkListening">
+            
+                                <li>
+                                    <a href="" class="activeNum"> Writing <%=(index+1)%> </a>
+                                </li>
+                            </ul>
+            
+                        </div>
+                    <%if(val.original){%>
+                        <div class="nzkChoiceQuestionWrap clearfix">
+                            <!--left-->
+                            <div class="nzkChoiceQuestion">
+                                <div>
+                                    <%if(val.mp4){%>
+                                        <div class="nzkSpeedWrap clearfix">
+                                            <audio src="<%=val.mp4%>" id='playad' class="listeningAudio"  onended="mytime()"></audio>
+                                            <a href="javascript:;" class="nzkPlay"  onclick='playPause()' dataplay="bigPlay"></a>
+                                            <div class="nzkDragSpeed" id='jin'> 
+                                                <i class="progressBar"></i>
+                                                <a href="javascript:;" class="dragBar"></a>
+                                            </div>
+                                            <b class="speedTime">00:00</b>
+                                        </div>
+
+                                    <%}%>
+                                    <div class="nzkStem search_article">
+                                        <strong>问题：</strong>
+            
+                                        <p>
+                                            <%=val.question%></p>
+                                         
+                                        </div>
+                                        <div class="nzkShowInto">
+                                           <% var mock,mockRId;%>
+                                            <% if(!mock){%>
+                                            <a href="/exercise/write/translate/first?id=<%=val.id%>">进入练习</a>
+                                            <%}else{%>
+                                            <a href="/exercise/write/translate/first?id=<%=val.id%>&mock=<%=mock%>&mockRId=<%=mockRId%>">进入练习</a>
+                                            <%}%>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <!--right-->
+                            <div class="nzkOriginalTitle mCustomScrollbar _mCS_1 mCS-autoHide" id="nzkScroll" style="overflow:auto;">
+                                <div class="mCustomScrollBox " >
+                                    <div >
+                         
+                                            <div class="nzkShowBtn">
+                                                <a href="javascript:;" id='im'>阅读材料</a>
+                                                <a href="javascript:;" id='og'>查看原文</a>
+                                            </div>
+                                            <div class="nzkContent">
+                                                <div class="nzkShowPicture search_article">
+                                                    <%=val.material%>
+                                                 
+                                                </div>
+                                                
+                                                <div id="article" class="search_article">
+                                                    <%=val.original%>
+                                                </div>
+                                            </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <%}else{%>
+                        <div class="nzkSubjectNumber">   
+                        
+                            <div class="nzkChoiceQuestionBox clearfix search_article">
+                                <h6>问题：</h6>
+                                <p></p>
+                          
+                                <p><%=val.question%>
+                                    <br>
+                                </p>
+  
+                                <p></p>
+                                <% if(!mock){%>
+                                    <a href="/exercise/write/translate/first?id=<%=val.id%>">进入练习</a>
+                                <%}else{%>
+                                     <a href="/exercise/write/translate/first?id=<%=val.id%>&mock=<%=mock%>&mockRId=<%=mockRId%>">进入练习</a>
+                                <%}%>
+                            </div>
+                        
+                        </div>
+                   <% }%>
+                    </div>
+                </div>
+            </div>
+
+        <%})%>
+    </div>
+
+</div>
+
+
+        <!-- 公共脚页 -->
+        <%- include('../template/footer.ejs')%>
+            <!-- 脚步公共文件   -->
+            <script>
+                $('#qbtn').on('click', function () {
+                        var qmp4 = $('#qmp4')[0];
+                        if (qmp4.paused) {
+                            qmp4.play();
+                            $(this).css('background', 'url("/images/volumetwo.png") no-repeat');
+                        } else {
+                            $(this).css('background', 'url("/images/volumeone.png") no-repeat');
+                            qmp4.pause();
+                        }
+
+                        // $(this).css()
+                    })
+
+                    var myVid = document.getElementById("playad");
+                    var curr, time, left, ding;
+                    window.onload = function () {
+                        $('.nzkShowPicture').css('display','block')
+                    }
+                    //点击播放事件
+                    function playPause() {
+                        left = (parseInt($('#jin').css('width'))- parseInt($('.dragBar').css('width'))) / parseInt(myVid.duration);
+                      
+                        if (myVid.paused) {
+                            myVid.play();
+                            ding = setInterval(function () {
+                                $('.speedTime').text('00:' + ((parseInt(myVid.currentTime) < 10) ? '0' + parseInt(myVid.currentTime) : parseInt(myVid.currentTime)));
+                                $('.dragBar').css('left', myVid.currentTime * left + 'px');
+                                $(".progressBar").css('width', myVid.currentTime * left + 'px')
+                            }, 1000);
+                            $('.nzkPlay').css('background', 'url(/images/bigplay2.png)no-repeat ');
+                        } else {
+                            clearInterval(ding);
+                            myVid.pause();
+                            $('.nzkPlay').css('background', 'url(/images/bigplay1.png) no-repeat ');
+                        }
+                    }
+                 function mytime() {
+                clearInterval(ding);
+                curr = 0;
+                $('.nzkPlay').css('background', 'url(/images/bigplay1.png)no-repeat ');
+                $('.dragBar').css('left','0px');
+                $(".progressBar").css('width','0px');
+                $('.speedTime').text('00:00');
+            }
+                    $('.nzkShowPicture').html($('.nzkShowPicture').text());
+                    $('#article').html($('#article').text());
+                       //点击材料显示
+                       $(document).on('click', '#og', function () {
+                           $('.nzkShowPicture').css('display', 'none');
+                           $("#article").css('display', 'block');
+                           $(this).css('background', 'blue').siblings().css('background', '#FFF');
+                           $(this).css('color', '#FFF').siblings().css('color', 'blue');
+                           
+                        })
+                        //点击原文显示
+                        $(document).on('click', '#im', function () {
+                            $('.nzkShowPicture').css('display','block');
+                            $("#article").css('display', 'none');
+                             $(this).css('background', 'blue').siblings().css('background', '#FFF');
+                            $(this).css('color', '#FFF').siblings().css('color', 'blue');
+                        })
+            </script>
+</body>
+
+</html>

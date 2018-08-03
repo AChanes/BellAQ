@@ -1,0 +1,92 @@
+/**
+  公共样式
+**/
+
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, hr {
+    margin: 0;
+    padding: 0;   
+}
+body {
+	font-family: "PingFang SC", "Microsoft Yahei", STHeiti,"Microsoft JhengHei",SimSun;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+    min-width:1200px;
+    background-color: #f1f1f1;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+}
+a {
+    background: transparent;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+a:active ,input{
+    outline: none;
+}
+b ,i{
+    font-style: normal;
+}
+img {
+    border: 0;
+    vertical-align: top;
+}
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td, th {
+    padding: 0;
+}
+ul, ol {
+    list-style: none outside none;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.hide {
+    display: none;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/* .clearfix {
+    display: inline-block;
+} */
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+::-webkit-scrollbar {
+  
+    -ms-overflow-style: none;
+}
+
+
+
+body {
+    -ms-overflow-style: none;
+    height: 100%;
+	width: calc(100vw + 18px);
+	overflow: auto;
+}
+
+

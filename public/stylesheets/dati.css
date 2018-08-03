@@ -1,0 +1,1056 @@
+@charset "utf-8";
+/*
+  * @project: 托福模考-集团端录题-试卷试题预览
+  * @author:xuxiao5@xdf.cn
+  * @date: 2016-11-14
+*/
+
+/*按钮*/
+
+.tgoury-but {
+    background: #bfbfbf;
+    width: 82px;
+    height: 34px;
+    border: 0px;
+    color: #fff;
+    text-align: center;
+    -moz-border-radius: 5px;
+    /* Gecko browsers */
+    -webkit-border-radius: 5px;
+    /* Webkit browsers */
+    border-radius: 5px;
+    /* W3C syntax */
+}
+
+.blu-tcbut {
+    background: #3978e6;
+    width: 100px;
+    height: 32px;
+    line-height: 28px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    -moz-border-radius: 5px;
+    /* Gecko browsers */
+    -webkit-border-radius: 5px;
+    /* Webkit browsers */
+    border-radius: 5px;
+    /* W3C syntax */
+}
+
+.blu-tcbut-db {
+    background: #3978e6;
+    width: 100px;
+    height: 32px;
+    line-height: 14px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    -moz-border-radius: 5px;
+    /* Gecko browsers */
+    -webkit-border-radius: 5px;
+    /* Webkit browsers */
+    border-radius: 5px;
+    /* W3C syntax */
+    padding-top: 2px;
+}
+
+.f-blu-but,
+.f-blu-but-t {
+    background: #fff;
+    padding: 0 16px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+    border: 0px;
+    color: #4674de;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transition: 0.2s all ease;
+    -webkit-transition: 0.2s all ease;
+    -ms-transition: 0.2s all ease;
+    -moz-transition: 0.2s all ease;
+    -o-transition: 0.2s all ease;
+}
+
+.f-blu-but:hover,
+.f-blu-but-t:hover {
+    background: #2a59b2;
+    color: #fff;
+}
+
+.f-blu-but:active,
+.f-blu-but-t:avtive {
+    top: 2px;
+}
+
+.f-blu-g-but {
+    background: url(images/tf-public.png) no-repeat 0px -452px;
+    width: 82px;
+    height: 35px;
+    cursor: pointer;
+    border: 0px;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+}
+
+.ylow-mini {
+    background-color: #ffad33;
+    display: inline-block;
+    height: 24px;
+    line-height: 22px;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    -moz-border-radius: 3px;
+    /* Gecko browsers */
+    -webkit-border-radius: 3px;
+    /* Webkit browsers */
+    border-radius: 3px;
+    /* W3C syntax */
+    min-width: 64px;
+    cursor: pointer;
+}
+
+.but-font {
+    font-size: 12px;
+    line-height: 13px;
+}
+
+.but-font dt {
+    padding-top: 4px;
+}
+
+/*带图标按钮*/
+
+.REV-bg {
+    background-image: url(images/tf-public.png);
+    background-position: 0px -158px;
+    background-repeat: no-repeat;
+    width: 75px;
+}
+
+.BACK-bg {
+    background-image: url(images/tf-public.png);
+    background-position: 0px -200px;
+    background-repeat: no-repeat;
+    width: 70px;
+}
+
+.VIEW-blu-bg {
+    background-image: url(images/tf-public.png);
+    background-position: 0px -366px;
+    background-repeat: no-repeat;
+    width: 70px;
+    display: inline-block;
+    padding-right: 5px
+}
+
+.OK-bg {
+    background-image: url(images/tf-public.png);
+    background-position: 0px -540px;
+    background-repeat: no-repeat;
+    width: 65px;
+    display: inline-block;
+    padding-left: 25px;
+}
+
+.OK-blu-bg {
+    background-image: url(images/tf-public.png);
+    background-position: 0px -540px;
+    background-repeat: no-repeat;
+    width: 70px;
+    display: inline-block;
+    padding-right: 15px
+}
+
+.toleft-bg {
+    background: #f2f4f5;
+}
+
+.bg-navtop {
+    width: 100%;
+    background-image: url(images/zbg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70px;
+    background-size: cover;
+}
+
+.font-blu {
+    color: #2e8ae5;
+}
+
+/*答题样式*/
+
+.r-cboxrd {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-left: 2px solid #ccc;
+    background: #f2f4f5;
+}
+
+.center-bao {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.article-box {
+    /*border-top:20px solid #ccc;*/
+    margin-top: 10px;
+}
+
+.article-box h1 {
+    font-size: 24px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: normal;
+    padding-top: 10px;
+}
+
+.article-box p {
+    padding: 10px 20px 0px 20px;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.article-box p span[style^="color"] {
+    cursor: pointer;
+}
+
+/*徐晓 阅读模块-句子插入题 16/10/30*/
+
+.article-box .strong-insert {
+    background: #000;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    margin: 0 8px;
+    vertical-align: baseline;
+    cursor: pointer;
+}
+
+.article-box .strong-line {
+    background: #c2bfbf;
+    font-weight: 700;
+    padding: 0 6px;
+    cursor: pointer;
+}
+
+/*徐晓 阅读模块-句子插入题 16/10/30*/
+
+.single-sle {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.single-sle h1 {
+    font-weight: normal;
+}
+
+.single-sle ol li {
+    cursor: pointer;
+}
+
+.single-sle ol li span.single-sle-h {
+    background: url(images/dx_h.png) no-repeat left center;
+    width: 16px;
+    height: 10px;
+    display: inline-block;
+}
+
+.single-sle ol li span.single-sle-l {
+    background: url(images/dx_l.png) no-repeat left center;
+    width: 16px;
+    height: 10px;
+    display: inline-block;
+}
+
+.single-sle ol li span.single-d-sle-h {
+    background: url(images/dx_d_h.jpg) no-repeat left center;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+}
+
+.single-sle ol li span.single-d-sle-l {
+    background: url(images/dx_d_l.jpg) no-repeat left center;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+}
+
+.r-bg-word {
+    background: #ccc;
+}
+
+.bg-w {
+    background: #fff;
+}
+
+.VIEW-p p {
+    line-height: 16px;
+    font-size: 12px;
+}
+
+/*---------------拖拽题---------------*/
+
+.tz-box-bg {
+    background: #ccc;
+}
+
+.tz-box-bg p {
+    width: 680px;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: center;
+}
+
+.tz-bao-box {
+    border: 1px solid #ccc;
+    min-height: 230px;
+    padding: 10px;
+    background: #fff;
+}
+
+.tuoz-sle {
+    margin-top: 10px;
+    min-height: 60px;
+}
+
+.tuoz-sle dt,
+.tuoz-sle dd {
+    float: left;
+}
+
+.tuoz-sle dt {
+    background: url(images/d.png) no-repeat left center;
+    width: 10px;
+    height: 10px;
+    line-height: 16px;
+    display: block;
+    margin-top: 5px;
+}
+
+.tuoz-sle dd {
+    width: 600px;
+    margin-left: 10px;
+    line-height: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    min-height: 65px;
+    /*徐晓 阅读模块-拖拽题 16/10/30*/
+}
+
+.tuoz-sleall li {
+    display: inline-block;
+    width: 440px;
+    background: #fff;
+    border: 1px solid #ccc;
+    min-height: 54px;
+    padding: 16px 20px;
+    line-height: 18px;
+    margin: 15px 7px 0px 7px;
+    font-size: 16px;
+    vertical-align: top;
+    cursor: pointer;
+    /*徐晓 阅读模块-拖拽题 16/10/30*/
+}
+
+/*徐晓 阅读模块-拖拽题 16/10/30*/
+
+/*---------------列表---------------*/
+
+.rev-list {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.rev-list tr td,
+.rev-list tr th {
+    border-bottom: 1px solid #ccc;
+    line-height: 30px;
+    text-align: center;
+}
+
+.rev-list tr th {
+    background: #b38f7d;
+    font-size: 16px;
+}
+
+.rev-list tr td p {
+    line-height: 16px;
+    font-size: 12px;
+    text-align: left;
+}
+
+.rev-l-gruy {
+    color: #a3a3a3;
+}
+
+/*---------------听力---------------*/
+
+.lisen-st-box {
+    /*此时宽和高都要固定*/
+    width: 990px;
+    margin: 0px auto;
+    padding-top: 55px;
+}
+
+.lisen-st-img {
+    width: 240px;
+    height: 240px;
+    background: #ccc;
+    margin: 10px auto 0px auto;
+}
+
+.lisen-st-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.lisen-truan {
+    width: 500px;
+    border: 1px solid #ccc;
+    background: #fff;
+    margin: 40px auto 20px auto;
+    padding: 30px 0px;
+}
+
+.lisen-truan p {
+    text-align: center;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 26px
+}
+
+.vol-new {
+    width: 1200px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.vol-new div img {
+    -webkit-box-shadow: 3px 5px 3px #8b8e91;
+    -moz-box-shadow: 3px 5px 3px #8b8e91;
+    box-shadow: 3px 3px 5px #8b8e91;
+}
+
+.vol-new .p-i-l-p {
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+.vol-e-f {
+    border: 1px solid #ccc;
+    background: #fff;
+    width: 440px;
+    margin: 50px auto 0px auto;
+    padding: 50px 30px
+}
+
+.vol-e-f p {
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.l-d-title {
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    background: #ccc;
+}
+
+/*---------------排序表格---------------*/
+
+.bk-tab {
+    width: 100%;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.bk-tab th {
+    background: #3a3a3a;
+    color: #fff;
+    line-height: 30px;
+    padding: 0px 10px;
+    font-weight: normal;
+}
+
+.bk-tab td {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    line-height: 30px;
+    padding: 0px 10px;
+    background: #fff;
+    cursor: pointer;
+    /*徐晓 听力模块-表格排序题 16/10/30*/
+}
+
+/*徐晓 听力模块-表格排序题 16/10/30*/
+
+.bk-tab td.trash p {
+    display: inline;
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+/*徐晓 听力模块-表格排序题 16/10/30*/
+
+/*---------------口语---------------*/
+
+.cont-mage {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.cont-mage h1 {
+    margin-top: 70px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.cont-mage h2 {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.cont-mage p {
+    padding-top: 20px;
+    font-size: 16px;
+}
+
+.ovl-tima {
+    width: 180px;
+    margin: 0 auto;
+    border: 1px solid #3a3a3a;
+    text-align: center;
+}
+
+.ovl-tima h1 {
+    background: #3a3a3a;
+    color: #fff;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.ovl-tima p {
+    background: #fff;
+    color: #3a3a3a;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.b-ovl-but {
+    background: url(images/tf-public.png) right -452px;
+    width: 100px;
+    height: 32px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.spk-time dt,
+.spk-time dd {
+    float: left;
+    font-size: 16px;
+}
+
+.spk-time dt {
+    width: 250px;
+    text-align: right;
+    line-height: 24px;
+}
+
+.spk-time dd {
+    width: 240px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/*---------------写作---------------*/
+
+.dieec-box {
+    display: inline-block;
+    background: #dcdcdc;
+    width: 60px;
+    height: 60px;
+}
+
+.dieec-box img {
+    width: 100%;
+    height: 100%;
+}
+
+.d-nav-top {
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #f2f4f5;
+}
+
+.dr-cboxrd {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right: 2px solid #ccc;
+    background: #fff;
+    border-bottom: 2px solid #ccc;
+}
+
+.dl-cboxrd {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right: 2px solid #ccc;
+    background: #f2f4f5;
+
+}
+
+.d-zd-contbox {
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    min-height: 46px;
+}
+
+.d-float li {
+    float: left;
+}
+
+.d-textarea {
+    width: 100%;
+    height: 100%;
+    line-height: 24px;
+    font-size: 16px;
+    border: 0px;
+}
+
+.line-t-big {
+    border-top: 20px solid #ccc;
+}
+
+/*---------------------托福试卷预览头部 开始------------------*/
+
+.liner-bgc {
+    background: -webkit-linear-gradient(left, #3b66a3, #a33b55);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #3b66a3, #a33b55);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #3b66a3, #a33b55);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #3b66a3, #a33b55);
+    /* 标准的语法（必须放在最后） */
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#3b66a3, endColorstr=#a33b55);
+    /*IE<9>*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=1, startColorstr=#3b66a3, endColorstr=#a33b55)";
+    /*IE8+*/
+}
+
+@media all and (max-width: 1200px) {
+    .tf-sjyl-head .wid1200,
+    .tf-sjyl-foot .wid1200 {
+        background: -webkit-linear-gradient(left, #3b66a3, #a33b55);
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(right, #3b66a3, #a33b55);
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(right, #3b66a3, #a33b55);
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, #3b66a3, #a33b55);
+        /* 标准的语法（必须放在最后） */
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#3b66a3, endColorstr=#a33b55);
+        /*IE<9>*/
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=1, startColorstr=#3b66a3, endColorstr=#a33b55)";
+        /*IE8+*/
+    }
+}
+
+.tf-sjyl-head {
+    width: 100%;
+}
+
+/*第一部分*/
+
+.sjyl-h-section1 .wid1200 {
+    padding-bottom: 14px;
+    border-bottom: 1px solid #6782b2;
+}
+
+.sjyl-nav-header {
+    color: #fff;
+    font-size: 20px;
+    padding: 16px 0;
+}
+
+.sjyl-nav-content {
+    background-color: #f2f4f5;
+    border-radius: 8px;
+    padding: 10px 20px;
+}
+
+.sjyl-nav-content-model {
+    display: inline-block;
+    margin-right: -6px;
+}
+
+.sjyl-ncm-name {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 8px;
+}
+
+.sjyl-page-btn ul:after {
+    content: "占位符";
+    opacity: 0;
+}
+
+.sjyl-page-btn ul li {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    border: 1px solid #3b66a3;
+    border-radius: 5px;
+    color: #3b66a3;
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.sjyl-page-btn ul li:hover,
+.sjyl-page-btn ul li.active {
+    background-color: #3b66a3;
+    color: #fff;
+}
+
+/*第二部分*/
+
+.sjyl-h-section2 .wid1200 {
+    height: 70px;
+}
+
+.nav-logo dt,
+.nav-logo dd {
+    float: left;
+    margin-top: 15px;
+}
+
+.nav-logo dd.nav-tf {
+    color: #fff;
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
+.nav-logo dd.nav-tf h1 {
+    padding-top: 3px;
+    line-height: 18px;
+    font-size: 16px;
+}
+
+.nav-logo dd.nav-tf p {
+    line-height: 20px;
+    font-size: 12px;
+}
+
+/*第三部分*/
+
+.sjyl-h-section3 {
+    width: 100%;
+}
+
+.sjyl-h-section3 .wid1200 {
+    text-align: center;
+    border-top: 1px solid #6782b2;
+    padding: 10px 0;
+}
+
+.sjyl-h-section3 .wid1200 p {
+    color: #fff;
+    font-size: 16px;
+}
+
+/*第四部分*/
+
+.sjyl-h-section4 {
+    height: 100px;
+    background: #fff;
+}
+
+/*---------------------托福试卷预览头部 结束------------------*/
+
+/*---------------------托福试卷预览底部 开始------------------*/
+
+.tf-sjyl-foot {
+    width: 100%;
+}
+
+/*第一部分*/
+
+.sjyl-f-section1 .wid1200 {
+    padding: 30px 0 15px 0;
+}
+
+.jiexi ul.tabs li.active {
+    background-color: #f2f4f5;
+}
+
+.jiexi ul.tabs li {
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    border-radius: 7px 7px 0 0;
+    background-color: #ccc;
+}
+
+.jiexi ul.tabs li a {
+    color: #3a3a3a;
+    text-decoration: none;
+}
+
+.tab-content {
+    background-color: #f2f4f5;
+    border-radius: 0 7px 7px 7px;
+    padding: 10px 18px 20px 18px;
+}
+
+.tab-content .sjyl-page-btn {
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+/*第二部分*/
+
+.sjyl-f-section2 .wid1200 {
+    padding-bottom: 30px;
+}
+
+.video-conainer {
+    padding: 5px 15px 5px 15px;
+}
+
+/*视频解析区域*/
+
+ul.vmc-centered li {
+    text-align: center;
+}
+
+ul.vmc-centered li embed {
+    border: 2px solid #ccc;
+}
+
+ul.vmc-centered li:hover h4 {
+    color: #3b66a3;
+}
+
+ul.vmc-centered li:hover embed {
+    border: 2px solid #3b66a3;
+}
+
+/*---------------------托福试卷预览底部 结束------------------*/
+
+/*---------------------托福试卷预览中部 开始------------------*/
+
+#content {
+    min-height: 415px;
+}
+
+/*正确答案背景*/
+
+.selted-bg {
+    background-color: #ffc266 !important;
+}
+
+.single-d-sle-h+span.selted-bg {
+    margin-left: 5px !important;
+}
+
+/*批注显示*/
+
+.commentArea {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    width: 480px;
+    border: 1px solid #868686;
+}
+
+.commentAreaTitle {
+    height: 30px;
+    line-height: 30px;
+    background-color: #868686;
+    text-align: center;
+    color: #fff;
+}
+
+.commentAreaClose {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.commentAreaContent {
+    padding: 5px 15px;
+}
+
+/*音频控件区*/
+
+.audioWrapper {
+    position: absolute;
+}
+
+.audioArea {
+    width: 500px;
+    padding-top: 15px;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    text-align: center;
+}
+
+.volumeWrapper {
+    position: absolute;
+    top: -41px;
+    right: -173px;
+    width: 150px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #ccc;
+    display: none;
+}
+
+/*音量控制滑动条*/
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 122px;
+    /*进度条长度*/
+    border-radius: 10px;
+    /*填充进度条为圆角*/
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 3px;
+    /*进度条高度*/
+    border-radius: 10px;
+    /*进度条为圆角*/
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 14px;
+    /*滑块为圆形*/
+    width: 14px;
+    /*滑块为圆形*/
+    margin-top: -6px;
+    /*使滑块超出轨道部分的偏移量相等*/
+    background: #ffffff;
+    border-radius: 50%;
+    /*外观设置为圆形*/
+    border: solid 0.125em rgba(205, 224, 230, 0.5);
+    /*设置边框*/
+    box-shadow: 0 .125em .125em #a7b7d3;
+    /*添加底部阴影*/
+}
+
+/*兼容IE9+*/
+
+input[type=range]::-ms-track {
+    width: 122px;
+    height: 14px;
+    /*border-radius: 3px;*/
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type=range]::-ms-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: #ffffff;
+    margin-top: -2px;
+    box-shadow: 0 .125em .125em #a7b7d3;
+}
+
+input[type=range]::-ms-fill-lower {
+    /*进度条已填充的部分*/
+    height: 3px;
+    border-radius: 3px;
+    background-color: #059CFA;
+}
+
+input[type=range]::-ms-fill-upper {
+    /*进度条未填充的部分*/
+    height: 3px;
+    border-radius: 3px;
+    background: #ffffff;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background-color: #059CFA;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #ffffff;
+}
+
+/*---------------------托福试卷预览中部 结束------------------*/
+
+/*必须放最后*/
+
+.displayBlock {
+    display: block;
+}
+
+.xzhuikan-footer {
+    background: -webkit-linear-gradient(left, #3b66a3, #a33b55);
+    background: -o-linear-gradient(right, #3b66a3, #a33b55);
+    background: -moz-linear-gradient(right, #3b66a3, #a33b55);
+    background: linear-gradient(to right, #3b66a3, #a33b55);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#3b66a3, endColorstr=#a33b55);
+    /*IE<9>*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=1, startColorstr=#3b66a3, endColorstr=#a33b55)";
+    /*IE8+*/
+    width: 100%;
+    height: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

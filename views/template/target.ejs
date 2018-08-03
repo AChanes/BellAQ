@@ -1,0 +1,66 @@
+
+<div class="popupWindowBg popupDisplay" style="height: 700px;"></div>
+<div class="popupWindowContainer popupDisplay" style="height: 700px;">
+<input type='text' value="<%=request.session.user.id%>" id='mid' style="display: none;">
+    <div class="container">
+        <div class="titleBg">
+            <p class="title">设置考试目标
+                <i>给自己设立明确的目标，每天的学习才会有动力</i>
+            </p>
+            <div class="closeBtn">
+                <i class="closeIcon"></i>
+            </div>
+        </div>
+        <div class="popupWindowContent">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="popWTitle">出国阶段</td>
+                        <td>
+                            <select name="" id='sel' style="width: 100px; height: 50px;font-size: 16px;">
+                                <option value="1">高中</option>
+                                <option value="2">四级</option>
+                                <option value="3">六级</option>
+                                <option value="4">托福</option>
+                                <option value="5">托福TPO5</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="popWTitle">考试日期</td>
+                        <td class="selectCon">
+                         <input type="date" id='time' style="width: 300px;height: 50px; border: 1px solid #CCCC;font-size: 20px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="popWTitle">目标分数</td>
+                        <td >
+                           
+                            <p class="grade" grade="80">80+</p>
+                            <p class="grade" grade="90">90+</p>
+                            <p class="grade" grade="100">100+</p>
+                            <p class="grade" grade="110">110+</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="onBegin">开启我的备考旅程</div>
+        </div>
+    </div>
+
+    <!-- 目标分数确定 -->
+    <div class="Tn-pb-witbg Tn-mktcbox mktcbox-goOn popupDisplay" style="z-index: 26; position: absolute;top: 50%;left: 50%; margin-left:-265px; margin-top:-125px;">
+        <h1 class="Tn-tctitle Tn-position">
+            <a href="javascript:;" class="Tn-tccoles confirm-target"></a>
+        </h1>
+        <p class="Tn-fonttwo" style="padding:40px 30px 30px 30px">您当前设置的总分数为
+            <span class="sum-target"></span>，继续保存则为您设置为
+            <span class="grade-target"></span>分数段，您也可以再次编辑</p>
+        <p class="Tn-tcenter Tn-mt20">
+            <input name="" type="button" value="重新修改" class="Tn-bnt-bigs modifyTargetAgain">
+            <input name="" type="button" value="保存" class="Tn-bnt-big Tn-ml20 saveTarget">
+        </p>
+    </div>
+
+</div>

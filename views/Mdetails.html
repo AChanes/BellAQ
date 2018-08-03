@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./template/head.ejs',{title:'会员详情'}) %>
+    <link rel="stylesheet" href="/stylesheets/madital.css">
+</head>
+<body>
+    <%- include('./template/header.ejs')  %>
+  
+    <section>
+        <div class="nzkDetailsWrap">
+    
+            <% data.forEach(val=>{%>
+            <h6 class="nzkDetailsTitles">
+                <a href="/guide">托福备考指南</a>&gt;<%=val.title%>
+            </h6>
+            
+            <div class="nzkContentWrap clearfix">
+                
+                <div class="nzkContent">
+                    <div class="nzkContentTop">
+                        <div class="nzkInteractive clearfix">
+                            <div class="nzkInteractiveLeft">
+                                <div class="nzkContentTitle">
+                                    <strong><%=val.title%></strong>
+                                    
+                                </div>
+                                <div class="nzkCreateTime">
+                                    <em><%=val.pullTime%></em>
+                                    <span class="tn-ck-span" style="width:5px!important"></span><%=val.pageView%>
+                                </div>
+                                <div id="digest">
+                                   摘要：<%=val.digest%>
+                                </div>
+                                <div id="content">
+                                   <%=val.content%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="nzkContext">
+                        
+                        <% last.forEach(el=>{%>
+                        <label class="preArticle">
+                            上一篇：
+                            <a href="/guide/Mdetails?id=<%= el.id %>"> <%=el.title%></a>
+                        </label>
+                        <%})%>
+                     <% next.forEach(el=>{%>
+                        <label class="nextArticle">
+                            下一篇：
+                            <a href='/guide/Mdetails?id=<%= el.id %>'><%=el.title%></a>
+                        </label>
+                        <%})%>
+
+    
+                    </div>
+                </div>
+                <div class="nzkArticleWrap">
+                    <div class="nzkArticleBox">
+                        <h3>托福热门文章</h3>
+                        <ul class="nzkArticle">
+                            <% top.forEach(el=>{%>
+                            <li>
+                                <a href="/guide/Mdetails?id=<%=el.id%>">
+                                    <p><%=el.title%></p>
+                                </a>
+                                <div class="clearfix">
+                                    <span><%=el.pageView%></span>
+                                    <% if(el.typeName=='口语'){%>
+                                        <a href="/guide/spoken" class="Tn-g-blu fr">
+                                            <%= el.typeName %>
+                                        </a>
+                                    <%}%>
+                                    <%if(el.typeName=='听力'){%>
+                                        <a href="/guide/listen" class="Tn-g-blu fr">
+                                            <%= el.typeName %>
+                                        </a>
+                                    <%}%>
+                                    <%if(el.typeName=='阅读'){%>
+                                        <a href="/guide/read" class="Tn-g-blu fr">
+                                            <%= el.typeName %>
+                                        </a>
+                                    <%}%>
+                                    <%if(el.typeName=='写作'){%>
+                                        <a href="/guide/write" class="Tn-g-blu fr">
+                                            <%= el.typeName %>
+                                        </a>
+                                    <%}%>
+
+                                </div>
+                            </li>
+                            <%})%>
+                          
+                          
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <%})%>
+   
+        </div>
+    </section>
+    <%- include('./template/footer.ejs')%>
+
+    <script>
+        $("#content").html($("#content").text());
+        $("#digest").html($("#digest").text());
+    </script>
+</body>
+</html>

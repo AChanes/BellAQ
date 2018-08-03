@@ -1,0 +1,87 @@
+<html class="ks-webkit537 ks-webkit ks-chrome65 ks-chrome" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        查看写作
+    </title>
+    <link rel="stylesheet" href="/stylesheets/exAll.css">
+    <link rel="stylesheet" href="/stylesheets/tole.css">
+
+</head>
+
+<body>
+    <div class="box">
+        <% material.forEach(val=>{%>
+            <div id="content1" class="tf-navtop">
+                <div class="nav-box wid1200 margin-auto">
+                    <div class="c top-line pb10">
+                        <div class="left ">
+                            <dl class="nav-logo c">
+                                <dt>
+                                    <a href="/" class="ziti">
+                                        英贝尔
+                                    </a>
+                                </dt>
+                                <dd class="nav-tf">
+                                    <h1>WRITE</h1>
+                                    <p>
+                                        <%=val.title%>
+                                    </p>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="right mt30">
+                            <span href="javascript:void(0);" class="y-blu-but but-afont ml10 posiRa">
+                                <span class="VOL-blu-bg" onclick="showVolume()">VOLUME</span>
+                                <div id="audoRangeDiv" class="tlvolumeWrapper" style="display: none;">
+                                    <div class="progress" id="progress">
+                                        <i class="speed" id="nzkSpeed" style="width: 50%;"></i>
+                                        <span class="ball" id="audoRange" style="left: 50%;"></span>
+                                    </div>
+                                    <span class="triangle"></span>
+                                </div>
+                            </span>
+                            <a class="y-blu-but but-afont ml10">
+                                <span id="next" href="/exercise/write/translate/first?mock=<%=mock%>&mockRId=<%=mockRId%>&id=<%=val.id%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>" class="NEXT-blu-bg">NEXT</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="c mt10">
+                        <a href='/exercise/write' style='text-decoration: none;' class="ylow-but but-font popbox-link left">
+                            <dt>退出</dt>
+                            <dd>练习</dd>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="wid1200 margin-auto search_article">
+                <div class="c" id="content" style="height: 597px;">
+                    <div class="wid600 left dr-cboxrd">
+                        <div class="article-box">
+                            <p>
+                                <%=val.material%>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="wid580 right">
+                        <div class="mt10 single-sle">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <%})%>
+    </div>
+    <%- include('../template/foot.ejs')  %>
+        <script>
+            $("#next").click(function () {
+                window.location = $(this).attr("href");
+            })
+            var str = JSON.stringify(Date.parse(new Date()));
+            window.sessionStorage.setItem('writeTime', str);
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<html class="ks-webkit537 ks-webkit ks-chrome65 ks-chrome" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        查看模考
+    </title>
+    <link rel="stylesheet" href="/stylesheets/exAll.css">
+    <link rel="stylesheet" href="/stylesheets/tole.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div id="content1" class="tf-navtop">
+            <div class="nav-box wid1200 margin-auto">
+                <div class="c top-line pb10">
+                    <div class="left ">
+                        <dl class="nav-logo c">
+                            <dt>
+                                <a href="/" class="ziti">
+                                 英贝尔
+                                </a>
+                            </dt>
+                            <dd class="nav-tf">
+                                <h1>TOEFL iBT</h1>
+                                <p>Complete Practice Test </p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="right mt30">
+                        <a href="/user/userRecord" id="endcontinue" mark="1" class="blu-but but-afont ml10">答题记录</a>
+                    </div>
+                </div>
+        
+                <div class="c mt10">
+                    <a href="/mock" style='text-decoration: none;' class="ylow-but but-font popbox-link left">
+                        <dt>退出</dt>
+                        <dd>模考</dd>
+                    </a>
+                </div>
+            </div>
+        
+        </div>
+        <div class="c" id="content2" style="height: 577px;">
+            <div class="center-bao">
+                <div class="wid1000 margin-auto ">
+                    <div class="pb20">
+                        <div class=" cont-mage  tcenter">
+                            <%console.log(data)%>
+                            <h1>本次考试得分:<%=data[0].totalScore%></h1>
+                            <h2>听力得分:
+                                <%=data[0].listenScore%>
+                            </h2>
+                            <h2>阅读得分:
+                                <%=data[0].readScore%>
+                            </h2>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

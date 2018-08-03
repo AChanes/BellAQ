@@ -1,0 +1,214 @@
+<html class="ks-webkit537 ks-webkit ks-chrome65 ks-chrome" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        查看听力
+    </title>
+    <link rel="stylesheet" href="/stylesheets/exAll.css">
+    <link rel="stylesheet" href="/stylesheets/tole.css">
+
+</head>
+
+<body>
+    <div class="box">
+        <%var mId=request.session.user.id%>
+            <% question.forEach(val=>{%>
+                <input type="text" id='rightAnswer' value='<%=val.rightAnswer%>' style="display:none;">
+                   <input type="text" id='isD' value='<%=val.isD%>' style="display:none;">
+                <input type="text" id='score' value='<%=val.score%>' style="display:none;">
+                <input type="text" id='isRight' value='<%=val.isRight%>' style="display:none;">
+                <div id="content1" class="tf-navtop">
+                    <div class="nav-box wid1200 margin-auto">
+                        <div class="c top-line pb10">
+                            <div class="left ">
+                                <dl class="nav-logo c">
+                                    <dt>
+                                        <a href="/" class="ziti">
+                                            英贝尔
+                                        </a>
+                                    </dt>
+                                    <dd class="nav-tf">
+                                        <h1>LISTEN</h1>
+                                        <p>
+                                            <%=title[0].title%>
+                                        </p>
+                                    </dd>
+                                </dl>
+                            </div>
+
+                            <div class="right mt30 aright-left" role="contentRole">                               
+                                <%if(val.numForLM==1){%>
+                                    <a style="cursor:inherit;display:inline-block;" class="y-blu-but but-afont ml10 n-back">
+                                        <span id="backBtnHide" style="background:#aeaeae;color:#fff;cursor:inherit;" class="BACK-blu-bg" href="/exercise/listen/translate/third?mId=<%=mId%>&mock=<%=mock%>&mockRId=<%=mockRId%>&id=<%=val.LMId%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>">BACK</span>
+                                    </a>
+                                    <%}else{%>
+                                        <a style="cursor:inherit;display:inline-block;" class="y-blu-but but-afont ml10 n-back">
+                                            <span id="backBtnHide" style="background:blue;color:#fff;cursor:inherit;" href="/exercise/listen/translate/third?mId=<%=mId%>&mock=<%=mock%>&mockRId=<%=mockRId%>&id=<%=val.LMId%>&numForLM=<%=(val.numForLM-1)%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>"
+                                                class="BACK-blu-bg">BACK</span>
+                                        </a>
+                                        <%}%>
+                                        <a style="cursor:pointer;margin-left:4px;" class="y-blu-but but-afont n-next">
+                                            <%if(val.numForLM){%>
+                                                <span id="next" href="/exercise/listen/translate/third?mId=<%=mId%>&mock=<%=mock%>&mockRId=<%=mockRId%>&id=<%=val.LMId%>&numForLM=<%=(val.numForLM+1)%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>"
+                                                    class="NEXT-blu-bg">NEXT</span>
+                                                <%}else{%>
+                                                    <span id="next" href="/exercise/listen/translate/third?mId=<%=mId%>&mock=<%=mock%>&mockRId=<%=mockRId%>&id=<%=val.LMId%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>"
+                                                        class="NEXT-blu-bg">NEXT</span>
+                                                    <%}%>
+
+                                        </a>
+                            </div>
+                        </div>
+
+                        <div class="c mt10">
+                            <div class="left wid200">
+                                <a href='/exercise/listen' style='text-decoration: none;' class="ylow-but but-font popbox-link left">
+                                    <dt>退出</dt>
+                                    <dd>练习</dd>
+                                </a>
+
+                            </div>
+                            <div role="contentRole" class=" top-nav-tile wid800 left">
+                                <p>Question
+                                    <%=val.numForLM%>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div role="qPage" id="28887" class="center-bao">
+                    <input role="orderNum" type="hidden" value="0">
+                    <div role="stem" style="display: none;">
+                        <!-- 普通听力题 -->
+
+                        <div class="wid800 margin-auto search_article">
+                            <div class="mt10 single-sle pt60">
+
+                                <!-- 富文本  选择题的题干 -->
+
+                                <h1>
+                                    <%=val.question%>
+                                </h1>
+                                <audio role="level1" src="<%=val.mp4%>"></audio>
+                                <% console.log(val.mp4,000)%>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div role="subQuestion">
+                        <div class="wid800 margin-auto">
+                            <div class="mt10 single-sle pt60">
+
+                                <!-- 富文本  -->
+
+                                <!-- 文本选择题 -->
+
+                                <input type="hidden" role="qcid" value="7471">
+                                <h1>
+                                    <%=val.question%>
+                                </h1>
+                                <input role="subType" type="hidden" value="21">
+                                <ol>
+                                    <!-- 选中:class="single-sle-h" -->
+                                   <%if(val.isD=='0'){%>
+                                        <p>此题为单选</p>
+                                        <li style="height:60px;">
+                                            <label>
+                                                <input name="optionsRadios" value='A' type="radio">
+                                                <span>A.
+                                                    <%=val.options.A%>
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li style="height:60px;">
+                                            <label>
+                                                <input name="optionsRadios" value='B' type="radio">
+                                                <span>B.
+                                                    <%=val.options.B%>
+                                                </span>
+                                            </label>
+
+                                        </li>
+                                        <li style="height:60px;">
+                                            <label>
+                                                <input name="optionsRadios" value='C' type="radio">
+                                                <span>C.
+                                                    <%=val.options.C%>
+                                                </span>
+                                            </label>
+
+                                        </li>
+                                        <li style="height:60px;">
+                                            <label>
+                                                <input name="optionsRadios" value='D' type="radio">
+                                                <span>D.
+                                                    <%=val.options.D%>
+                                                </span>
+                                            </label>
+
+                                        </li>
+                                        <%}else{%>
+                                            <p>此题为多选题</p>
+                                            <li style="height:60px;">
+                                                <label>
+                                                    <input name="chkId" value='A' type="checkbox">
+                                                    <span>
+                                                        A.
+                                                        <%=val.options.A%>
+                                                    </span>
+                                                </label>
+                                            </li>
+                                            <li style="height:60px;">
+                                                <label>
+                                                    <input name="chkId" value='B' type="checkbox">
+                                                    <span>
+                                                        B.
+                                                        <%=val.options.B%>
+                                                    </span>
+                                                </label>
+
+                                            </li>
+                                            <li style="height:60px;">
+                                                <label>
+                                                    <input name="chkId" value='C' type="checkbox">
+                                                    <span>
+                                                        C.
+                                                        <%=val.options.C%>
+                                                    </span>
+                                                </label>
+
+                                            </li>
+                                            <li style="height:60px;">
+                                                <label>
+                                                    <input name="chkId" value='D' type="checkbox">
+                                                    <span>
+                                                        D.
+                                                        <%=val.options.D%>
+                                                    </span>
+                                                </label>
+
+                                            </li>
+
+                                        <%}%>
+                                </ol>
+                                <!-- 句子排序题 -->
+
+                                <!-- 表格单选题sss-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+    </div>
+    <%- include('../template/foot.ejs')  %>
+        <script src="/javascript/listenajax.js"></script>
+</body>
+
+</html>

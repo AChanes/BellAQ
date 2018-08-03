@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <%- include('./template/head.ejs',{title:'Top练习'}) %>
+
+</head>
+
+<body>
+    <!-- 导航   -->
+    <%- include('./template/header.ejs')  %>
+
+        <!-- banner -->
+        <%- include('./template/banner.ejs')  %>
+
+            <%
+            const links =  [
+                 { path : '/exercise', name : '练习听力',english:'LISTENING' },
+                 { path : '/exercise/listen', name : '练习听力',english:'LISTENING' },
+                 { path : '/exercise/read', name : '练习阅读',english:'READING' },
+                 { path : '/exercise/spoken', name : '练习口语',english:'SPAKEING' },
+                 { path : '/exercise/write', name : '练习写作',english:'WRITEING' }
+            ];
+        %>
+                <!-- 指南内容 部分  -->
+
+                <div class="guide_page" style="margin-top:20px;">
+                    <div class="Tn-wid1180 Tn-marauto">
+                        <div class="dropDownMenu ">
+                            <dl class="other-dl">
+
+                                <%
+                                var url=request.originalUrl.split("/")[2];
+                                if(!url){
+                                    url='listen';
+                                }
+                                %>
+                                    <dd>
+                                        <a href="/exercise/listen" class=" <%=url=='listen'?'active':''%>">听力练习</a>
+                                    </dd>
+
+                            </dl>
+                            <dl>
+                                <dd>
+                                    <a href="/exercise/read" class=" <%=url=='read'?'active':''%>">阅读练习</a>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dd>
+                                    <a href="/exercise/spoken" class=" <%=url=='spoken'?'active':''%>">口语练习</a>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dd>
+                                    <a href="/exercise/write" class=" <%=url=='write'?'active':''%>">写作练习</a>
+                                </dd>
+                            </dl>
+
+                        </div>
+
+                        <div class="clearfix" style="margin-top: 10px;">
+                            <!--练习左侧-->
+                            <div class="fl Tn-wid880">
+                                <!--练习标题-->
+                                <div class="Tn-pb-witbg Tn-titlecont Tn-position">
+                                    <div class="Tn-listen-bg "></div>
+                                    <% links.forEach( link => {%>
+                                        <%if(request.originalUrl==link.path){%>
+                                            <h1 class="Tn-l-til">TPO
+                                                <%=link.name%>
+                                                    <span>
+                                                        <%=link.english%>
+                                                    </span>
+                                            </h1>
+                                            <%}%>
+                                                <%})%>
+
+                                </div>
+
+                                <!--列表-->
+                                <div class="Tn-pb-witbg Tn-mt20 Tn-miniheight955">
+                                    <dl class="Tn-fl-listtop clearfix" id="secondCondition">
+                                        <dt class="hover">
+                                            <a href='<%=request.originalUrl%>'>全部TPO</a>
+                                        </dt>
+                                        <dd>
+                                            <% for (var j = 0; j < data.length; j++) {%>
+                                                <% var num1 = j + 1;
+                                                    var num2 = j + 5;
+                                                    if (num2 > data.length) {
+                                                        num2 = data.length;
+                                                    }
+                                                %>
+                                                    <a href="<%=request.originalUrl%>/daun?start=<%=num1%>&num=5">
+                                                        <%=num1%>-
+                                                            <%=num2%>
+                                                    </a>
+                                                    <% j += 5 - 1;%>
+                                                        <%}%>
+
+                                        </dd>
+                                    </dl>
+
+                                    <div class="Tn-l-box">
+                                        <div class="clearfix">
+                                            <% data.forEach((val,index)=>{%>
+                                                <div class="Tn-l-listbox Tn-position">
+                                                    <a href="<%=request.originalUrl%>/daun?start=<%=(data.length-index)%>&num=5" style='width:100%;height:100%;display:inline-block;'>
+                                                        <dl class="Tn-l-listall">
+                                                            <dt>
+                                                                <h1 class="Tn-bigfont-blu">TOP<%=data.length-index%></h1>
+                                                            </dt>
+                                                            <dd>
+                                                                <%=val.topic%>
+                                                            </dd>
+                                                        </dl>
+                                                        <div class="Tn-l-super hide"></div>
+
+                                                        <div class="Tn-l-l-status" id="progress_209" style="width:0%"></div>
+                                                    </a>
+                                                </div>
+
+                                                <%})%>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!--练习右侧--未登录-->
+
+
+                            <div class="fr Tn-wid280">
+                                <!--未登录-->
+                                <%if(!request.session.user){%>
+                                    <div class="Tn-pb-witbg Tn-wid280">
+                                        <dl class="Tn-l-userlogin clearfix">
+                                            <dt>
+                                                <img src="/images/user.png" width="60" height="60">
+                                            </dt>
+                                            <dd>
+                                                <h1>欢迎来到贝英尔</h1>
+                                                <p>登录即可查看学习记录</p>
+                                            </dd>
+                                        </dl>
+                                        <div class="Tn-l-userbtn">
+                                            <input name="" type="button" onclick="javascript:window.location.href='/login'" value="立即登录" class="Tn-lr-login">
+                                            <input name="" type="button" onclick="javascript:window.location.href='/register'" value="立即注册" class="Tn-lr-register Tn-ml20">
+                                        </div>
+                                    </div>
+                                    <%}else{%>
+                                        <div class="Tn-pb-witbg Tn-wid280">
+                                            <dl class="Tn-l-userlogin clearfix">
+                                                <dt>
+
+                                                    <img src="<%=request.session.user.img%>" onerror="this.src='/images/user.png'" width="60" height="60">
+                                               
+                                                </dt>
+                                                <dd>
+                                                    <h1>
+                                                        <i>
+                                                            <%=request.session.user.nickname%>
+                                                        </i>
+
+                                                    </h1>
+                                                    <p>累计练习得分
+                                                        <span id="cumulativeScore">
+                                                            <%=request.session.user.score%>
+                                                        </span>
+                                                    </p>
+                                                </dd>
+                                            </dl>
+                                            <div class="Tn-l-userbtn">
+                                                <ul class="Tn-u-date clearfix">
+                                                    <li>
+                                                        <h1 class="todayCount">今日练习
+                                                            <span></span>
+                                                        </h1>
+                                                        <p>
+                                                            <span id="todayCount">
+                                                                <%=questionNum%>
+                                                            </span>题</p>
+                                                    </li>
+                                                    <li>
+                                                        <h1 class="todayScore">今日得分
+                                                            <span></span>
+                                                        </h1>
+                                                        <p>
+                                                            <span id="todayScore">
+                                                                <%=score?score:0%>
+                                                            </span>分</p>
+                                                    </li>
+                                                    <li>
+                                                        <h1>累计练习</h1>
+                                                        <p>
+                                                            <span id="cumulativeCount">
+                                                                <%=days%>
+                                                            </span>天</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <%}%>
+                                            <!-- 登录后 -->
+
+                                            <!--排行榜-->
+                                            <div class="Tn-pb-witbg Tn-mt20">
+                                                <div class="Tn-number Tn-position">
+                                                    <p>学霸排行榜</p>
+                                                </div>
+                                                <div class="Tn-phslelist nzkRankingList-head">
+                                                    <% for(var i=0;i < top.length;i++){%>
+                                                        <% if(i<3){%>
+
+                                                            <dl class="Tn-u-info clearfix">
+                                                                <dt class="Tn-position open_all">
+                                                                    <span class="noone open_son">NO.<%=(i+1)%></span>
+                                                                    <div class="open_cont disnone Tn-i-userimg" style="display: none;">
+                                                                        <ul class="clearfix Tn-userli">
+
+                                                                            <li>
+                                                                                <h2>累计练习得分</h2>
+                                                                                <h3>
+                                                                                    <%=top[i].score%>
+                                                                                </h3>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </dt>
+                                                                <dd class="Tn-u-i-who">
+                                                                    <h1>
+                                                                        <%=top[i].nickname%>
+                                                                    </h1>
+
+                                                                </dd>
+                                                                <dd>
+                                                                    <h2>
+                                                                        <%= top[i].score%>
+                                                                    </h2>
+                                                                </dd>
+                                                            </dl>
+                                                            <%}else{%>
+                                                                <div class="Tn-u-Other nzkRankingList-other">
+                                                                    <dl class="clearfix">
+                                                                        <dt>
+                                                                            <%=(i+1)%>
+                                                                        </dt>
+                                                                        <dd>
+                                                                            <h1>
+                                                                                <%=top[i].nickname%>
+                                                                            </h1>
+                                                                        </dd>
+                                                                        <dd style="margin-left: 150px;">
+                                                                            <p>
+                                                                                <%= top[i].score%>
+                                                                            </p>
+                                                                        </dd>
+                                                                    </dl>
+
+                                                                </div>
+                                                                <%}%>
+                                                                    <%}%>
+
+
+
+                                                </div>
+                                            </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 公共脚页 -->
+                    <%- include('./template/footer.ejs')%>
+                        <!-- 脚步公共文件   -->
+
+</body>
+
+</html>

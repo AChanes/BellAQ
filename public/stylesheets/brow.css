@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('../../fonts/iconfont/iconfont.eot');
+    src: url('../../fonts/iconfont/iconfont.eot?#iefix') format('embedded-opentype'), url('../../fonts/iconfont/iconfont.woff') format('woff'), url('../../fonts/iconfont/iconfont.ttf') format('truetype'), url('../../fonts/iconfont/iconfont.svg#iconfont') format('svg');
+}
+
+body {
+    background: #efeff4;
+}
+
+.browDeteContainer {
+    width: 100%;
+}
+
+.browEditionContainer {
+    width: 646px;
+    height: 245px;
+    border-radius: 6px;
+    background: #fff;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    margin-left: -323px;
+    margin-top: -123px;
+}
+
+.browEditionTitleBg {
+    position: relative;
+    height: 60px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    padding-left: 26px;
+    background: #f6f6f9;
+    font-size: 18px;
+}
+
+.browEditionTitleBg span {
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    color: #4674dd;
+}
+
+.browerIconfont {
+    font-family: "iconfont";
+    font-size: 18px;
+    color: #4674dd;
+}
+
+.closeBrowEdiBtn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.closeIconfont {
+    font-family: "iconfont";
+    color: #adadad;
+    font-size: 18px;
+}
+
+.browEditionCon {
+    width: 565px;
+    height: 55px;
+    margin: 36px 0px 0 30px;
+    text-align: left;
+    line-height: 21px;
+    color: #606060;
+    font-size: 18px;
+}
+
+.browEditionBtn {
+    display: inline-block;
+    width: 168px;
+    height: 44px;
+    margin: 18px 0 0 26px;
+    line-height: 44px;
+    text-align: center;
+    border: 1px solid #4674dd;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #4674dd;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.browEditionBtn:hover {
+    background: #4674dd;
+    color: #ffffff;
+}
+
+.closeIconBtn {
+    display: inline-block;
+    width: 168px;
+    height: 44px;
+    margin: 18px 0 0 26px;
+    line-height: 44px;
+    text-align: center;
+    border: 1px solid #4674dd;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #4674dd;
+    cursor: pointer;
+}
+
+.closeIconBtn:hover {
+    background: #4674dd;
+    color: #ffffff;
+}
+
+.backgroundContainer {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.browEditionTitleBg {
+    position: relative;
+}
+
+.browEditionTitleBg b {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    color: #606060;
+}
+
+.browEditionTitleBg b:before {
+    content: "\2716";
+}

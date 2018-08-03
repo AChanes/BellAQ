@@ -1,0 +1,12 @@
+ <div class="home_banner">
+    <div class="bannerWrap">
+        <p class="mainTitle">英贝尔-专业的托福练习模考平台</p>
+        <p class="subTitle">梦想路上，我们伴你前行，与25万托福考友一起，和托福说分手</p>
+        <% if(!request.session.user){%>
+            <a href="/login" class="login">登录</a>
+            <a href="/register" class="register">注册</a>
+        <% }else{ %>
+            <p  class="welcome">欢迎 , <%= request.session.user.nickname  %> </a>
+        <% } %>
+    </div>
+</div>

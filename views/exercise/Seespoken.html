@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../template/head.ejs',{title:'查看口语'}) %>
+        <link rel="stylesheet" href="/stylesheets/exAll.css">
+        <link rel="stylesheet" href="/stylesheets/tole.css">
+        <link rel="stylesheet" href="/stylesheets/spoken.css">
+        <link rel="stylesheet" href="/stylesheets/pop.css">
+        <link rel="stylesheet" href="/stylesheets/extlist.css">
+        <link rel="stylesheet" href="/stylesheets/luyi.css">
+        <style>
+        </style>
+
+</head>
+
+<body>
+    <!-- 导航   -->
+    <%- include('../template/header.ejs')  %>
+        <div>
+            <%var mId=request.session.user.id%>
+                <section data-type="4" id="toeflQuestionType">
+                    <div class="nzkAnalysisWrap search_article">
+
+                        <% material.forEach((val,index)=>{%>
+                            <input type="text" id='mid' value='<%=request.session.user.id%>' style="display:none">
+                            <input type="text" id='id' value='<%=val.id%>' style="display:none">
+                            <%var mock,mockRId;%>
+                                <h5 class="nzkSubject">
+                                    <%=val.title%>
+                                </h5>
+
+                                <div class="nzkMaterialScience">
+                                    <div style="display:block">
+                                        <div class="nzkSubjectNumber">
+                                            <div id="empty" style="display: none;"></div>
+                                            <div class="nzkInteractiveWrap clearfix" style="margin-left: 0px; left: 50%; top: 0px; width: 1150px; z-index: 999;">
+                                                <ul class="nzkListening">
+
+                                                    <li>
+                                                        <a href="./tpo-speaking-52?no=24178" class="activeNum">
+                                                            Speaking
+                                                            <%=(index+1)%>
+                                                        </a>
+                                                    </li>
+
+
+                                                </ul>
+
+                                            </div>
+
+                                            <%if(val.original){%>
+                                                <div class="nzkChoiceQuestionWrap clearfix">
+                                                    <!--left-->
+                                                    <div class="nzkChoiceQuestion">
+                                                        <div>
+                                                            <div class="nzkSpeedWrap clearfix">
+
+                                                                <audio src="<%=val.mp4ForO%>" id='playad' class="listeningAudio"
+                                                                    onended="mytime()"></audio>
+
+
+                                                                <a href="javascript:;" onclick='playPause()' id="nzkPlay" class='nzkPlay' dataplay="bigPlay"></a>
+
+                                                                <div class="nzkDragSpeed" id='jin'>
+                                                                    <i class="progressBar"></i>
+                                                                    <a href="javascript:;" class="dragBar"></a>
+                                                                </div>
+                                                                <b class="speedTime">00:00:00</b>
+
+                                                                <div class="nzkChangeVolume">
+
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="nzkStem">
+                                                                <h6>问题：
+
+                                                                    <span href="javascript:;" id='qbtn' class="nzkPlay ruestionsplay"></span>
+                                                                </h6>
+
+                                                                <audio src="<%=val.mp4ForQ%>" id='qmp4'></audio>
+                                                                <p>
+                                                                    <%=val.question%>
+                                                                </p>
+                                                            </div>
+                                                            <div class="nzkShowInto">
+
+                                                                <a href="/exercise/spoken/translate/first?id=<%=val.id%>&mId=<%=mId%>" data-qid="24182" id="goPractice" class="doExerciseDWT"
+                                                                    data-type="KY" target="_blank">进入练习</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="nzkOriginalTitle mCustomScrollbar _mCS_1 mCS-autoHide" id="nzkScrollOne" style="overflow: auto;">
+                                                        <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
+                                                            <div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px;" dir="ltr">
+                                                                <div>
+                                                                    <div class="nzkShowBtn">
+
+                                                                        <a href="javascript:;" id="Ma">阅读材料</a>
+                                                                        <a href="javascript:;" id='or'>查看原文</a>
+                                                                    </div>
+                                                                    <div class="nzkContent">
+                                                                        <div style="display:block;">
+                                                                            <div id="article">
+                                                                                <p style="text-align: center;">
+                                                                                    <span style="font-size: 20px;">
+                                                                                        <%=val.title%>
+                                                                                    </span>
+                                                                                </p>
+
+                                                                                <div id='pM' style="text-indent: 2em;">
+                                                                                    <%=val.rMaterial%>
+
+                                                                                </div>
+                                                                                <div id='po' style="text-indent:2em;display:none;">
+                                                                                    <%=val.original%>
+
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                                                            style="display: block;">
+                                                            <div class="mCSB_draggerContainer">
+                                                                <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; display: block; height: 285px; max-height: 356px; top: 0px;">
+                                                                    <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+                                                                </div>
+                                                                <div class="mCSB_draggerRail"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%}else{%>
+                                                    <div class="nzkChoiceQuestionBox clearfix">
+                                                        <h6>问题：
+
+                                                            <span href="javascript:;" id='qbtn' class="nzkPlay ruestionsplay"></span>
+                                                        </h6>
+
+                                                        <audio src="<%=val.mp4ForQ%>" id='qmp4'></audio>
+                                                        <p>
+                                                            <%=val.question%>
+                                                        </p>
+
+                                                        <a href="/exercise/spoken/translate/first?id=<%=val.id%>&mId=<%=mId%>&mock=<%=mock%>&mockRId=<%=mockRId%>" class="nzkGoPractice doExerciseDWT"
+                                                            data-qid="24178" id="goPractice" data-type="KY" target="_blank">进入练习</a>
+                                                    </div>
+                                                    <%}%>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%})%>
+                    </div>
+                </section>
+                <section>
+                    <div class="nzkSoundRecording clearfix">
+                        <!-- left -->
+                        <div class="nzkSoundRecordingLeft">
+                            <ul class="nzkMyRecording clearfix" id="recordingTab">
+                                <li class="activeRecord">
+                                    <a href="javascript:;" id="a_allAudio" class="">热门录音</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" id="a_myAudio">我的录音</a>
+                                </li>
+                            </ul>
+                            <div class="nzkRecordingWrap">
+                                <div style="display:block;">
+                                    <ul class="nzkRecordingBoxWrap clearfix hotMp4" id="hotAudio">
+                                        <% allMp4.forEach((val,index)=>{%>
+                                            <li class="nzkRecordingLeft">
+                                                <div class="nzkRecording clearfix">
+                                                    <img src="<%=val.img%>" onerror="this.src='/images/user.png'">
+                                                    <div class="nzkUserInformation clearfix">
+                                                        <div class="nzkUser clearfix">
+                                                            <span>
+                                                                <%=val.nickname%>
+                                                            </span>          
+                                                        </div>
+                                                        <div class="nzkVideoDrag">
+                                                            <audio src="<%=val.mp4%>" controls style="display:block;"></audio>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <%if(val.likeClick.split(',').indexOf(request.session.user.id+"") == -1){%>
+                                                    <a href="javascript:;" class="nzkFabulous like" data-anid="<%=val.id%>" data-mid="<%=val.mId%>">赞</a>
+                                                    <%}else{%>
+                                                        <a href="javascript:;" class="like clicked" data-anid="<%=val.id%>" data-mid="<%=val.mId%>">赞</a>
+                                                        <%}%>
+                                                            <span class='lickC' data-likeClick="<%=val.likeClick%>">&nbsp;
+                                                                <%=val.likeClick.split(",").length-1%>
+                                                            </span>
+
+                                            </li>
+
+                                            <%})%>
+
+                                    </ul>                                 
+                                    <%if(myMp4.length){%>
+                                        <ul class="nzkRecordingBoxWrap clearfix myMp4" id="hotAudio" style='display:none'>
+                                            <%myMp4.forEach((val,index)=>{%>
+                                                <li class="nzkRecordingLeft">
+                                                    <div class="nzkRecording clearfix">
+                                                        <img src="<%=val.img%>" onerror="this.src='/images/user.png'">
+                                                        <div class="nzkUserInformation clearfix">
+                                                            <div class="nzkUser clearfix">
+                                                                <span>
+                                                                    <%=val.nickname%>
+                                                                </span>
+                                                            </div>
+                                                            <div class="nzkVideoDrag">
+                                                                <audio src="<%=val.mp4%>" controls></audio>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                       <a href="javascript:;" class="nzkFabulous ">赞</a>
+                                                    <span>&nbsp;
+                                                        <%=val.likeClick.split(",").length-1%>
+                                                    </span>
+
+                                                </li>
+
+                                                <%})%>
+
+                                        </ul>
+                                        <%}%>
+
+                                </div>
+                                <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                                    style="display: none;">
+                                    <div class="mCSB_draggerContainer">
+                                        <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; top: 0px;">
+                                            <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+                                        </div>
+                                        <div class="mCSB_draggerRail"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="float:right;">
+                            <%if(!request.session.user){%>
+                                <div class="Tn-pb-witbg Tn-wid280">
+                                    <dl class="Tn-l-userlogin clearfix">
+                                        <dt>
+                                            <img src="/images/user.png" width="60" height="60">
+                                        </dt>
+                                        <dd>
+                                            <h1>欢迎来到贝英尔</h1>
+                                            <p>登录即可查看学习记录</p>
+                                        </dd>
+                                    </dl>
+                                    <div class="Tn-l-userbtn">
+                                        <input name="" type="button" onclick="javascript:window.location.href='/login'" value="立即登录" class="Tn-lr-login">
+                                        <input name="" type="button" onclick="javascript:window.location.href='/regist'" value="立即注册" class="Tn-lr-register Tn-ml20">
+                                    </div>
+                                </div>
+                                <%}else{%>
+                                    <div class="Tn-pb-witbg Tn-wid280">
+                                        <dl class="Tn-l-userlogin clearfix">
+                                            <dt>
+                                               <img src="<%=request.session.user.img%>" onerror="this.src='/images/user.png'" width="60" height="60">
+                                            </dt>
+                                            <dd>
+                                                <h1>
+                                                    <i>
+                                                        <%=request.session.user.nickname%>
+                                                    </i>
+
+                                                </h1>
+                                                <p>累计练习得分
+                                                    <span id="cumulativeScore">
+                                                        <%=request.session.user.score%>
+                                                    </span>
+                                                </p>
+                                            </dd>
+                                        </dl>
+                                        <div class="Tn-l-userbtn">
+                                            <ul class="Tn-u-date clearfix">
+                                                <li>
+                                                    <h1 class="todayCount">今日练习
+                                                        <span></span>
+                                                    </h1>
+                                                    <p>
+                                                        <span id="todayCount">
+                                                            <%=questionNum%>
+                                                        </span>题</p>
+                                                </li>
+                                                <li>
+                                                    <h1 class="todayScore">今日得分
+                                                        <span></span>
+                                                    </h1>
+                                                    <p>
+                                                        <span id="todayScore">
+                                                            <%=score?score:0%>
+                                                        </span>分</p>
+                                                </li>
+                                                <li>
+                                                    <h1>累计练习</h1>
+                                                    <p>
+                                                        <span id="cumulativeCount">
+                                                            <%=days%>
+                                                        </span>天</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <%}%>
+
+                        </div>
+                    </div>
+        </div>
+        </section>
+        </div>
+        <!-- 公共脚页 -->
+        <%- include('../template/footer.ejs')%>
+            <!-- 脚步公共文件   -->
+            <script src="/javascript/seespoken.js"></script>
+            <script src="/javascript/sajax.js"></script>
+            <script>
+                var mid = $('#mid').val();
+                $(document).on('click', '.like', function () {
+                    var t = $(this);
+                    if ($(this).next().attr("data-likeClick").split(",").indexOf(mid) == -1) {
+                        if (mid != $(this).attr("data-mid")) {
+                            $(this).css("background-image", "url(/images/reviewtwo.png)");
+                            $(this).next().text(($(this).next().text() * 1) + 1);
+                            ajaxs('get', '/speaks/addLikeClick', {
+                                id: mid,
+                                anId: $(this).attr("data-anid")
+                            }, function (data) {
+                                if (data == "success") {
+                                    t.next().attr("data-likeClick", t.next().attr("data-likeClick") +
+                                        "," + mid);
+                                }
+                            })
+                        } else {
+                            alert("赞自己的？？？你确定？？？")
+                        }
+                    } else {
+                        alert("已经赞过了");
+                    }
+                })
+                $('.nzkMyRecording li').on('click', function () {
+
+                    // $(this).css('color', 'black').siblings().css('color', 'blue');
+                    if ($(this).text().trim() == '热门录音') {
+                        $(this).addClass('activeRecord').siblings().removeClass('activeRecord');
+                        $('.myMp4').css('display', 'none');
+                        $('.hotMp4').css('display', 'block');
+                    }
+                    if ($(this).text().trim() == '我的录音') {
+
+                        $(this).addClass('activeRecord').siblings().removeClass('activeRecord');
+                        $('.myMp4').css('display', 'block');
+                        $('.hotMp4').css('display', 'none');
+
+                    }
+                })
+            </script>
+</body>
+
+</html>

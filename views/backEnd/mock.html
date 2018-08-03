@@ -1,0 +1,1397 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('tpl/head.html',{title:'首页'}) %>
+        <style>
+            .btn {
+                width: 97px;
+                height: 37px;
+                background: rgb(15, 184, 184);
+                color: antiquewhite;
+                border: none;
+                margin-left: 400px;
+
+            }
+
+            .fbtn {
+                margin-top: 0px;
+
+            }
+
+            table.dataTable {
+                width: 100% !important;
+                margin: 0 auto;
+                clear: both;
+                border-collapse: separate;
+                border-spacing: 0;
+            }
+        </style>
+</head>
+
+
+<body>
+
+    <%- include('tpl/header.html',{ title : '贝尔英语'}) %>
+
+        <div class="tpl-page-container tpl-page-header-fixed">
+
+            <%- include('tpl/nav.html' , {user : 'teacher'}) %>
+
+                <div class="tpl-content-wrapper">
+                    <div class="tpl-content-page-title">
+                        发布模考
+                    </div>
+
+                    <div class="tpl-portlet-components">
+                        <div class="portlet-title">
+                            <div class="caption font-green bold">
+                                <span class="am-icon-code"></span> 选择模考题
+                            </div>
+                        </div>
+                        <span id="tids" style="display:none">
+                            <%=userToken.id %>
+                        </span>
+                        <div class="am-form-group">
+                            <label for="user-phone" class="am-u-sm-3 am-form-label">套题难度
+                                <span class="tpl-form-line-small-title"></span>
+                            </label>
+                            <div class="am-u-sm-9">
+                                <select data-am-selected="" name='dId' class="nanw">
+                                    <option value="1">高中</option>
+                                    <option value="2">四级</option>
+                                    <option value="3">六级</option>
+                                    <option value="4">托福</option>
+                                    <option value="5">托福TPO5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="tpl-block" id='spoken1'>
+                            <div class="am-g tpl-amazeui-form">
+                                <div>
+                                    <div class="caption font-green bold">
+                                        <span class="am-icon-code"></span> 口语
+                                    </div>
+
+                                    <table id='table' class="am-table am-table-striped am-table-hover table-main">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-num">序号</th>
+                                                <th class="table-title">标题</th>
+                                                <th class="table-id">难度</th>
+                                                <th class="table-set">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <button type="button" class="am-btn am-btn-primary" data-am-modal="{target:'#doc-modal',width:1000}">
+                                发布口语
+                            </button>
+                            <button type="button" class="btn1 btn"> 确认口语</button>
+                        </div>
+                        <div class="tpl-block" id='read1' style="display:none;">
+                            <div class="am-g tpl-amazeui-form">
+                                <div>
+                                    <div class="caption font-green bold">
+                                        <span class="am-icon-code"></span> 阅读
+                                    </div>
+                                    <table id='tabler' class="am-table am-table-striped am-table-hover table-main">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-num">序号</th>
+                                                <th class="table-title">标题</th>
+                                                <th class="table-id">难度</th>
+                                                <th class="table-set">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <button type="button" class="am-btn am-btn-primary" id='btnread' data-am-modal="{target:'#doc-modal-1',width:1000}">
+                                发布阅读
+                            </button>
+                            <button type="button" class="btn2 btn"> 确认阅读</button>
+                        </div>
+                        <div class="tpl-block" id='listen1' style="display:none;">
+                            <div class="am-g tpl-amazeui-form">
+                                <div>
+                                    <div class="caption font-green bold">
+                                        <span class="am-icon-code"></span>听力
+                                    </div>
+                                    <table id='tablel' class="am-table am-table-striped am-table-hover table-main">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-num">序号</th>
+                                                <th class="table-title">标题</th>
+                                                <th class="table-id">难度</th>
+                                                <th class="table-set">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button type="button" class="am-btn am-btn-primary" id='btnlisten' data-am-modal="{target:'#doc-modal-2',width:1000}">
+                                    发布听力
+                                </button>
+                                <button type="button" class="btn3 btn"> 确认听力</button>
+                            </div>
+                        </div>
+                        <div class="tpl-block " id='wite1' style="display:none;">
+                            <div class="am-g tpl-amazeui-form">
+                                <div>
+                                    <div class="caption font-green bold">
+                                        <span class="am-icon-code"></span>写作
+                                    </div>
+                                    <table id='tablew' class="am-table am-table-striped am-table-hover table-main">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-num">序号</th>
+                                                <th class="table-title">标题</th>
+                                                <th class="table-id">难度</th>
+                                                <th class="table-set">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div style="width: 100%;height: 100px;line-height: 100px;">
+                            <button type="button" class="am-btn am-btn-primary" id='btnwirt' data-am-modal="{target:'#doc-modal-3',width:1000}">
+                                发布写作
+                            </button>
+                            <button type="button" class="btn btn4"> 确认写作</button>
+                             <button class="am-btn am-btn-primary btnm"  style="display:none; margin-top: -68px;width:100px;margin-left:700px;"> 添加套题</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!-- <button type="button" class="btnm " style="display:none;"> 添加套题</button> -->
+        </div>
+        <!-- 发布阅读 -->
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+            <div class="am-modal-dialog">
+                <div style="display:block;">
+                    <div class="tpl-block_1">
+                        <div style="padding-top:30px;">
+                            <h4 class="tpl-content-page-title" style="text-align:center">
+                                发布题目阅读
+
+                            </h4>
+                            <!-- <span data-am-modal-close class="am-close">&times;</span> -->
+                        </div>
+                        <div class="am-g">
+                            <div class="tpl-form-body tpl-form-line">
+                                <form class="am-form tpl-form-line-form" id='form2' method="POST" action="/backend/questionBank/api/TaddReadMaterial">
+                                    <input type="number" value="<%= userToken.id %>" name="tId" style="display:none" id='tidr'>
+                                    <div class="am-form-group">
+                                        <label for="user-name" class="am-u-sm-3 am-form-label">中文标题
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" class="tpl-form-input" id="user-name1" minlength='1' maxlength="20" name="chineseTitle" placeholder="请输入标题文字">
+                                            <small>标题长度不超过20个字。</small>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-name" class="am-u-sm-3 am-form-label">英文标题
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" class="tpl-form-input" id="user-name2" minlength='1' maxlength="50" name="englishTitle" placeholder="请输入标题文字">
+                                            <small>标题长度不超过50个字母。</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label for="user-phone" class="am-u-sm-3 am-form-label">难度
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="" name='dId' id='dId'>
+                                                <option value="1">高中</option>
+                                                <option value="2">四级</option>
+                                                <option value="3">六级</option>
+                                                <option value="4">托福</option>
+                                                <option value="5">托福TPO5</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">添加情景分类
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="" name='topicId' id='op'>
+                                                <option value="1">生物</option>
+                                                <option value="2">历史</option>
+                                                <option value="3">地质</option>
+                                                <option value="4">艺术</option>
+                                                <option value="5">心理</option>
+                                                <option value="6">坏境科学</option>
+                                                <option value="7">生态</option>
+                                                <option value="8">考古</option>
+                                                <option value="9">天文</option>
+                                                <option value="10">教育</option>
+                                                <option value="11">其他</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label for="" class="am-u-sm-3 am-form-label">英文材料
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <script id="editor_2" type="text/plain" style="width:600px;height:400px;" name='englishMaterial'></script>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="editor_1" class="am-u-sm-3 am-form-label">中文材料
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <script id="editor_3" type="text/plain" style="width:600px;height:400px;" name='chineseMaterial'></script>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <div class="am-u-sm-9 am-u-sm-push-3">
+                                            <button type="submit" class="am-btn am-btn-primary  tpl-btn-bg-color-success" id='go'>提交</button>
+                                            <span class="tpl-form-line-small-title">带※项为必填项，请填写完毕后再点击上传</span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tpl-block_1" style="display:none;padding-top:30px;">
+                        <h4 class="tpl-content-page-title" style="text-align:center">
+                            发布阅读问题
+                        </h4>
+                        <div class="am-g">
+                            <div class="tpl-form-body tpl-form-line">
+                                <form class="am-form tpl-form-line-form" id='form3' method="POST" action="/backend/questionBank/api/TaddReadQuestion">
+                                    <input type="number" id='lmid' name='rId' style="display:none">
+                                    <input type="text" id="numF" name="numF" style="display:none">
+                                    <input type="number" value="<%= userToken.id %>" name="tId" id='tidrq' style="display:none">
+                                    <div class="am-form-group">
+                                        <label for="user-phone" class="am-u-sm-3 am-form-label">单选还是多选
+                                            <span class="tpl-form-line-small-title">必选</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="" name='isD' id='isD'>
+                                                <option value="0">单选</option>
+                                                <option value="1">多选</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-intro" class="am-u-sm-3 am-form-label">题目问题
+                                            <span class="tpl-form-line-small-title">必填</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <textarea class="" rows="5" id="user-introq" placeholder="请输入问题详情" name='question'></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="" class="am-u-sm-3 am-form-label">小题选项
+                                            <span class="tpl-form-line-small-title">必选</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <textarea class="" rows="1" name='optionsA' id='optionsA' placeholder="请输入小题选项A"></textarea>
+                                            <textarea class="" rows="1" name='optionsB' id='optionsB' placeholder="请输入小题选项B"></textarea>
+                                            <textarea class="" rows="1" name='optionsC' id='optionsC' placeholder="请输入小题选项C"></textarea>
+                                            <textarea class="" rows="1" name='optionsD' id='optionsD' placeholder="请输入小题选项D"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="rightAnswer" class="am-u-sm-3 am-form-label">正确答案
+                                            <span class="tpl-form-line-small-title">必填</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <textarea class="" rows="2" name="rightAnswer" id='rightAnswer' placeholder="请输入正确答案,必须是大写字母"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+
+                                        <label for="user-intro" class="am-u-sm-3 am-form-label">请选择小题的高亮
+                                            <span class="tpl-form-line-small-title">必选(请用两个中括号选择)</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <script id="editors" type="text/plain" style="width:700px;height:400px;" id='con'></script>
+                                        </div>
+
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-intro" class="am-u-sm-3 am-form-label">小题分数
+                                            <span class="tpl-form-line-small-title">必选</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="number" name="score" id='score' placeholder="请输入小题分数">
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <div class="am-u-sm-9 am-u-sm-push-3">
+                                            <button type="button" id='go1' class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                            <span class="tpl-form-line-small-title">带※项为必填项，请填写完毕后再点击上传</span>
+                                            <button type="button" id='close' class="am-btn am-btn-primary">
+                                                完成
+
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- 发布听力 -->
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-2">
+            <div class="am-modal-dialog">
+                <div style="padding-top: 30px;">
+                    <div class="tpl-content-page-title">
+                        发布题目听力
+                    </div>
+
+                    <div class="tpl-block_2">
+                        <div class="am-g">
+                            <div class="tpl-form-body tpl-form-line">
+                                <form class="am-form tpl-form-line-form" id='form4' enctype="multipart/form-data" method="POST" action="/backend/questionBank/api/TaddListenMaterial">
+                                    <input type="number" value="<%= userToken.id %>" name="tId" id="tidl" style="display:none">
+                                    <div class="am-form-group">
+                                        <label for="user-name" class="am-u-sm-3 am-form-label">标题
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" class="tpl-form-input" id="user-name" minlength='1' maxlength="50" name="title" placeholder="请输入标题文字">
+                                            <small>标题长度不超过50个字母。</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">图片
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <div class="am-form-group am-form-file">
+                                                <button class="am-btn am-btn-primary">
+                                                    <i class="am-icon-cloud-upload"></i>请选择你要上传的图片</button>
+                                                <input type="file" name="img" onchange="change(this)" multiple="multiple" id="img" accept="image/*" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="fileId" class="am-u-sm-3 am-form-label">添加原文MP4
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <div class="am-form-group am-form-file">
+                                                <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                                    <i class="am-icon-cloud-upload"></i> 选择要上传的MP4</button>
+                                                <input id="fileId" type="file" onchange="change(this)" accept="audio/*" name="mp4" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-phone" class="am-u-sm-3 am-form-label">难度
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="" name='dId' class="nan">
+                                                <option value="1">高中</option>
+                                                <option value="2">四级</option>
+                                                <option value="3">六级</option>
+                                                <option value="4">托福</option>
+                                                <option value="5">托福TPO5</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">添加情景分类
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="" name='topicId' id='op'>
+                                                <option value="1">生物</option>
+                                                <option value="2">历史</option>
+                                                <option value="3">地质</option>
+                                                <option value="4">艺术</option>
+                                                <option value="5">心理</option>
+                                                <option value="6">坏境科学</option>
+                                                <option value="7">生态</option>
+                                                <option value="8">考古</option>
+                                                <option value="9">天文</option>
+                                                <option value="10">教育</option>
+                                                <option value="11">其他</option>
+
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label for="editor" class="am-u-sm-3 am-form-label">原文内容
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <script id="editor_4" type="text/plain" style="width:700px;height:400px;" name="original"></script>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <div class="am-u-sm-9 am-u-sm-push-3">
+                                            <button type="sumbit" class="am-btn am-btn-primary tpl-btn-bg-color-success " id='go4'>提交</button>
+                                            <span class="tpl-form-line-small-title">带※项为必填项，请填写完毕后再点击上传</span>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tpl-block_2" id='timu' style="display:none;">
+                        <div class="am-g">
+                            <div class="tpl-form-body tpl-form-line">
+                                <form class="am-form tpl-form-line-form" id='form5' enctype="multipart/form-data" method="POST" action="/backend/questionBank/api/TaddListenQuestion">
+                                    <input type="number" id='lmid1' name='LMId' style="display:none">
+                                    <input type="number" value="<%= userToken.id %>" name="tId" style="display:none">
+                                    <div class="am-form-group">
+                                        <label for="user-phone" class="am-u-sm-3 am-form-label">单选还是多选
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="" name='isD' id='isD1'>
+                                                <option value="0">单选</option>
+                                                <option value="1">多选</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="am-form-group">
+                                        <label for="fileId1" class="am-u-sm-3 am-form-label">添加小题题目的MP4
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+
+                                            <div class="am-form-group am-form-file">
+                                                <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                                    <i class="am-icon-cloud-upload"></i> 选择要上传的MP4</button>
+                                                <input id="fileId11" type="file"  onchange="change(this)" accept="audio/*" name="mp4" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="fileId2" class="am-u-sm-3 am-form-label">添加小题对话的MP4
+                                            <span class="tpl-form-line-small-title"></span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <div class="am-form-group am-form-file">
+                                                <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                                    <i class="am-icon-cloud-upload"></i> 选择要上传的MP4</button>
+                                                <input id="fileId21" type="file" onchange="change(this)" accept="audio/*" name="mp4ForQ" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="question" class="am-u-sm-3 am-form-label">题目问题
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <textarea class="" rows="5" placeholder="请输入问题详情" name='question' id='question1'></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-intro" class="am-u-sm-3 am-form-label">小题选项
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <textarea class="" rows="2" name='optionsA' id='optionsA1' placeholder="请输入小题选项A"></textarea>
+                                            <textarea class="" rows="2" name='optionsB' id='optionsB1' placeholder="请输入小题选项B"></textarea>
+                                            <textarea class="" rows="2" name='optionsC' id='optionsC1' placeholder="请输入小题选项C"></textarea>
+                                            <textarea class="" rows="2" name='optionsD' id='optionsD1' placeholder="请输入小题选项D"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="rightAnswer" class="am-u-sm-3 am-form-label">正确答案
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <textarea class="" rows="2" name='rightAnswer' id='rightAnswer1' placeholder="请输入正确答案,必须是大写字母"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label for="user-intro" class="am-u-sm-3 am-form-label">小题分数
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="number" name="score" id="score1" placeholder="请输入小题分数">
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <div class="am-u-sm-9 am-u-sm-push-3">
+                                            <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success" id='go2'>提交</button>
+                                            <span class="tpl-form-line-small-title">带※项为必填项，请填写完毕后再点击上传</span>
+                                            <button type="button" id='close1' class="am-btn am-btn-primary">
+                                                完成
+
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 发布写作 -->
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-3">
+            <div class="am-modal-dialog">
+
+                <div>
+                    <div class="tpl-content-page-title">
+                        发布题目写作
+                    </div>
+
+                    <div class="tpl-block">
+                        <div class="am-g">
+                            <div class="tpl-form-body tpl-form-line">
+                                <form class="am-form tpl-form-line-form" id='form6' enctype="multipart/form-data" method="POST" action="/backend/questionBank/api/TaddWriteMaterial">
+                                    <input type="number" id='tidw' value="<%= userToken.id %>" name="tId" style="display:none">
+                                    <div class="am-form-group">
+                                        <label for="user-name" class="am-u-sm-3 am-form-label">标题
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" class="tpl-form-input" id="user-name6" minlength='1' maxlength="50" name="title" placeholder="请输入标题文字">
+                                            <small>标题长度不超过50个字母。</small>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-phone" class="am-u-sm-3 am-form-label">难度
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="" name="dId" class="nan6">
+                                                <option value="1">高中</option>
+                                                <option value="2">四级</option>
+                                                <option value="3">六级</option>
+                                                <option value="4">托福</option>
+                                                <option value="5">托福TPO5</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">图片
+                                            <span class="tpl-form-line-small-title"></span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <div class="am-form-group am-form-file">
+                                                <button class="am-btn am-btn-primary">
+                                                    <i class="am-icon-cloud-upload"></i>请选择你要上传的图片</button>
+                                                <input id="fileId6" type="file" accept="image/*" multiple name="img" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">添加原文MP4
+                                            <span class="tpl-form-line-small-title"></span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <div class="am-form-group am-form-file">
+                                                <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                                    <i class="am-icon-cloud-upload"></i> 选择要上传的MP4</button>
+                                                <input id="fileId7" type="file" accept="audio/mp3,video/mp3" name="mp4" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">添加情景分类
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="" name='topicId' id="op6">
+                                                <option value="1">生物</option>
+                                                <option value="2">历史</option>
+                                                <option value="3">地质</option>
+                                                <option value="4">艺术</option>
+                                                <option value="5">心理</option>
+                                                <option value="6">坏境科学</option>
+                                                <option value="7">生态</option>
+                                                <option value="8">考古</option>
+                                                <option value="9">天文</option>
+                                                <option value="10">教育</option>
+                                                <option value="11">其他</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="am-form-group">
+                                        <label for="user-intro" class="am-u-sm-3 am-form-label">题目问题
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <textarea class="" rows="5" id="user-intro6" name='question' placeholder="请输入问题详情"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="editor_1" class="am-u-sm-3 am-form-label">阅读材料
+                                            <span class="tpl-form-line-small-title"></span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <script id="editor_5" type="text/plain" style="width:700px;height:400px;" name="material"></script>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="editor" class="am-u-sm-3 am-form-label">原文内容
+                                            <span class="tpl-form-line-small-title"></span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <script id="editor_6" type="text/plain" style="width:700px;height:400px;" name="original"></script>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="socre" class="am-u-sm-3 am-form-label">题目分数
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <textarea rows="1" id="socre6" placeholder="请输入小题分数" name='score'></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <div class="am-u-sm-9 am-u-sm-push-3">
+                                            <button type="submit" id='go6' class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                            <span class="tpl-form-line-small-title">带※项为必填项，请填写完毕后再点击上传</span>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('msopken.html')%>
+
+
+            <%- include('tpl/foot.html') %>
+                  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+                <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+                <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"></script>
+                <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+                <script src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.js"></script>
+
+                <script>
+                    //口语
+                    var ue = UE.getEditor('editor');
+                    var ue_1 = UE.getEditor('editor_1');
+                    $("#gos").attr("disabled", true);
+                    /** 验证文件是否导入成功 */
+                    var tId = $('#tids').text() * 1;
+                    $(function () {
+                        $("#form1").ajaxForm(function (data) {
+                            
+                            if (data[0].id) {
+                                var tId = $("#tId").val()
+                                $('input').val('');
+                                $('textarea').val('');
+                                ue.setContent("");
+                                ue_1.setContent("");
+                                $("#tId").val(tId);
+                                $('#doc-modal').modal('close');
+                                $('#tidr').val(tId);
+                                table.ajax.reload();
+                                tabler.ajax.reload();
+                                tablel.ajax.reload();
+                                tablew.ajax.reload();
+                            }
+                        });
+                    });
+
+
+                    $('#form1').on("change", function () {
+                        if ($("#user-names").val() && $(".nans").val() && $("#fileId2s").val() && $("#fileId3s")
+                            .val() &&
+                            $("#ops").val() && $("#user-intros").val()) {
+                            $("#gos").attr("disabled", false);
+                        } else {
+                            $("#gos").attr("disabled", true);
+                        }
+                    });
+
+                    $('#doc-modal').on('open.modal.amui', function () {
+                        $('.am-topbar').css('z-index', '-1');
+                        
+                    });
+                    $('#doc-modal-1').on('open.modal.amui', function () {
+                        $('.am-topbar').css('z-index', '-1');
+               
+                    });
+                    $('#doc-modal-2').on('open.modal.amui', function () {
+                        $('.am-topbar').css('z-index', '-1');
+                      
+                    });
+                    $('#doc-modal-3').on('open.modal.amui', function () {
+                        $('.am-topbar').css('z-index', '-1');
+                       
+                    });
+
+
+
+
+                    var table = $('#table').DataTable({
+                        "language": {
+                            "sProcessing": "",
+                            "lengthMenu": "每页显示 _MENU_",
+                            "zeroRecords": "没有找到记录",
+                            "info": " 当前 _PAGE_/ _PAGES_ 页 共_TOTAL_条",
+                            "infoEmpty": "无记录",
+                            "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                            "oPaginate": {
+                                "sFirst": "首页",
+                                "sPrevious": "上一页",
+                                "sNext": "下一页",
+                                "sLast": "尾页"
+                            }
+                        },
+                        ajax: {
+                            post: 'get',
+                            url: '/backend/questionBank/api/findAllSpeakMaterial',
+                            dataSrc: function (json) {
+                                
+                                for (var i = 0; i < json.length; i++) {
+                                    json[i]['hao'] = i + 1;
+                                }
+                                return json;
+                            }
+
+
+                        },
+                        columns: [{
+                                data: 'hao'
+
+                            },
+                            {
+                                data: 'title'
+                            },
+                            {
+                                data: 'level'
+                            },
+                            {
+                                render: function (data, type, row) {
+                                    var b = '';
+                                    b = '<input type="checkbox" name="options" value="' + row.id +
+                                        '" class="options" /> '
+                                    return b;
+                                }
+                            }
+                        ]
+
+
+                    });
+
+
+                    //阅读
+                     var ue_2 = UE.getEditor('editor_2');
+                    var ue_3 = UE.getEditor('editor_3');
+                    var ue_s = UE.getEditor('editors');
+                    $(document).on('click','#btnread',function(){
+                       
+                    $('#doc-modal-1').modal('open');
+                      $('input').val('');
+                    $('textarea').val('');
+                    $('select').val('1');
+                    $('#tidr').val(tId);
+                    ue_2.setContent('');
+                    ue_3.setContent('');
+                    $('.tpl-block_1').eq(0).css('display', 'block');
+                    $('.tpl-block_1').eq(1).css('display', 'none');
+                    })
+                   
+                    $("#go").attr("disabled", true);
+                    $("#go1").attr("disabled", true);
+                    $("#go1").on("click", function () {
+                        var timestamp = Date.parse(new Date());
+                        $("#numF").val(timestamp);
+                        var str = ue_s.getContent();
+                        str = str.replace(/\[/g, "<span class='strong' data-id=" + timestamp + ">");
+                        str = str.replace(/\]/g, "</span>")
+                        ue_s.setContent(str);
+                        $("#form3").submit();
+                        
+                    })
+                    var lmid;
+
+                    /** 验证文件是否导入成功 */
+                    $(function () {
+                        $("#form2").ajaxForm(function (data) {
+
+                            
+                            if (data[0].id) {
+                                lmid = data;
+                                $('.tpl-block_1').eq(0).css('display', 'none');
+                                $('.tpl-block_1').eq(1).css('display', 'block');
+                                $('#lmid').val(data[0].id);
+                                $("#tId").val(tId);
+                                $("#tidrq").val(tId);
+                                ue_s.setContent(data[0].englishMaterial);
+
+                            }
+                        });
+                    });
+                    $('#form2').on("change", function () {
+
+                        if ($("#user-name1").val() && $("#user-name2").val() && $("#dId").val() && $("#op").val() &&
+                            ue_2.getContentTxt() && ue_3.getContentTxt()) {
+                            
+
+                            $("#go").attr("disabled", false);
+                        } else {
+                            
+                            $("#go").attr("disabled", true);
+                        }
+                    });
+                    ue_2.addListener('selectionchange', function (e) {
+                        if ($("#user-name1").val() && $("#user-name2").val() && $("#dId").val() && $("#op").val() &&
+                            ue_2.getContentTxt() && ue_3.getContentTxt()) {
+
+                            $("#go").attr("disabled", false);
+                        } else {
+                            $("#go").attr("disabled", true);
+                        }
+                    });
+                    ue_3.addListener('selectionchange', function (e) {
+                        if ($("#user-name1").val() && $("#user-name2").val() && $("#dId").val() && $("#op").val() &&
+                            ue_2.getContentTxt() && ue_3.getContentTxt()) {
+
+                            $("#go").attr("disabled", false);
+                        } else {
+                            $("#go").attr("disabled", true);
+                        }
+                    });
+
+
+                    $(function () {
+                        $("#form3").ajaxForm(function (data) {
+                            if (data == 'success') {
+                                $.ajax({
+                                    type: "post",
+                                    url: "/backend/questionBank/api/change",
+                                    data: {
+                                        id: $("#lmid").val(),
+                                        englishMaterial: ue_s.getContent()
+                                    },
+                                    success: function (sta) {
+                                        if (sta == "success") {
+                                            $('input').val('');
+                                            $('textarea').val('');
+                                            $('#lmid').val(lmid[0].id);
+                                            
+                                            $("#tId").val(tId);
+                                        }
+                                    }
+                                })
+
+                            }
+                        });
+                    });
+                    $('#form3').on("change", function () {
+
+                        if ($("#isD").val() && $("#user-introq").val() && $('#optionsA').val() &&
+                            $('#optionsB').val() && $('#optionsC').val() && $('#optionsD').val() && $("#score")
+                            .val() && $('#rightAnswer').val()) {
+                            if ($('#rightAnswer').val()) {
+                                
+                                var val = $('#rightAnswer').val();
+                                
+                                var arr = ["A", "B", "C", "D"]
+                                var arr2 = ["AB", "AC", "AD", "BC", "BD", "CD", "ABC", "ABD", "ACD", "BCD",
+                                    "ABCD"
+                                ];
+                                //多选
+                                if ($("#isD").val() == "1") {
+                                    if (arr2.indexOf(val) + 1 && val.length != 1) {
+                                        $("#go1").attr("disabled", false);
+                                    } else {
+                                        $("#go1").attr("disabled", true)
+                                    }
+                                } else {
+                                    if (arr.indexOf(val) + 1 && val.length == 1) {
+                                        $("#go1").attr("disabled", false)
+                                    } else {
+                                        $("#go1").attr("disabled", true)
+                                    }
+                                }
+                            }
+                        } else {
+                            $("#go1").attr("disabled", true);
+                        }
+                    });
+
+                    $(document).on('click', '#close', function () {
+                        $('#doc-modal-1').modal('close');
+                        tabler.ajax.reload();
+                        tablel.ajax.reload();
+                        tablew.ajax.reload();
+                        $("#tidl").val(tId);
+                    })
+                    var checkedBox = $("input[name='options']:checked");
+                    var tabler = $('#tabler').DataTable({
+                        "language": {
+                            "sProcessing": "",
+                            "lengthMenu": "每页显示 _MENU_",
+                            "zeroRecords": "没有找到记录",
+                            "info": " 当前 _PAGE_/ _PAGES_ 页 共_TOTAL_条",
+                            "infoEmpty": "无记录",
+                            "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                            "oPaginate": {
+                                "sFirst": "首页",
+                                "sPrevious": "上一页",
+                                "sNext": "下一页",
+                                "sLast": "尾页"
+                            }
+                        },
+                        ajax: {
+                            post: 'get',
+                            url: '/backend/questionBank/api/findAllReadMaterial',
+                            dataSrc: function (json) {
+                                
+                                for (var i = 0; i < json.length; i++) {
+                                    json[i]['hao'] = i + 1;
+                                }
+                                return json;
+                            }
+
+                        },
+                        columns: [{
+                                data: 'hao'
+                            },
+                            {
+                                data: 'title'
+                            },
+                            {
+                                data: 'level'
+                            },
+                            {
+                                data: '',
+                                render: function (data, type, row) {
+                                    var b = '';
+                                    b = '<input type="checkbox" name="optionr" value="' + row.id +
+                                        '" class="options" /> '
+                                    return b;
+                                }
+                            }
+                        ]
+
+                    });
+                    //听力
+                    var ue_4 = UE.getEditor('editor_4');
+                        $(document).on('click','#btnlisten',function(){
+                        
+                    $('#doc-modal-2').modal('open');
+                      $('input').val('');
+                    $('textarea').val('');
+                    $('select').val('1');
+                    $('#tidl').val(tId);
+                    ue_4.setContent('');
+                   
+                    $('.tpl-block_2').eq(0).css('display', 'block');
+                    $('.tpl-block_2').eq(1).css('display', 'none');
+                    })
+                    $("#go4").attr("disabled", true);
+
+                    /** 验证文件是否导入成功 */
+                    var lmid = {};
+
+                    $(function () {
+                        $("#form4").ajaxForm(function (data) {
+                            
+                            if (data[0].id) {
+                                lmid = data;
+                                var tId = $("#tId").val();
+                                // $('input').val('');
+                                // $('textarea').val('');
+                                // ue.setContent("");
+                                $('.tpl-block_2').eq(0).css('display', 'none');
+                                $('.tpl-block_2').eq(1).css('display', 'block');
+                                $("#tId").val(tId);
+                                $('#lmid1').val(data[0].id);
+                                $("#go4").attr("disabled", true);
+                                $("#go2").attr("disabled", true);
+                            }
+                        });
+                    });
+                    $('#form4').on("change", function () {
+
+                        if ($("#user-name").val() && $(".nan").val() && $("#op").val() && $('#fileId').val() &&
+                            ue_4.getContentTxt() &&
+                            $("#img").val()) {
+
+                            $("#go4").attr("disabled", false);
+                        } else {
+                            $("#go4").attr("disabled", true);
+                        }
+                    });
+                    ue_4.addListener('selectionchange', function (e) {
+                        if ($("#user-name").val() && $(".nan").val() && $("#op").val() && $('#fileId').val() &&
+                            ue_4.getContentTxt() &&
+                            $("#img").val()) {
+                            $("#go4").attr("disabled", false);
+                        } else {
+                            $("#go4").attr("disabled", true);
+                        }
+                    });
+                    $(function () {
+                        $("#form5").ajaxForm(function (data) {
+                            
+                            if (data == 'success') {
+                                var tId = $("#tId").val();
+                                $('input').val('');
+                                $('textarea').val('');
+                                $('#lmid1').val(lmid[0].id);
+                                $("#tId").val(tId);
+                            }
+                        });
+                    });
+                    $('#form5').on("change", function () {
+                      
+                        if ($("#isD1").val() && $("#fileId11").val() && $("#question1")
+                            .val() &&
+                            $('#optionsA1').val() && $('#optionsB1').val() && $('#optionsC1').val() && $(
+                                '#optionsD1').val() && $("#score1").val() &&
+                            $('#rightAnswer1').val()) {
+                            
+                            if ($('#rightAnswer1').val()) {
+                                var val = $('#rightAnswer1').val();
+                                
+                                var arr = ["A", "B", "C", "D"]
+                                var arr2 = ["AB", "AC", "AD", "BC", "BD", "CD", "ABC", "ABD", "ACD", "BCD",
+                                    "ABCD"
+                                ];
+                                //多选  
+                                if ($("#isD1").val() == "1") {
+                                    if (arr2.indexOf(val) + 1 && val.length != 1) {
+                                        $("#go2").attr("disabled", false);
+                                    } else {
+                                        $("#go2").attr("disabled", true)
+                                    }
+
+                                } else {
+                                   
+
+                                    if (arr.indexOf(val) + 1 && val.length == 1) {
+                                        $("#go2").attr("disabled", false)
+                                    } else {
+                                        $("#go2").attr("disabled", true)
+                                    }
+                                }
+                            }
+
+                        } else {
+                            $("#go2").attr("disabled", true);
+                        }
+                    });
+                    $(document).on('click', '#close1', function () {
+                        $('#doc-modal-2').modal('close');
+                        tablel.ajax.reload();
+                        tablew.ajax.reload();
+                        $('#tidw').val(tId);
+                    })
+                    var tablel = $('#tablel').DataTable({
+                        "language": {
+                            "sProcessing": "",
+                            "lengthMenu": "每页显示 _MENU_",
+                            "zeroRecords": "没有找到记录",
+                            "info": " 当前 _PAGE_/ _PAGES_ 页 共_TOTAL_条",
+                            "infoEmpty": "无记录",
+                            "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                            "oPaginate": {
+                                "sFirst": "首页",
+                                "sPrevious": "上一页",
+                                "sNext": "下一页",
+                                "sLast": "尾页"
+                            }
+                        },
+                        ajax: {
+                            post: 'get',
+                            url: '/backend/questionBank/api/findAllListenMaterial',
+                            dataSrc: function (json) {
+                                
+                                for (var i = 0; i < json.length; i++) {
+                                    json[i]['hao'] = i + 1;
+                                }
+                                return json;
+                            }
+
+                        },
+                        columns: [{
+                                data: 'hao'
+                            },
+                            {
+                                data: 'title'
+                            },
+                            {
+                                data: 'level'
+                            },
+                            {
+                                data: '',
+                                render: function (data, type, row) {
+                                    var b = '';
+                                    b = '<input type="checkbox" name="optionl" value="' + row.id +
+                                        '" class="options" /> '
+                                    return b;
+                                }
+                            }
+                        ]
+
+                    });
+                    //写作
+                    var ue_5 = UE.getEditor('editor_5');
+                    var ue_6 = UE.getEditor('editor_6');
+                    $("#go6").attr("disabled", true);
+                    $(document).on('click','#btnwirt',function(){
+                         $('#doc-modal-3').modal('open');
+                       
+                        $('#tidw').val(tId);
+                    })
+                    /** 验证文件是否导入成功 */
+                    $(function () {
+                        $("#form6").ajaxForm(function (data) {
+                            
+                            if (data[0].id) {
+                                $('input').val('');
+                                   $('textarea').val('');
+                                   ue_5.setContent('');
+                                    ue_6.setContent('');
+                                $('#doc-modal-3').modal('close');
+                                tablew.ajax.reload();
+                            }
+                        });
+                    });
+                    $('#form6').on("change", function () {
+                        if ($("#user-name6").val() && $(".nan6").val() && $("#op6").val() && $("#socre6").val() &&
+                            $('#user-intro6').val()) {
+
+                            $("#go6").attr("disabled", false);
+                        } else {
+                            $("#go6").attr("disabled", true);
+                        }
+                    });
+
+
+                    var tablew = $('#tablew').DataTable({
+                        "language": {
+                            "sProcessing": "",
+                            "lengthMenu": "每页显示 _MENU_",
+                            "zeroRecords": "没有找到记录",
+                            "info": " 当前 _PAGE_/ _PAGES_ 页 共_TOTAL_条",
+                            "infoEmpty": "无记录",
+                            "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                            "oPaginate": {
+                                "sFirst": "首页",
+                                "sPrevious": "上一页",
+                                "sNext": "下一页",
+                                "sLast": "尾页"
+                            }
+                        },
+                        ajax: {
+                            post: 'get',
+                            url: '/backend/questionBank/api/findWrite',
+                            dataSrc: function (json) {
+                                
+                                for (var i = 0; i < json.length; i++) {
+                                    json[i]['hao'] = i + 1;
+                                }
+                                return json;
+                            }
+
+                        },
+                        columns: [{
+                                data: 'hao'
+                            },
+                            {
+                                data: 'title'
+                            },
+                            {
+                                data: 'level'
+                            },
+                            {
+                                data: '',
+                                render: function (data, type, row) {
+                                    var b = '';
+                                    b = '<input type="checkbox" name="optionw" value="' + row.id +
+                                        '" class="options" /> '
+                                    return b;
+                                }
+                            }
+                        ]
+
+                    });
+                    var arrs = [];
+                    var arrr = [];
+                    var arrl = [];
+                    var arrw = [];
+                    //口语
+                    $(document).on('click', '.btn1', function () {
+
+                        arrs = [];
+
+                        $("input:checkbox[name='options']:checked").each(function () {
+                            
+                            arrs.push($(this).val()); // 每一个被选中项的值
+                        });
+                        
+                        if (arrs.length) {
+                            $('#spoken1').css('display', 'none');
+                            $('#read1').css('display', 'block');
+                        } else {
+                            alert('请选择');
+                        }
+                    })
+
+                    //阅读
+
+                    $(document).on('click', '.btn2', function () {
+                        arrr = [];
+                        $("input:checkbox[name='optionr']:checked").each(function () { // 遍历name=test的多选框
+                            arrr.push($(this).val());
+                            // 每一个被选中项的值
+                        });
+                        if (arrr.length) {
+                            $('#spoken1').css('display', 'none');
+                            $('#read1').css('display', 'none');
+                            $('#listen1').css('display', 'block');
+                        } else {
+                            alert('请选择');
+                        }
+                       
+                    })
+                    //听力
+                    $(document).on('click', '.btn3', function () {
+                        arrl = [];
+                        $("input:checkbox[name='optionl']:checked").each(function () { // 遍历name=test的多选框
+                            arrl.push($(this).val()); // 每一个被选中项的值
+                        });
+
+                        if (arrl.length) {
+                            $('#spoken1').css('display', 'none');
+                            $('#read1').css('display', 'none');
+                            $('#listen1').css('display', 'none');
+                            $('#wite1').css('display', 'block');
+                        } else {
+                            alert('请选择');
+                        }
+                    })
+                    //写作
+                    $(document).on('click', '.btn4', function () {
+                            $('#tidw').val(tId);
+                        arrw = [];
+                        $("input:checkbox[name='optionw']:checked").each(function () { // 遍历name=test的多选框
+                            arrw.push($(this).val()); // 每一个被选中项的值
+                        });
+                        if (arrw.length) {
+                            console.log($(this));
+                            $('.btnm').css('display', 'block');
+                        } else {
+                            alert('请选择');
+                        }
+                        
+
+
+                    })
+
+
+                    $(document).on('click', '.btnm', function () {
+                        console.log($(this));
+
+                        $('.nanw').val();
+                        if ($('.nanw').val() && arrs && arrl && arrr && arrw) {
+                            
+                            $.ajax({
+                                type: 'post',
+                                url: '/backend/questionBank/api/addMockexam',
+                                data: {
+                                    tId: $('#tids').text()*1,
+                                    dId: $('.nanw').val(),
+                                    sId: arrs,
+                                    rId: arrr,
+                                    lId: arrl,
+                                    wId: arrw
+                                },
+                                success: function (data) {
+                                    
+                                    if (data == 'success') {
+                                        alert('发布成功');
+                                        window.location.href =
+                                            'http://localhost:3000/backend/questionBank/mock?id=' +
+                                            tId;
+                                    }
+                                }
+                            })
+                        } else {
+                            alert('请选择');
+                        }
+
+                    })
+                    $(document).on('click', '.am-breadcrumb li', function () {
+                        $(this).css('color', 'blue').siblings().css('color', 'black');
+                        if ($(this).text() == '阅读') {
+                            $('#spoken1').css('display', 'none');
+                            $('#read1').css('display', 'block');
+                            $('#listen1').css('display', 'none');
+                            $('#wite1').css('display', 'none');
+
+                        } else if ($(this).text() == '听力') {
+                            $('#spoken1').css('display', 'none');
+                            $('#read1').css('display', 'none');
+                            $('#listen1').css('display', 'block');
+                            $('#wite1').css('display', 'none');
+
+                        } else if ($(this).text() == '写作') {
+                            $('#spoken1').css('display', 'none');
+                            $('#read1').css('display', 'none');
+                            $('#listen1').css('display', 'none');
+                            $('#wite1').css('display', 'block');
+
+
+                        } else if ($(this).text() == '口语') {
+                            $('#spoken1').css('display', 'block');
+                            $('#read1').css('display', 'none');
+                            $('#listen1').css('display', 'none');
+                            $('#wite1').css('display', 'none');
+
+                        }
+
+                    })
+                </script>
+</body>
+
+</html>

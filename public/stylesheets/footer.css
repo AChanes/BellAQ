@@ -1,0 +1,72 @@
+.SLfooter{
+    width: 100%;
+    min-width:1200px;
+    height: 420px;
+    background: #282f39;
+    margin-top:50px;
+}
+.SLfooterWrap{
+    width: 1200px;
+    height: 420px;
+    margin: 0 auto;
+}
+.footerInfo{
+    padding-top: 70px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(240, 240, 240, 0.1);
+}
+.footerInfo dl{
+    float: left;
+    width: 300px;
+    position: relative;
+}
+.footerInfo dt{
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+.footerInfo dd{
+    padding-bottom: 8px;
+    position: relative;
+}
+.footerInfo dd a{
+    color: #999;
+    font-size: 14px;
+}
+.footerInfo dd a:hover{
+    color: #fff;
+}
+.footerInfo dd .downloadCode{
+    position: relative;
+    top:-10px; 
+}
+.footerInfo dd.showCode img{
+    position: absolute;
+    right: 44px;
+    top: -50px;
+    display: none;
+}
+.footerInfo dd.showCode:hover img{
+    display: inline-block;
+}
+
+.copyrightInfo{
+    position: relative;
+}
+.copyrightInfo .footSuper{
+    position: absolute;
+    left: 0;
+    top: 39px;
+}
+.copyrightInfo .logoFooter{
+    position: absolute;
+    right: 0;
+    top: 41px;
+}
+.copyrightInfo p{
+    position: absolute;
+    left: 0;
+    top: 96px;
+    font-size: 12px;
+    color: #999;
+}

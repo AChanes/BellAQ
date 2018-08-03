@@ -1,0 +1,615 @@
+@charset "utf-8";
+/*-----------------------------------------初始化样式------------------------------------------*/
+
+body,
+html {
+    padding: 0;
+    margin: 0 auto;
+    font-family: Arial, "微软雅黑";
+    font-size: 12px;
+    line-height: 24px;
+    color: #3a3a3a;
+}
+
+img {
+    border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+blockquote,
+form,
+ul,
+ol,
+li,
+p,
+pre,
+dl,
+dt,
+dd,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+legend {
+    color: #666;
+}
+
+fieldset {
+    border: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.c:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.c {
+    *zoom: 1;
+}
+
+.left {
+    float: left;
+    _display: inline;
+}
+
+.right {
+    float: right;
+}
+
+.hr_10 {
+    clear: both;
+    height: 10px;
+    overflow: hidden;
+    font-size: 1px;
+    line-height: 1px;
+}
+
+/*------------------------------------------字体样式-------------------------------------------*/
+
+body,
+button,
+input,
+select,
+textarea {
+    font-size: 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+    font-style: normal
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: courier new, courier, monospace;
+}
+
+.over {
+    overflow: hidden;
+}
+
+small {
+    font-size: 12px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.ft14 {
+    font-size: 14px;
+}
+
+.ft12 {
+    font-size: 12px;
+}
+
+.ft16 {
+    font-size: 16px;
+}
+
+.ft18 {
+    font-size: 18px;
+}
+
+.ft20 {
+    font-size: 20px;
+}
+
+.f-blu {
+    color: #4c5e99;
+}
+
+.red {
+    color: #e53350;
+}
+
+.font-b {
+    color: #fff;
+}
+
+.base-color {
+    color: #393f48;
+}
+
+.fontw {
+    color: #fff;
+}
+
+.gray6 {
+    color: #666;
+}
+
+.gray3 {
+    color: #333;
+}
+
+.cheng {
+    color: #a4aeb9;
+}
+
+.cheng a,
+.cheng a:hover,
+.cheng:hover {
+    color: #a4aeb9;
+    text-decoration: none;
+}
+
+.chengbold {
+    color: #FE6501;
+    font-weight: bold;
+}
+
+.yb-link,
+.yb-link a {
+    color: #393F48;
+    text-decoration: none;
+}
+
+.yb-link a:hover {
+    color: #e53350;
+    text-decoration: none;
+}
+
+.tcenter {
+    text-align: center;
+}
+
+.tright {
+    text-align: right;
+}
+
+.tleft {
+    text-align: left;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.ft-weight-none {
+    font-weight: normal;
+}
+
+.un-line {
+    text-decoration: underline;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+/*-----------------------------------------全局元素布局----------------------------------------*/
+
+.position {
+    position: relative;
+}
+
+.disnone {
+    display: none;
+}
+
+.disblock {
+    display: block;
+}
+
+.plr5 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+.p20 {
+    padding: 20px;
+}
+
+.pt5 {
+    padding-top: 5px;
+}
+
+.pt10 {
+    padding-top: 10px;
+}
+
+.pt15 {
+    padding-top: 15px;
+}
+
+.pt20 {
+    padding-top: 20px;
+}
+
+.pt40 {
+    padding-top: 40px;
+}
+
+.pt60 {
+    padding-top: 60px;
+}
+
+.plr10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.pb10 {
+    padding-bottom: 10px;
+}
+
+.pb20 {
+    padding-bottom: 20px;
+}
+
+.pl10 {
+    padding-left: 10px;
+}
+
+.pl15 {
+    padding-left: 15px;
+}
+
+.pl20 {
+    padding-left: 20px;
+}
+
+.pl35 {
+    padding-left: 35px;
+}
+
+.plr20 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.pr20 {
+    padding-right: 20px;
+}
+
+.pr10 {
+    padding-right: 10px;
+}
+
+.plr25 {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.mt3 {
+    margin-top: 3px;
+}
+
+.mt8 {
+    margin-top: 8px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.mt18 {
+    margin-top: 18px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mt23 {
+    margin-top: 23px;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.mt25 {
+    margin-top: 25px;
+}
+
+.mt55 {
+    margin-top: 55px;
+}
+
+.mt40 {
+    margin-top: 40px;
+}
+
+.ml50 {
+    margin-left: 50px;
+}
+
+.ml135 {
+    margin-left: 135px;
+}
+
+.ml19 {
+    margin-left: 19px;
+}
+
+.ml20 {
+    margin-left: 20px;
+}
+
+.ml22 {
+    margin-left: 22px;
+}
+
+.ml25 {
+    margin-left: 25px;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+.mlr5 {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.min-height600 {
+    min-height: 600px;
+
+}
+
+.min-height400 {
+    min-height: 400px;
+   
+}
+
+.line-20 {
+    line-height: 20px;
+}
+
+/*-----------------------------------------公共样式----------------------------------------*/
+
+/*公共链接样式*/
+
+/*弹出层*/
+
+
+
+#cover,
+#cover1,
+#cover2,
+#cover3,
+#cover4,
+#cover5,
+#cover6,
+#cover7,
+#cover8,
+#cover9,
+#cover10,
+#cover11,
+#cover12,
+#cover13,
+#cover14,
+#cover15,
+#cover16,
+#cover17,
+#cover18,
+#cover19,
+#yctow,
+#yctow-t,
+#cover-yctow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 100;
+    /*background-color:#666;opacity:0.6;filter:alpha(opacity=60);-moz-opacity:0.6;*/
+}
+
+.tcbgall {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    z-index: 202;
+    display: none;
+    background: #ffffff;
+    -webkit-box-shadow: 0 0 5px #d7d7d7;
+    -moz-box-shadow: 0 0 5px #d7d7d7;
+    box-shadow: 0 0 5px #d7d7d7;
+}
+
+.mini-100 {
+    _height: 100px;
+    min-height: 100px;
+}
+
+/*公共宽度*/
+
+.wid1200 {
+    width: 1200px;
+}
+
+.wid1000 {
+    width: 1000px;
+}
+
+.wid820 {
+    width: 820px;
+}
+
+.wid800 {
+    width: 800px;
+}
+
+.wid650 {
+    width: 650px;
+}
+
+.wid600 {
+    width: 600px;
+}
+
+.wid595 {
+    width: 595px;
+}
+
+.wid580 {
+    width: 580px;
+}
+
+.wid500 {
+    width: 500px;
+}
+
+.wid440 {
+    width: 440px;
+}
+
+.wid320 {
+    width: 320px;
+}
+
+.wid200 {
+    width: 200px;
+}
+
+.wid160 {
+    width: 160px;
+}
+
+.wid90 {
+    width: 90px;
+}
+
+.margin-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*高度*/
+
+.min-heig200 {
+    min-height: 200px;
+}
+
+/*播放器隐藏*/
+
+audio {
+    display: none;
+}
+
+.ziti {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+}
+
+.ziti::after{
+ 
+    display: inline-block;
+    border-right: 1px solid #ccc;
+    height: 2.5rem;
+    position: relative;
+    top: 5px;
+    padding-left: 1rem;
+}

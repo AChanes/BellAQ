@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <%- include('./template/head.ejs',{title:'指南'}) %>
+    <!-- 指南页样式文件 -->
+</head>
+
+<body>
+    <%- include('./template/header.ejs')  %>
+        <!--  banner -->
+        <%- include('./template/banner.ejs')  %>
+
+        <!-- 指南内容 部分  -->
+        <%
+            const links =  [
+            { path : '/guide', name : '备考指南',class:'icon-book' },
+            { path : '/guide/read', name : '备考阅读',class:'icon-file-text' },
+            { path : '/guide/listen', name : '备考听力',class:'icon-headphones' },
+            { path : '/guide/spoken', name : '备考口语',class:'icon-microphone' },
+            { path : '/guide/write', name : '备考写作' ,class:'icon-pencil'},
+            ];
+        %>
+
+        <div class="guide_page">
+            <div class="Tn-wid1180 Tn-marauto">
+                <div class="clearfix">
+                    <div class="fl Tn-wid280">
+                        <div class="Tn-mt20 Tn-pb-witbg">
+                            <div class="Tn-g-listLeft">
+                                <% var url=request.originalUrl.split(" ? ")[0]%>
+                                <% links.forEach( link => { %>
+                                  
+                                   <% if(url){%>
+                                   <% if(url.split('?')[0]=='/guide'){%>
+                                        <%url='/guide'%>
+                                    <%}%>
+                                    <%}%>
+                                       
+                                <p class="<%= url==link.path?'hover':''%>">
+                                    <a href="<%= link.path %>">
+                                        <i class=<%=link.class%>></i>
+                                        <%= link.name %>
+                                        
+                                    </a>
+                                </p>
+                                
+                                <% }) %>
+                            </div>
+                        </div>
+                        <div class="Tn-pb-witbg Tn-mt20">
+                            <div class="Tn-number Tn-position">
+                                <p>热门文章  <i style="color:red;" class="icon-fire"></i></p>
+                                <b class="Tn-g-hot"></b>
+                            </div>
+                            <ul class="Tn-mkxzlist">
+                                <% top.forEach(el=>{%>
+                                <li>
+                                    <h1>
+                                        <a href="/guide/Mdetails?id=<%=el.id%>" target="_blank">●<%= el.title%></a>
+                                    </h1>
+                                    <p class="clearfix">
+                                        <span class="tn-ck-span"></span><%= el.pageView%>
+                
+                                
+                                        <% if(el.typeName=='口语'){%>
+
+                                            <a href="/guide/spoken" class="Tn-g-blu fr"><%= el.typeName %></a>
+                                        <%}%>
+                                        <%if(el.typeName=='听力'){%>
+                                            <a href="/guide/listen" class="Tn-g-blu fr"><%= el.typeName %></a>
+                                        <%}%>
+                                        <%if(el.typeName=='阅读'){%>
+                                            <a href="/guide/read" class="Tn-g-blu fr"><%= el.typeName %></a>
+                                        <%}%>
+                                        <%if(el.typeName=='写作'){%>
+                                            <a href="/guide/write" class="Tn-g-blu fr"><%= el.typeName %></a>
+                                        <%}%>
+                                    </p>
+                                </li>
+                                <%})%>
+                               
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="fr Tn-wid880">
+                        <div class="Tn-pb-witbg Tn-mt20 Tn-pb50">
+                            <h1 class="Tn-hfont Tn-pl30 Tn-pt20 channel-name">
+                                托福备考指南
+                            </h1>
+                            <div class="Advertisement Tn-gb-ggw Tn-mt20 overflow-hidden " style="display: none; ">
+                                <a href=" " class="AdvertisementHref " target="_blank ">
+                                    <img>
+                                </a>
+                            </div>                        
+                            <div id="cont-zn " class="Tn-zn-listbox Tn-mt20 ">
+                                <div class="Tn-znlbox ">
+                                    <%  data.forEach(el=>{%>
+                                    <div class="Tn-znl-cont clearfix ">
+                                        <div class="fl wid600 Tn-znl-font ">
+                                            <h1>
+                                                <a href="/guide/Mdetails?id=<%=el.id%>" target="_blank "><%= el.title%></a>
+                                
+                                            </h1>
+                                            <p class="nzkDetailsTitle ">
+                                                <a href="/guide/Mdetails?id=<%=el.id%>" id="digest" target="_blank "><%= el.digest%>
+                                                    <i style="font-size:20px;text-decoration:none!important ">...</i>
+                                                </a>
+                                            </p>
+                                            <div class="clearfix Tn-mi-font Tn-mt20 ">
+                                                <span class="tn-ck-span "></span><%= el.pageView%>
+                                                <a href="javascript:void(0); " class="Tn-scfont fr contentlist355 " onclick="collectList(355, 2);">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="fr Tn-wid190 Tn-tright Tn-bg-gray Tn-height116 Tn-radius ">
+                                            <a href="/guide/Mdetails?id=<%=el.id%>" target="_blank ">
+                                                <img src="<%=el.img%>" width="190 " height="116 " class="Tn-radius ">
+                                            </a>
+                                        </div>
+                                    </div>
+                                        <%})%>
+                                        <div class="page clearfix " id="page " style="display: block; ">
+                                            <div class="last fr ">
+                                                    <a href="<%= request.originalUrl.split("?")[0]%>?page=<%=num%>">末页</a>
+                                            </div>
+                                            <ul class="pagingUl ">
+                                            <% for(var i=0;i< num ;i++){%>
+                                                <li>
+                                                  
+                                                    <% 
+                                                        var url = request.originalUrl.split("?");
+                                                        var page = url.length <=1 ? 1 : url[1].split("=")[1];
+                                                        if(page == i+1){
+                                                    %>
+                                                        <a class="active" href="<%= request.originalUrl.split("?")[0]%>?page=<%=(i+1)%>">
+                                                            <%=(i+1)%>
+                                                        </a>
+                                                    <%
+                                                       }else{
+                                                    %>
+                                                        <a href="<%= request.originalUrl.split("?")[0]%>?page=<%=(i+1)%>">
+                                                            <%=(i+1)%>
+                                                        </a>
+                                                    <%
+                                                       }
+                                                    %>
+                                                </li>
+                                                <%}%>
+                                            </ul>
+                                            <div class="first fr">
+                                                <a href="<%= request.originalUrl.split("?")[0]%>?page=1">首页</a>
+                                            </div>
+                                        </div>
+                                        
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+        </div>
+
+        <!-- 公共脚页 -->
+        <%- include('./template/footer.ejs')%>
+<script>
+    
+    $("#digest").html($("#digest").text());
+</script>
+</body>
+
+</html>

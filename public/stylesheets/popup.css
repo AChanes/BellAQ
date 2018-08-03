@@ -1,0 +1,325 @@
+/* å¼¹å±‚ */
+
+/*å¼•ç”¨iconfont*/
+
+body {
+    position: relative;
+}
+
+.popupWindowBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.5;
+    z-index: 20;
+}
+
+.popupWindowContainer {
+    z-index: 25;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.popupWindowContainer .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: #fff;
+    width: 630px;
+    border-radius: 4px;
+    /* overflow: hidden; */
+}
+
+.popupWindowContainer .titleBg {
+    position: relative;
+    height: 102px;
+    font-size: 22px;
+    color: #333;
+}
+
+.popupWindowContainer .titleBg .title {
+    height: 30px;
+    padding-left: 33px;
+    padding-top: 46px;
+    font-weight: bold;
+}
+
+.popupWindowContainer .titleBg .title i {
+    font-size: 12px;
+    color: #999;
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.popupWindowContainer .closeBtn {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-left: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-right: 30px solid #f3f7ff;
+    border-top: 30px solid #f3f7ff;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
+
+.popupWindowContainer .closeBtn .closeIcon {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: url(/images/closePop.png) no-repeat;
+    top: -10px;
+    right: -22px;
+}
+
+.popupWindowContent td {
+    height: 40px;
+    padding-bottom: 20px;
+}
+
+.popupWindowContent .popWTitle {
+    width: 99px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #666;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.popupWindowContent .btn,
+.popupWindowContent .grade {
+    display: inline-block;
+    width: 90px;
+    height: 40px;
+    margin-right: 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    line-height: 40px;
+    background: #f0f3ff;
+}
+
+.popupWindowContent .btn:hover,
+.popupWindowContent .grade:hover {
+    background: #6097ff;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.popupWindowContent .selectSwap {
+    display: inline-block;
+    position: relative;
+    width: 88px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #c6d1ff;
+    margin-right: 20px;
+}
+
+.popupWindowContent .select {
+    width: 63px;
+    border-right: 1px solid #c6d1ff;
+    text-align: center;
+}
+
+.selectCon .selectBtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 24px;
+    height: 38px;
+    background: url(/images/popupBtnDecr.png) no-repeat center;
+    cursor: pointer;
+}
+
+.popupWindowContent .date {
+    position: absolute;
+    top: 39px;
+    width: 90px;
+    padding: 11px 0 13px 0;
+    overflow: auto;
+    overflow-x: hidden;
+    box-shadow: 0px 0px 10px rgba(52, 143, 255, 0.3);
+    border-top: 0;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background: #fff;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.popupWindowContent .date .list {
+    font-size: 14px;
+    color: #333;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 28px;
+}
+
+.popupWindowContent .date .list:hover {
+    box-shadow: 0px 0px 10px rgba(52, 143, 255, 0.3);
+    background: url(../img2.0/select_mark.png) no-repeat 10px center;
+}
+
+.popupWindowContent .date.dayList {
+    height: 322px;
+}
+
+.courseContainer {
+    width: 478px;
+    margin-left: 118px;
+}
+
+.courseContainer .border {
+    width: 470px;
+    border-top: 1px solid #c6d1ff;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.courseContainer .border i {
+    position: absolute;
+    top: -9px;
+    right: 196px;
+    width: 14px;
+    height: 9px;
+    background: url(../img2.0/line_arrow.png) no-repeat;
+}
+
+.courseContainer .course {
+    position: relative;
+    display: inline-block;
+    margin-right: 16px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #333;
+}
+
+.courseContainer .course:last-child {
+    margin-right: 0px;
+}
+
+.courseContainer .scroeWrap {
+    display: inline-block;
+    width: 68px;
+    height: 38px;
+    border: 1px solid #c6d1ff;
+    border-radius: 4px;
+}
+
+.courseContainer .course .name {
+    display: inline-block;
+    /* margin-right: 6px; */
+}
+
+.courseContainer .course .score {
+    display: inline-block;
+    width: 43px;
+    height: 34px;
+    text-align: center;
+    border: none;
+    position: relative;
+    border-radius: 4px 0 0 4px;
+}
+
+.courseContainer .course .scoreBtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 24px;
+    height: 40px;
+    cursor: pointer;
+    border-left: 1px solid #c6d1ff;
+}
+
+.courseContainer .course .popupBtnAdd {
+    width: 24px;
+    height: 19px;
+    background: url(../img2.0/popupBtnAdd.png) no-repeat center;
+}
+
+.courseContainer .course .popupBtnDecr {
+    width: 24px;
+    height: 19px;
+    background: url(../img2.0/popupBtnDecr.png) no-repeat center;
+}
+
+.popupWindowContent .noBegin {
+    width: 190px;
+    height: 40px;
+    margin: 40px auto 39px auto;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #fff;
+    background: #d2d2d2;
+}
+
+.popupWindowContent .onBegin {
+    width: 190px;
+    height: 40px;
+    margin: 40px auto 39px auto;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #fff;
+    background: #6097ff;
+    box-shadow: 0px 5px 10px rgba(180, 220, 253, 0.73);
+    cursor: pointer;
+}
+
+.popupWindowContent .onBegin:hover {
+    background: #5172ff;
+}
+
+.popupDisplay {
+    display: none;
+}
+
+.popupWindowContainer .btnOn {
+    background: #6097ff;
+    color: #ffffff;
+}
+
+.select {
+    cursor: pointer;
+}
+
+.list {
+    height: 20px;
+}
+
+.popupWindowContainer ::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f0f3ff;
+}
+
+/*å®šä¹‰æ»šåŠ¨æ¡è½¨é“ å†…é˜´å½±+åœ†è§’*/
+
+.popupWindowContainer ::-webkit-scrollbar-track {
+    background-color: #f0f3ff;
+}
+
+/*å®šä¹‰æ»‘å— å†…é˜´å½±+åœ†è§’*/
+
+.popupWindowContainer ::-webkit-scrollbar-thumb {
+    background-color: #c6d1ff;
+}

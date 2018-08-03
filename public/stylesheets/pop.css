@@ -1,0 +1,517 @@
+/* CSS Document */
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr {
+    margin: 0;
+    padding: 0;
+    /*-webkit-box-sizing: border-box;box-sizing: border-box;*/
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, "Microsoft YaHei", sans-serif;
+    position: relative;
+    background: #efeff4;
+}
+
+html {
+    line-height: 1.15;
+    /* 1 */
+    -ms-text-size-adjust: 100%;
+    /* 2 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
+    width: 100%;
+}
+
+a:active {
+    outline: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+i {
+    font-style: normal;
+}
+
+img {
+    border: 0;
+    vertical-align: top;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+button {
+    overflow: visible;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+
+input {
+    outline: none
+}
+
+ul,
+ol {
+    list-style: none outside none;
+}
+
+b {
+    font-weight: normal;
+}
+
+.vam {
+    vertical-align: middle;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.hide {
+    display: none;
+}
+
+.lyl-clearfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.lyl-clearfix {
+    display: inline-block;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+/*注册*/
+
+.loginCont {
+    margin-left: 26px;
+    margin-top: 24px;
+}
+
+.loginCont li {
+    margin-bottom: 10px;
+    float: left;
+    position: relative;
+}
+
+.loginCont li input {
+    border: none;
+    height: 14px;
+    color: #999;
+    padding-left: 44px;
+    height: 46px;
+    line-height: 46px;
+    border: 1px solid #d3d3d3;
+    border-radius: 6px;
+}
+
+.loginCont li input:focus {
+    border: 1px solid #4674de;
+}
+
+.loginCont li span {
+    color: #ff4747;
+    width: 98px;
+    border-radius: 0 4px 0 4px;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    height: 24px;
+    font-size: 12px;
+    line-height: 24px;
+    padding-left: 38px;
+    z-index: 999;
+}
+
+.loginCont span.false {
+    background: #ffd9d9 url(../images/false.png) no-repeat;
+    background-position: 13px center;
+}
+
+.loginCont span.true {
+    display: inline-block;
+    background: #ffd9d9 url(../images/true.png) no-repeat;
+    background-position: 13px center;
+}
+
+#phoneNumber,
+#phoneNumber2 {
+    width: 318px;
+}
+
+#phoneNumber input,
+#phoneNumber2 input {
+    width: 318px;
+    background: url(../images/phone.png) no-repeat;
+    background-position: 12px center;
+}
+
+#validate1 {
+    width: 222px;
+}
+
+#validate1 input {
+    width: 220px;
+    background: url(../images/validate.png) no-repeat;
+    background-position: 12px center;
+}
+
+#validateCode {
+    display: inline-block;
+    width: 86px;
+    height: 44px;
+    margin-left: 10px;
+    background: #d7d7d7;
+    border-radius: 4px;
+}
+
+#validate2 {
+    width: 200px;
+}
+
+#validate2 input {
+    width: 196px;
+    background: url(../images/validate.png) no-repeat;
+    background-position: 12px center;
+}
+
+#getCode {
+    width: 108px;
+    height: 44px;
+    border: 1px solid #4674de;
+    background: #f7f7fa;
+    color: #4674de;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 44px;
+}
+
+#getCode:hover {
+    background: #ebecf8;
+}
+
+#getCode.countDown {
+    color: #606060;
+    background: #ededed;
+    border: none;
+}
+
+#nickname {
+    width: 318px;
+}
+
+#nickname input {
+    width: 318px;
+    background: url(../images/nick.png) no-repeat;
+    background-position: 12px center;
+}
+
+#password {
+    width: 318px;
+    position: relative;
+}
+
+#password input {
+    width: 318px;
+    background: url(../images/knock.png) no-repeat;
+    background-position: 12px center;
+}
+
+#password .eye {
+    display: inline-block;
+    width: 25px;
+    height: 15px;
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#password .eye.close {
+    background: url(../images/close.png) no-repeat;
+    background-position: center center;
+}
+
+#password .eye.open {
+    background: url(../images/open.png) no-repeat;
+    background-position: center center;
+}
+
+.agree {
+    margin-left: 26px;
+    color: #999;
+    font-size: 14px;
+    width: 318px;
+}
+
+.agree label {
+    cursor: pointer;
+}
+
+#isAgree {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #999;
+    background: #f1f1f1;
+    position: relative;
+    top: 2px;
+    margin-right: 4px;
+}
+
+.agree span {
+    color: #4674de;
+}
+
+#register,
+#confirm,
+#login,
+#loginValPhoneButton,
+#loginPhoneButton,
+#loginValPhoneButton {
+    border: none;
+    width: 334px;
+    height: 62px;
+    background: url(../images/btn_bg.png) no-repeat;
+    margin-left: 21px;
+    margin-top: 46px;
+    color: #fff;
+    font-size: 24px;
+    padding-bottom: 4px;
+}
+
+#register:hover,
+#next:hover,
+#confirm:hover,
+#login:hover,
+#loginValPhoneButton:hover,
+#loginPhoneButton:hover,
+#loginValPhoneButton:hover {
+    background: url(../images/btn_bg1.png) no-repeat;
+}
+
+.directLogin {
+    color: #999;
+    font-size: 14px;
+    margin-left: 27px;
+}
+
+.directLogin a {
+    color: #4674de;
+}
+
+.login1 {
+    height: 272px;
+}
+
+.login2 {
+    height: 327px;
+}
+
+.login1 .loginCont li:first-child {
+    margin-bottom: 20px;
+}
+
+.agree a {
+    float: right;
+    color: #4674de;
+}
+
+.otherLoginTitle {
+    width: 318px;
+    margin-left: 26px;
+    margin-top: 20px;
+    position: relative;
+    height: 18px;
+}
+
+.otherLoginTitle .line {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    background: #dcdcdc;
+}
+
+.otherLoginTitle span {
+    width: 72px;
+    text-align: center;
+    background: #fff;
+    color: #dcdcdc;
+    font-size: 14px;
+    position: absolute;
+    left: 50%;
+    margin-left: -36px;
+}
+
+.otherLogin {
+    margin: 20px 0 20px 63px;
+}
+
+.otherLogin li {
+    float: left;
+    margin-right: 46px;
+}
+
+.otherLogin a {
+    display: inline-block;
+    width: 53px;
+    height: 54px;
+}
+
+.otherLogin .weixin {
+    background: url(../images/weixin_s.png) no-repeat;
+}
+
+.otherLogin .weixin:hover {
+    background: url(../images/weixinHover.png) no-repeat;
+}
+
+.otherLogin .qq {
+    background: url(../images/qq_s.png) no-repeat;
+}
+
+.otherLogin .qq:hover {
+    background: url(../images/qqHover.png) no-repeat;
+}
+
+.otherLogin .weibo {
+    background: url(../images/weibo_s.png) no-repeat;
+}
+
+.otherLogin .weibo:hover {
+    background: url(../images/weiboHover.png) no-repeat;
+}
+
+#passwordLogin {
+    width: 318px;
+    position: relative;
+}
+
+#passwordLogin input {
+    width: 318px;
+    background: url(../images/knock.png) no-repeat;
+    background-position: 12px center;
+}
+
+.popBox {
+    width: 374px;
+    height: 480px;
+    background: #fff;
+    border-radius: 3px;
+    position: fixed;
+    top: 50%;
+    margin-top: -240px;
+    left: 50%;
+    margin-left: -187px;
+    overflow: hidden;
+    z-index: 100;
+    display: none;
+}
+
+.popBox .closeWrap {
+    height: 51px;
+    width: 100%;
+}
+
+.popBox .close {
+    display: inline-block;
+    width: 51px;
+    height: 47px;
+    background: url(../images/closeBtn.png) no-repeat;
+    background-position: center center;
+    float: right;
+}
+
+.popBox .loginChange {
+    height: 26px;
+    line-height: 26px;
+    color: #999;
+    font-size: 16px;
+    padding: 0 30px 0 26px;
+}
+
+.popBox .loginChange a {
+    font-size: 14px;
+    color: #4674de;
+    float: right;
+}
+
+.loginPopCont {
+    margin-top: 5px;
+}
+
+#mask {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 1100px;
+    display: none;
+    z-index: 99;
+}

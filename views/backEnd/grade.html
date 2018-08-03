@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('tpl/head.html',{title:'首页'}) %>
+</head>
+
+<body data-type="generalComponents">
+
+    <%- include('tpl/header.html',{ title : '贝尔英语'}) %>
+
+        <div class="tpl-page-container tpl-page-header-fixed">
+
+
+            <%- include('tpl/nav.html' , {user : 'teacher'}) %>
+
+
+                <div class="tpl-content-wrapper">
+                    <div class="tpl-content-page-title">
+                        题库编辑
+                    </div>
+
+                    <div class="tpl-portlet-components">
+                        <div class="portlet-title">
+                            <div class="caption font-green bold">
+                                <span class="am-icon-code"></span> 所有列表
+                            </div>
+
+                        </div>
+                        <div class="tpl-block">
+
+                            <div class="am-g">
+                                <div class="am-u-sm-12">
+                                    <table id='tables' class="am-table am-table-striped am-table-hover table-main">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-num">序号</th>
+                                                <th class="table-title">标题</th>
+                                
+                                                <th class="table-date am-hide-sm-only">作者</th>
+                                                <th class="table-set">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+
+                                    <hr>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tpl-alert"></div>
+                    </div>
+
+                </div>
+
+        </div>
+
+
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/amazeui.min.js"></script>
+        <script src="/assets/js/app.js"></script>
+        <script src="/assets/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="/javascript/paginathing.js"></script>
+        <input type="hidden" id="data_rowsStr" value="<%=data%>">
+
+        <script>
+
+            var datas = JSON.parse(unescape($('#data_rowsStr').val()));
+            console.log(datas);
+            for (var i = 0; i < datas.length; i++) {
+                datas[i]['hao'] = i + 1;
+            }
+            
+            var tables = $('#tables').DataTable({
+                "language": {
+                    "sProcessing": "",
+                    "lengthMenu": "每页显示 _MENU_",
+                    "zeroRecords": "没有找到记录",
+                    "info": " 当前 _PAGE_/ _PAGES_ 页 共_TOTAL_条",
+                    "infoEmpty": "无记录",
+                    "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sPrevious": "上一页",
+                        "sNext": "下一页",
+                        "sLast": "尾页"
+                    }
+                },
+                data: datas,
+
+
+                columns: [{
+                        data: 'hao'
+                    },
+                    {
+                        data: 'materialTitle' 
+                    },
+                
+                    {
+                        data: 'nickname'
+                    },
+                    {
+                        data: '',
+                        render: function (data, type, row) {
+                            var b = '';
+                            
+                                b = "<a href='/backend/questionBank/findWriteDetail?id=" +
+                                    row.id +
+                                    "' class='am - btn am - btn -default am - btn - xs am-text - secondary show'>详情</a>"
+                        
+                            return b;
+                        }
+                    }
+                ]
+
+            });
+
+
+
+            var arr = document.querySelectorAll(".delete");
+            arr.forEach(button => {
+                button.onclick = function () {
+                    var tr = $(this).parents("tr");
+                    $.ajax({
+                        type: "get",
+                        url: "/backEnd/questionBank/api/deleteMaterial",
+                        data: {
+                            tyId: $(this).attr("data-tyId"),
+                            id: $(this).attr("data-iid")
+                        },
+                        success: (data) => {
+                            if (data == "success") {
+                                tr.remove();
+                                // window.location.reload();
+                            }
+                        }
+                    })
+                }
+            });
+
+            $('#sou').on('chang', function () {
+                console.log($(this).val())
+
+            })
+            $('.shuanbtn').on('click', function () {
+                var self = $(this);
+                $.ajax({
+                    type: 'get',
+                    url: '/backend/questionBank/api/deleteMaterial',
+                    data: {
+                        tyId: $(this).attr('tyId'),
+                        id: $(this).attr('id')
+                    },
+                    success: function (data) {
+                        if (data == 'success') {
+                            window.location.reload();
+                        }
+                    }
+                })
+            })
+        </script>
+</body>
+
+</html>

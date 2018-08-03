@@ -1,0 +1,53 @@
+<!-- 登录 -->
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <%- include('./template/head.ejs',{title:'注册'}) %>
+        <!-- 注册样式 -->
+        <link rel="stylesheet" href="/stylesheets/login.css">
+</head>
+
+<body>
+    <!-- 导航   -->
+    <%- include('./template/header.ejs')  %>
+
+        <!-- 登录 部分  -->
+        <div class="content">
+            <div id="wrapper">
+            <form name="login-form" class="login-form" action="/register" method="post" id='register'>
+                    <div class="header">
+                        <h1>用户注册</h1>
+                    </div>
+                    <div class="content">
+                        <input name="username" id="username" type="text"     class="input username" placeholder="请输入6-12位用户名" />
+                        <div class="user-icon"></div>
+                        <input name="nickname" id="nickname" type="text" class="input nickname" placeholder="请输入6-12位昵称" />
+                        <div class="nick-icon"></div>
+                        <input name="password" id="password" type="password" class="input password" placeholder="请输入6-12位密码" />
+                        <div class="pass-icon"></div>
+                        <input name="repassword" id="repassword"  type="password" class="input repassword" placeholder="请重复上次密码" />
+                        <div class="repass-icon"></div>
+                        <input name="phoneNum" id="phoneNum" type="phone" class="input phoneNum" placeholder="手机号码" />
+                        <input type="button" value="获取短信验证码" class="button smsBtn" id="getSmsBtn" />
+                        <input name="sms" id="sms" type="text" class="input sms" placeholder="短信验证码" />
+                    </div>
+
+                    <div class="footer">
+                        <input type="submit" name="submit" value="注册" class="button" id="registerBtn" />
+                        <a href="/login" class="register">已有账号登录</a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <!-- 脚步公共文件   -->
+        <%- include('./template/foot.ejs') %>
+        <script src="/libs/jquery-validation/jquery.validate.min.js"></script>
+        <script src="/libs/jquery-validation/additional-methods.min.js"></script>
+        <script src="/libs/jquery-validation//localization/messages_zh.js"></script>
+        <script src="/js/login.js"></script>
+</body>
+
+</html>

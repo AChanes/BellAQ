@@ -1,0 +1,209 @@
+/** 首页  样式 **/
+.usermessage {
+     position: relative;
+     text-align: center;
+     height: 280px;
+     background: #f4f4f4;
+     margin: auto;
+    box-shadow: 0 -1px 5px #ccc;
+ }
+
+ .usermessage>.practice{
+    float: left;
+    width: 320px;
+    height: 150px;
+    background: url(/images/tpo_bg2.png) no-repeat;
+    border-radius: 5px;
+    margin:20px calc((100% - 320px*3) / 6);
+    transition: 0.1s;
+    box-shadow: 3px 1px 7px #ccc;
+ }
+.usermessage>.practice h6{
+    color: #333;
+    font-size: 18px;
+    padding: 30px 0;
+}
+.usermessage>.practice h6 span{
+    font-weight: lighter;
+    margin-left: 8px;
+    color: #666;
+}
+.usermessage>.practice p{
+    color: #555;
+    font-weight: 600;
+    font-size: .8rem;
+    padding: 15px 28px 0 24px;
+    line-height: 24px;
+}
+.usermessage>.practice:hover{
+    background:url('/images/hover.png') no-repeat;
+    box-shadow: 0px 0px 10px rgba(89,137,255,0.55);
+}
+.usermessage>.practice:hover h6{
+    color:#fff;
+}
+.usermessage>.practice:hover span{
+    color:#fff;
+}
+.usermessage>.practice:hover p{
+    color:#D6E1FF;
+}
+.usermessage>.practice a{
+    transition: .35s;
+    color:#5172ff;
+}
+.usermessage>.practice:hover a,.usermessage>.practice a:hover{
+    color: #fff;
+    font-size: 1.65rem;
+    font-weight: bold;
+    padding:0 5px;
+}
+
+
+
+
+
+
+/** questionType 答题类型 **/
+
+.questionType{
+    width: 1200px;
+    margin: 60px auto 44px auto;
+    height: 320px;
+}
+.questionType .tpo{
+    width: 310px;
+    height: 320px;
+    background: url(/images/tpo_bg.png) no-repeat;
+    margin-left:105px;
+    transition: 0.1s;
+}
+.questionType .tpo:hover{
+    box-shadow: 0px 0px 10px rgba(89,137,255,0.55);
+}
+.questionType .tpo h6{
+    color: #fff;
+    font-size: 18px;
+    padding: 27px 0 0 24px;
+}
+.questionType .tpo p{
+    color: #D6E1FF;
+    font-size: 14px;
+    padding: 15px 28px 0 24px;
+    line-height: 24px;
+}
+.questionType .practice{
+    float: left;
+    width: 320px;
+    height: 150px;
+    background: url(/images/tpo_bg2.png) no-repeat;
+    border-radius: 2px;
+    margin: 0px 0px 20px 20px;
+    transition: 0.1s;
+}
+.questionType .practice h6{
+    color: #333;
+    font-size: 18px;
+    padding: 27px 0 0 24px;
+}
+.questionType .practice h6 span{
+    font-weight: lighter;
+    margin-left: 8px;
+    color: #666;
+}
+.questionType .practice p{
+    color: #666;
+    font-size: 14px;
+    padding: 15px 28px 0 24px;
+    line-height: 24px;
+}
+.questionType .practice:hover{
+    background:url('/images/hover.png') no-repeat;
+    box-shadow: 0px 0px 10px rgba(89,137,255,0.55);
+}
+.questionType .practice:hover h6{
+    color:#fff;
+}
+.questionType .practice:hover span{
+    color:#fff;
+}
+.questionType .practice:hover p{
+    color:#D6E1FF;
+}
+
+/** bigdata **/
+.bigData{
+    height: 590px;
+    background:#fafafa url(/images/bigData-bg.png) no-repeat;
+    background-position: 50% 81px;
+}
+.bigDataWrap{
+    width: 1200px;
+    margin: 0 auto;
+    height: 590px;   
+    text-align: center;
+}
+.bigDataWrap .title1{
+    font-size: 24px;
+    color: #333;
+    padding-top: 64px;
+    font-weight: bold;
+}
+.bigDataWrap .title2{
+    font-size: 16px;
+    color: #666;
+    padding-top: 14px;
+}
+.bigDataWrap ul{
+    width: 1080px;
+    margin: 40px auto 0 auto;
+    height: 210px;
+}
+.bigDataWrap ul li{
+    float: left;
+    width: 360px;
+}
+.bigDataWrap ul li p{
+    font-size: 18px;
+    color: #333;
+    padding: 5px 0 14px 0;
+}
+.bigDataWrap ul li span{
+    font-size: 14px;
+    color: #999;
+}
+.bigDataWrap .regBtnLink{
+    margin-top: 49px;
+}
+.bigDataWrap .regBtnLink a{
+    display: inline-block;
+    width: 226px;
+    height: 50px;
+    line-height: 50px;
+    background:#6097ff;
+    border-radius: 4px;
+    font-size: 18px;
+    color: #fff;
+    box-shadow: 0px 5px 10px  rgba(180,220,253,0.73);
+}
+.bigDataWrap .regBtnLink a:hover{
+    background: #5172ff;
+}
+.bigDataWrap .loginBtnLink{
+    margin-top:16px;
+}
+.bigDataWrap .loginBtnLink a{
+    font-size: 18px;
+    color: #4082FF;
+}
+.bigDataWrap .loginBtnLink a:hover{
+    color: #5172ff;
+    text-decoration: underline;
+}
+
+.bigDataWrap .regBtnLink{
+    margin-top:49px;
+}
+
+
+

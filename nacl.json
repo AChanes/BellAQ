@@ -1,0 +1,75 @@
+[   
+    
+    {
+        "group": "admin",
+        "permissions": [
+            {
+                "resource": "members/*",
+                "methods": ["GET","POST"],
+                "action": "allow"
+            }, 
+            {
+                "resource": "selfManager/*",
+                "methods": ["GET", "POST"],
+                "action": "allow"
+            },
+            {
+                "resource": "/",
+                "methods": ["GET"],
+                "action": "allow"
+            }
+        ]
+    },
+    {
+        "group": "teacher",
+        "permissions": [
+            {
+                "resource": "questionBank/*",
+                "methods": ["GET","POST"],
+                "action": "allow"
+            }, 
+            {
+                "resource": "selfManager/*",
+                "methods": ["GET", "POST"],
+                "action": "allow"
+            },
+            {
+                "resource": "/",
+                "methods": [
+                    "GET"
+                ],
+                "action": "allow"
+            }
+        ]
+    },
+    {
+        "group": "sadmin",
+        "permissions": [
+            {
+                "resource": "*",
+                "methods": ["GET", "POST"],
+                "action": "allow"
+            }, 
+            {
+                "resource": "selfManager/*",
+                "methods": ["GET", "POST"],
+                "action": "allow"
+            },
+            {
+                "resource": "/",
+                "methods": ["GET"],
+                "action": "allow"
+            }
+        ]
+    },
+    {
+        "group": "guest",
+        "permissions": [
+            {
+                "resource": "/",
+                "methods": ["GET"],
+                "action": "allow"
+            }
+        ]
+    }
+]

@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('tpl/head.html',{title:'首页'}) %>
+</head>
+
+<body data-type="index">
+    <%- include('tpl/header.html',{ title : '贝尔英语'}) %>
+        <div class="tpl-page-container tpl-page-header-fixed">
+
+            <%- include('tpl/nav.html' , {user : 'teacher'}) %>
+<div class="tpl-content-wrapper">
+    <div class="tpl-content-page-title">
+        英贝尔
+    </div>
+    <ol class="am-breadcrumb">
+        <li>
+            <a href="/backend" class="am-icon-home">首页</a>
+        </li>
+      
+    </ol>
+ 
+
+    <div class="row">
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat blue">
+                <div class="visual">
+                    <i class="am-icon-microphone"></i>
+                </div>
+                <div class="details">
+                    <div class="number">昨日答题： <%=times%> </div>
+                    <div class="desc"> 口语 </div>
+                </div>
+                <a class="more" href="javascript:;"> 
+                    <i class=""></i>
+                </a>
+            </div>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat red">
+                <div class="visual">
+                    <i class="am-icon-volume-up"></i>
+                </div>
+                <div class="details">
+                    <div class="number">正确率：<%=Math.round(listenCorrectRate*100)%>% </div>
+                    <div class="desc"> 听力</div>
+                </div>
+                <a class="more" href="javascript:;"> 
+                    <i class=""></i>
+                </a>
+            </div>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat green">
+                <div class="visual">
+                    <i class="am-icon-minus-square-o"></i>
+                </div>
+                <div class="details">
+                    <div class="number">正确率： <%=Math.round(readCorrectRate*100)%> %</div>
+                    <div class="desc"> 阅读 </div>
+                </div>
+                <a class="more" href="javascript:;"> 
+                    <i class=""></i>
+                </a>
+            </div>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat purple">
+                <div class="visual">
+                    <i class="am-icon-edit"></i>
+                </div>
+                <div class="details" >
+                    <div class="number">平均分： <%=Math.round(writeAverageScore*100)%></div>
+                    <div class="desc"> 写作 </div>
+                </div>
+                <a class="more" href="javascript:;"> 
+                    <i class=""></i>
+                </a>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="row">
+        <div class="am-u-md-6 am-u-sm-12 row-mb">
+            <div class="tpl-portlet">
+                <div class="tpl-portlet-title">
+                    <div class="tpl-caption font-red ">
+                        <i class="am-icon-bar-chart"></i>
+                        <span> 英贝尔题数排行榜</span>
+                    </div>
+                   
+                </div>
+                <div class="tpl-scrollable">
+           
+
+                    <table class="am-table tpl-table">
+                        <thead>
+                            <tr class="tpl-table-uppercase">
+                                <th>学生</th>
+                                <th>分数</th>
+                                <th>题数</th>
+                                <th>正确率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                         <%questionTop.forEach(val=>{%>
+                                <tr>
+                                    <td>
+                                        <img src="<%=val.img%>"  onerror="this.src='assets/img/user01.png'"alt="" class="user-pic">
+                                        <a class="user-name" href="javascript:;"><%=val.nickname%></a>
+                                    </td>
+                                    <td><%=val.score%></td>
+                                    <td><%=val.questionNum%></td>
+                                    <td class="font-green bold"><%=Math.round(val.rightNum/val.totalNum*100)%>%</td>
+                                </tr>
+                            <%})%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-md-6 am-u-sm-12 row-mb">
+            <div class="tpl-portlet">
+                <div class="tpl-portlet-title">
+                    <div class="tpl-caption font-red ">
+                        <i class="am-icon-edit"></i>
+                        <span> 英贝尔分数排行榜</span>
+                    </div>
+                   
+                </div>
+                <div class="tpl-scrollable">
+                  
+                    <table class="am-table tpl-table">
+                        <thead>
+                            <tr class="tpl-table-uppercase">
+                                <th>学生</th>
+                                <th>分数</th>
+                                <th>题数</th>
+                                <th>正确率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%scoreTop.forEach(val=>{%>
+
+                                <tr>
+                                    <td>
+                                        <img src="<%=val.img%>"  onerror="this.src='assets/img/user01.png'"alt="" class="user-pic">
+                                        <a class="user-name" href="javascript:;"><%=val.nickname%></a>
+                                    </td>
+                                    <td><%=val.score%></td>
+                                    <td><%=val.questionNum%></td>
+                                    <td class="font-green bold"><%=Math.round(val.rightNum/val.totalNum*100)%>%</td>
+                                </tr>
+                            <%})%>
+
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  
+
+
+
+</div>
+                
+
+
+        </div>
+
+        <%- include('tpl/foot.html') %>
+
+            <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js">
+            </script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js">
+            </script>
+          
+</body>
+
+</html>

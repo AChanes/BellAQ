@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <%- include('./template/head.ejs',{title:'首页'}) %>
+    <!-- 首页样式文件 -->
+    <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+
+<body>
+        <%- include('./template/header.ejs')  %>
+        <!--   banner -->
+        <%- include('./template/banner.ejs')  %>
+
+        <div class="questionType">
+            <a href="/mock">
+                <div class="tpo fl">
+                    <h6>考前模拟 TPO模考</h6>
+                    <p>超能学TPO模考是为TOEFL考生提供全真模考环境，提前带考生适应考试环境，体验完整考试流程，同时根据真实考试评估标准进行考前估分，为你的备考提供数据支持。</p>
+                </div>
+            </a>
+            <a href="/exercise/read">
+                <div class="practice">
+                    <h6>阅读练习
+                        <span>READING</span>
+                    </h6>
+                    <p>提升托福阅读能力的快捷途径，包含10种考试题型，针对性训练。</p>
+                </div>
+            </a>
+            <a href="/exercise/spoken">
+                <div class="practice">
+                    <h6>口语练习
+                        <span>SPEAKING</span>
+                    </h6>
+                    <p>按顺序或按话题练习，每篇题目配套名师范例，辅助备考。</p>
+                </div>
+            </a>
+            <a href="/exercise/listen">
+                <div class="practice">
+                    <h6>听力练习
+                        <span>LISTENING</span>
+                    </h6>
+                    <p>支持单篇练习和精听精读，快速提升听力水平，冲刺高分。</p>
+                </div>
+            </a>
+            <a href="/exercise/write">
+                <div class="practice">
+                    <h6>写作练习
+                        <span>WRITING</span>
+                    </h6>
+                    <p>包含几乎全部考试常见话题，提前熟悉考试题型和流程。</p>
+                </div>
+            </a>
+        </div>
+
+    <!-- bigdata -->
+
+        <div class="bigData">
+            <div class="bigDataWrap">
+                <p class="title1">云端做题记录&nbsp;&nbsp;&nbsp;大数据分析</p>
+                <p class="title2">梦想路上，我们伴你前行，与25万托福考友一起，和托福说分手</p>
+                <ul class="clearfix">
+                    <li>
+                        <img src="/images/big_icon1.png">
+                        <p>云端同步</p>
+                        <span>练习记录、模考记录、收藏记录
+                            <br>云端存储，多端同步，随时回顾</span>
+                    </li>
+                    <li>
+                        <img src="/images/big_icon2.png">
+                        <p>大数据错题分析</p>
+                        <span>正确率、做题时长、易错题，难易度
+                            <br>大数据智能分析</span>
+                    </li>
+                    <li>
+                        <img src="/images/big_icon3.png">
+                        <p>个性化备考方案</p>
+                        <span>个性化练习备考方案，推荐针对个人做题
+                            <br>数据智能推荐</span>
+                    </li>
+                </ul>
+                <p class="regBtnLink">
+                    <a href="#">立即注册&nbsp;&nbsp;&nbsp;开始练习</a>
+                </p>
+                <p class="loginBtnLink">
+                    <a href="#">已有账号登录</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="concen">
+            <div class="usermessage">
+                <div class="practice">
+                    <h6>打卡
+                        <span>ClockIn</span>
+                    </h6>
+                    <p>坚持每天
+                        <a href="javascript:check_login()">打卡</a>      
+                    </p>
+                </div>
+        
+                <div class="practice">
+                    <h6>目标
+                        <span>Target</span>
+                    </h6>
+                    <p>每天一个小目标.</p>
+                </div>
+        
+                <div class="practice">
+                    <h6>刷题记录
+                        <span>Exercise Number</span>
+                    </h6>
+                    <p>冲刺高分。</p>
+                </div>
+            </div>
+        </div>      
+    
+        <!-- 公共脚页 -->
+        <%- include('./template/footer.ejs')%>
+    </body>
+</html>

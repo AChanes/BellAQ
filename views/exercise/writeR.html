@@ -1,0 +1,162 @@
+<html class="ks-webkit537 ks-webkit ks-chrome65 ks-chrome" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        查看写作
+    </title>
+    <link rel="stylesheet" href="/stylesheets/exAll.css">
+    <link rel="stylesheet" href="/stylesheets/tole.css">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/dati.css">
+    <link rel="stylesheet" href="/stylesheets/retu.css">
+
+</head>
+
+<body>
+    <div class="box">
+        <% data.forEach(val=>{%>
+            <div id="content1" class="tf-navtop">
+                <div class="wid1200 margin-auto">
+                    <div class="c pb10">
+                        <div class="left ">
+                            <dl class="Tn-nav-lfont c">
+                                <dt>
+                                <a href="/" class="ziti">
+                                    英贝尔
+                                </a>
+                                </dt>
+                                <dd class="Tn-navfont">
+                                    <h2>做题结果：<%=val.title%></h2>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="right Tn-rr-bsolo">
+                            <a href='/exercise/write'  style="font-size:12px;" class="Tn-witbut ml10" >退出练习</a>
+                        </div>
+                    </div>
+            
+                </div>
+            
+            </div>
+        <div class="margin-auto search_article" id="demo">
+            <div id="examples" class="c">
+                <div class="Tn-wittopcont">
+                    <div id="content-top" class="content light Tn-withefont wid1200 margin-auto mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar"
+                        style="overflow: visible;">
+                        <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical_horizontal mCSB_outside" style="max-height: none;"
+                            tabindex="0">
+                            <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y mCS_x_hidden mCS_no_scrollbar_x"
+                                style="position: relative; top: 0px; left: 0px; width: 100%;" dir="ltr">
+                                <h1>Directions: You have 30 minutes to plan and write your response. Your response will be judged on
+                                    the basis of the quality of your writing and on how well your response presents the points in
+                                    the lecture and their relationship to the reading passage. Typically an effective response will
+                                    be 300 words at least.</h1>
+                                <p>Question: Summarize the points made in the lecture, being sure to explain how they challenge the
+                                    specific points made in the reading passage.</p>
+                            </div>
+                        </div>
+                        <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                            style="display: none;">
+                            <div class="mCSB_draggerContainer">
+                                <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px;">
+                                    <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+                                </div>
+                                <div class="mCSB_draggerRail"></div>
+                            </div>
+                        </div>
+                        <div id="mCSB_1_scrollbar_horizontal" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_horizontal"
+                            style="display: none;">
+                            <div class="mCSB_draggerContainer">
+                                <div id="mCSB_1_dragger_horizontal" class="mCSB_dragger" style="position: absolute; min-width: 50px; width: 0px; left: 0px;">
+                                    <div class="mCSB_dragger_bar"></div>
+                                </div>
+                                <div class="mCSB_draggerRail"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class=" left leftgrybox">
+                    <!--左侧题目 -->
+                    <div id="content-md" class="content light wid580 right mr20 mCustomScrollbar _mCS_2 mCS-autoHide mCS_no_scrollbar" style="height: 612px; overflow: visible;">
+                        <div id="mCSB_2" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical_horizontal mCSB_outside" tabindex="0"
+                            style="max-height: none;">
+                            <div id="mCSB_2_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y mCS_x_hidden mCS_no_scrollbar_x"
+                                style="position: relative; top: 0px; left: 0px; width: 100%;" dir="ltr">
+                                <div class="Tn-witleft">
+                                    <p><%=val.material%></p>
+        
+                                </div>
+        
+                            </div>
+                        </div>
+                        <div id="mCSB_2_scrollbar_vertical" class="mCSB_scrollTools mCSB_2_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                            style="display: none;">
+                            <div class="mCSB_draggerContainer">
+                                <div id="mCSB_2_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px;">
+                                    <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+                                </div>
+                                <div class="mCSB_draggerRail"></div>
+                            </div>
+                        </div>
+                        <div id="mCSB_2_scrollbar_horizontal" class="mCSB_scrollTools mCSB_2_scrollbar mCS-minimal-dark mCSB_scrollTools_horizontal"
+                            style="display: none;">
+                            <div class="mCSB_draggerContainer">
+                                <div id="mCSB_2_dragger_horizontal" class="mCSB_dragger" style="position: absolute; min-width: 50px; width: 0px; left: 0px;">
+                                    <div class="mCSB_dragger_bar"></div>
+                                </div>
+                                <div class="mCSB_draggerRail"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--右侧内容-->
+                <div class=" left leftwitbox">
+                    <div id="content-md01" class="content light wid590 left ml25 mCustomScrollbar _mCS_3 mCS-autoHide mCS_no_scrollbar" style="height: 612px; overflow: visible;">
+                        <div id="mCSB_3" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical_horizontal mCSB_outside" tabindex="0"
+                            style="max-height: none;">
+                            <div id="mCSB_3_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y mCS_x_hidden mCS_no_scrollbar_x"
+                                style="position: relative; top: 0px; left: 0px; width: 100%;" dir="ltr">
+                                <div class="Tn-witrig">
+                                    <dl class="c Tn-wittopmun">
+                                        
+                                
+                                    </dl>
+                                    <div class="Tn-witrighfont" style="font-size:16px;">
+                                        <p><%=val.wContent%></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="mCSB_3_scrollbar_vertical" class="mCSB_scrollTools mCSB_3_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                            style="display: none;">
+                            <div class="mCSB_draggerContainer">
+                                <div id="mCSB_3_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px;">
+                                    <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+                                </div>
+                                <div class="mCSB_draggerRail"></div>
+                            </div>
+                        </div>
+                        <div id="mCSB_3_scrollbar_horizontal" class="mCSB_scrollTools mCSB_3_scrollbar mCS-minimal-dark mCSB_scrollTools_horizontal"
+                            style="display: none;">
+                            <div class="mCSB_draggerContainer">
+                                <div id="mCSB_3_dragger_horizontal" class="mCSB_dragger" style="position: absolute; min-width: 50px; width: 0px; left: 0px;">
+                                    <div class="mCSB_dragger_bar"></div>
+                                </div>
+                                <div class="mCSB_draggerRail"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+         
+
+            <%})%>
+    </div>
+<script src="/javascript/writeRemoveS.js"></script>
+</body>
+</html>

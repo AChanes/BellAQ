@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <%- include('./template/head.ejs',{title:'个人中心'}) %>
+    <!-- 个人中心样式文件 -->
+    <link rel="stylesheet" href="/stylesheets/user_center.css">
+    <link rel="stylesheet" href="/stylesheets/calendar.css">
+    <link rel="stylesheet" href="/stylesheets/popup.css">
+</head>
+
+<body>
+        <%- include('./template/header.ejs')  %>
+        
+
+        <!-- 用户中心内容区域 -->
+
+        <%- include('./template/target.ejs')  %>
+        <div class="userCenter Tn-wid1180 Tn-marauto">
+            <div class="clearfix">
+                <!-- 练习部分 -->
+                <div class="fl Tn-wid880">
+                    <div class="fl Tn-wid230 Tn-mt20">
+                        <div class="Tn-pb-witbg">
+                            <dl class="Tn-userlogin clearfix">
+                                <dt>
+                                    <img src="<%= request.session.user.img ? request.session.user.img : '/images/avator.png' %>" width="60" height="60">
+                                </dt>
+                                <dd>
+                                    <h1>
+                                        <i>华仲师兄</i>
+                                        <span class="Tn-lh-jb" id="user-level">Lv.<%= ~~(request.session.user.questionNum/50)+1 %></span>
+                                    </h1>
+                                    <p>累计得分
+                                        <span id="totalScoreCount"><%= request.session.user.score?request.session.user.score:"--"%></span>
+                                    </p>
+                                </dd>
+                            </dl>
+                            <!-- 学习数量 -->
+                            <div class="Tn-l-userbtn" id="havePractice">
+                                <ul class="Tn-u-date clearfix Tn-pl15">
+                                    <li>
+                                        <h1>做题总数</h1>
+                                        <p>
+                                            <span id="subjcetCount">
+                                                <%= request.session.user.questionNum?request.session.user.questionNum:"--"%>
+                                            </span>题</p>
+                                    </li>
+                                    <li>
+                                        <h1>学习时长</h1>
+                                        <p id="costTimeCount">
+                                            <span>
+                                                <%= request.session.user.ltime?Math.ceil((new Date() - new Date(request.session.user.ltime)) / 1000 / 60 / 60 / 24):"1"%>
+                                            </span>天</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <!-- 目标 -->
+                       
+
+                        <div class="Tn-pb-witbg Tn-mt20" id="noTarget">
+                            <% if(request.session.user.isPlan == 0){ %>
+                                <p class="Tn-tcenter Tn-i-wszimg">
+                                    <img src="/images/Tn-pic3.jpg" width="111" height="101">
+                                </p>
+                                <p class="Tn-i-gfont Tn-tcenter noTarget-none">进步就在每一天~</p>
+                                <p class="Tn-i-gfont Tn-tcenter noTarget-expire">还未设置目标或目标已过期</p>
+                                <p class="Tn-i-gfont Tn-tcenter noTarget-expire">请重新设置！</p>
+                                <p class="Tn-tcenter Tn-i-wszbnt">
+                                    <input name="" type="button" value="设置考试目标" class="Tn-bnt-public punchClockBtn">
+                                </p>
+                            <%}else{%>
+                                <% if(userPlan.targetStatus == '2'){ %>
+                                    <dl class="Tn-i-kqdate">
+                                        <dt id="examTime">
+                                            <% const planDate =  new Date(userPlan.complete);  %>
+                                            <%= `距${planDate.getFullYear()}年${planDate.getMonth()+1}月${planDate.getDate()}日的计划`%>
+                                        </dt>
+                                        <dd id="lastDate">
+                                            <%=Math.ceil((planDate - new Date()) / 1000 / 60 / 60 / 24)%><span> 天</span>
+                                        </dd>
+                                    </dl>
+                                <% } %>
+                                <dl class="Tn-i-mb">
+                                    <dt>我的目标：</dt>
+                                    <dd class="Tn-i-mbnmu" id="mark"><%= userPlan.score != '' ? userPlan.score : '0' %>分</dd>
+                                    <dd class="Tn-i-mbfb clearfix" id="mark-datail">
+                                        <p>难度</p>
+                                        <p><%= userPlan.level != '' ? userPlan.level : '未知领域' %></p>
+                                    </dd>
+                                    <dd class="Tn-i-mbgo">
+                                        <h1>
+                                            <a href="javascript:void(0);">
+                                                <%= 
+                                                  (()=>{switch(userPlan.targetStatus){
+                                                     case "2": return '计划进行中';
+                                                     case "1": return '计划完成了';
+                                                     case "0": return '计划失败了';
+                                                     default:  return '计划失败了';
+                                                  }})()
+                                                %>
+                                            </a>
+                                        </h1>
+                                    </dd>
+                                </dl>
+                            <%} %>
+                        </div>
+                    </div>
+
+
+                <!-- 中间部分 -->
+                    <div class="fr Tn-wid630">
+                    <!-- 
+                        <div class="Tn-pb-witbg Tn-mt20 Tn-position promote hide">
+                            <a href="javascript:;" class="Tn-tccoles closeLV"></a>
+                            <ul class="clearfix Tn-i-mktop">
+                                <li class="fl Tn-wid230 Tn-i-liimg">
+                                    <img src="/images/Tn-i-mk.png" width="227" height="140">
+                                </li>
+                                <li class="fr Tn-wid280 Tn-i-topfont">
+                                    <h1>恭喜你升级到
+                                        <span class="promote-level"></span>啦！</h1>
+                                    <p>本次升级超越
+                                        <span class="redspan promote-overstepCount">264460</span> 名考友</p>
+                                    <p class="promote-needPoint">升级到下一级所需成长值
+                                        <span class="redspan">390</span>
+                                    </p>
+                                    <p class="Tn-mt20">
+                                        <input name="" type="button" value="给自己点赞   继续加油！" class="Tn-bnt-public cheerBtn">
+                                    </p>
+                                </li>
+                            </ul>
+                        </div> -->
+                    
+                        <div class="Tn-pb-witbg Tn-mt20">
+                            <h1 class="Tn-hfont Tn-i-tpf">累计完成练习</h1>
+                            <ul class="Tn-i-lxwc clearfix">
+                                <li>
+                                    <a href="/user/userRecord/read">
+                                        <h1>
+                                            <!-- 道数不为0，显示蓝色图色 道数为0，显示灰色图色-->
+                                            <% if(answerRecord.filter( record => {return record.tyId == 2}).length > 0){ %>
+                                            <img src="/images/Tn-i-b01.png" width="74" height="47" class="prac-blue read-blue">
+                                            <% }else{ %>
+                                            <img src="/images/Tn-i-gb01.png" width="74" height="47" class="prac-gray read-gray">
+                                            <% } %>
+                                        </h1>
+                                        <p class="noData prac-count read-count">
+                                            <span><%=answerRecord.filter( record => {return record.tyId == 2}).length%></span>道阅读</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/user/userRecord/listen">
+                                        <h1>
+                                            <% if(answerRecord.filter( record => {return record.tyId == 3}).length > 0){ %>
+                                                <img src="/images/Tn-i-b02.png" width="74" height="47" class="prac-blue listen-blue">
+                                            <% }else{ %>
+                                                <img src="/images/Tn-i-gb02.png" width="74" height="47" class="prac-gray listen-gray">
+                                            <% } %>
+                                        </h1>
+                                        <p class="noData prac-count listen-count">
+                                            <span><%=answerRecord.filter( record => {return record.tyId == 3}).length%></span>
+                                        道听力</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/user/userRecord/spoken">
+                                        <h1>
+                                            <% if(answerRecord.filter( record => {return record.tyId == 1}).length > 0){ %>
+                                                <img src="/images/Tn-i-b03.png" width="74" height="47" class="prac-blue speak-blue">
+                                            <% }else{ %>
+                                                <img src="/images/Tn-i-gb03.png" width="74" height="47" class="prac-gray speak-gray">
+                                            <% } %>
+                                        </h1>
+                                        <p class="noData prac-count speak-count">
+                                            <span><%=answerRecord.filter( record => {return record.tyId == 1}).length%></span>道口语
+                                        </p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/user/userRecord/write">
+                                        <h1>
+                                            <% if(answerRecord.filter( record => {return record.tyId == 4}).length > 0){ %>
+                                                <img src="/images/Tn-i-b04.png" width="74" height="47" class="prac-blue write-blue">
+                                            <% }else{ %>
+                                                <img src="/images/Tn-i-gb04.png" width="74" height="47" class="prac-gray write-gray">
+                                            <% } %>
+                                        </h1>
+                                        <p class="noData prac-count speak-count">
+                                            <span>
+                                                <%=answerRecord.filter( record => {return record.tyId == 4}).length%>
+                                            </span>道写作
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                    
+                            
+                            <h1 class="Tn-hfont Tn-pl30 Tn-mt30">今日推荐任务</h1>
+                            <div class="Tn-i-tjrw">
+                                <dl class="clearfix task-read">
+                                    <dt>
+                                        ● 阅读任务
+                                    </dt>
+                                    <% recommend.filter(rec =>{return rec.tyid == 2}).forEach(rec =>{ %>
+                                        <dd>
+                                            <a href="/exercise/read/translate?id=<%=rec.id %>"><%=rec.title %></a>
+                                        </dd>
+                                   <% }) %>
+                                </dl>
+                                <dl class="clearfix task-listen">
+                                    <dt>
+                                        ● 听力任务
+                                    </dt>
+                                    <% recommend.filter(rec =>{return rec.tyid == 3}).forEach(rec =>{ %>
+                                        <dd>
+                                            <a href="/exercise/listen/translate/first?id=<%=rec.id %>">
+                                                <%=rec.title %>
+                                            </a>
+                                        </dd>
+                                    <% }) %>
+                                </dl>
+                                <dl class="clearfix task-speak">
+                                    <dt>
+                                        ● 口语任务
+                                    </dt>
+                                    <% recommend.filter(rec =>{return rec.tyid == 1}).forEach(rec =>{ %>
+                                        <dd>
+                                            <a href="/exercise/spoken/translate/first?id=<%=rec.id %>">
+                                                <%=rec.title %>
+                                            </a>
+                                        </dd>
+                                    <% }) %>
+                                </dl>
+                                <dl class="clearfix task-write">
+                                    <dt>
+                                        ● 写作任务
+                                    </dt>
+                                    <% recommend.filter(rec =>{return rec.tyid == 4}).forEach(rec =>{ %>
+                                        <dd>
+                                            <a href="/exercise/write/translate/firsts?id=<%=rec.id %>">
+                                                <%=rec.title %>
+                                            </a>
+                                        </dd>
+                                    <% }) %>
+                                </dl>
+                            </div>
+                    
+                        </div>
+                    
+                        <div class="Tn-pb-witbg Tn-mt20 Tn-pb50">
+                            <h1 class="Tn-hfont Tn-i-tpf">其他人都在学</h1>
+                            <div style="height:552px; width:100%; overflow-y: scroll;" id="scrollWrap">
+                                <div style="width: 100%;" class="other-doneRecords" id="scrollContent">
+                                    <% for(var i = 0 ; i < 20; i++){%>
+                                    <dl class="clearfix Tn-i-btj">
+                                        <dt class="fl Tn-position open_all ">
+                                            <img src="/images/avator.png" width="50" height="50" class="Tn-i-dtimg">
+                                            <!-- <div class="open_cont disnone Tn-i-userimg-c">
+                                                <b class="Tn-d-d"></b>
+                                                <h1 class="Tn-tcenter Tn-mt20">
+                                                    <img src="/images/avator.png" width="58" height="58" class="Tn-biguserimg">
+                                                </h1>
+                                                <h2 class="Tn-tcenter Tn-hfont">
+                                                    <i>sunflower</i>
+                                                    <b class="Tn-lh-d">Lv.2</b>
+                                                </h2>
+                                                <ul class="clearfix Tn-userli">
+                                                    <li>
+                                                        <h2>累计做题</h2>
+                                                        <h3><%= Math.random() * 1000 + 300 %></h3>
+                                                    </li>
+                                                    <li>
+                                                        <h2>累计得分</h2>
+                                                        <h3>3710</h3>
+                                                    </li>
+                                                </ul>
+                                            </div> -->
+                                        </dt>
+                                        <dd class="fl Tn-wid435">
+                                            <h1><%= i%2 == 0 ?mock.Random.name() : mock.Random.cname() %></h1>
+                                            <p>完成了一道 TPO <%= ['听力','阅读','模考','写作'][~~(Math.random() * 4)] %>
+                                                <span>2018-06-07 13:25:54</span>
+                                            </p>
+                                        </dd>
+                                        <dd class="fr Tn-wid60 Tn-tright Tn-i-9 praise-link" data-creatid="5498" data-masterid="962337">
+                                            <a href="javascript:;" class="Tn-i-hand"></a>
+                                            <span class="yl-study-praiceNum">赞</span>
+                                        </dd>
+                                    </dl>
+                                    <%}%>
+
+                                    <!-- 中间内容结束 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+           
+                <!-- 右侧 -->
+                <div class="fr Tn-wid280">
+                    <%- include('./template/calendar.ejs')%>
+                </div>
+            </div>   
+        </div>
+
+
+
+        <!-- 公共脚页 -->
+        <%- include('./template/footer.ejs')%>
+        <!-- 业务 js -->
+        <script src="/js/calendar.js"></script>
+        <script src="js/userCenter.js"></script>
+</body>
+
+</html>

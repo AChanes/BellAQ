@@ -1,0 +1,47 @@
+<%
+    const header_links =  [
+         { path : '/', name : '首页' },
+         { path : '/guide', name : '备考指南' },
+         { path : '/exercise', name : 'Top练习' },
+         { path : '/mock', name : 'Top模考' },
+         { path : '/user/userRecord', name : '做题记录' }
+    ];
+    var pathObject = URLUtils.getUrlLevelArray(request.originalUrl);
+%>
+<nav class="top_header_nav">
+    <div class="login_block">
+        <% if(!request.session.user){%>
+            <a href="/login" class="login">
+                登录
+            </a>
+            <a href="/register" class="register">注册</a>
+        <% }else{ %>
+           <a href="javascript:void(0)" class="welcome toggle" id="menu-toggle"> 
+                欢迎 , <%= request.session.user.nickname  %> 
+                <i class="icon-caret-down"></i>  
+                <input type="hidden" name="userId" id="userId" value="<%= request.session.user.id  %>">
+           </a>
+           <ul class="menu" data-menu data-menu-toggle="#menu-toggle">
+                <li>
+                    <a href="/user">个人中心</a>
+                </li>
+                <li class="menu-separator"></li>
+                <li>
+                    <a href="/logout">退出登录</a>
+                </li>
+            </ul>                 
+        <% } %>
+    </div>
+    <ul>
+        <li class='active'>
+            <a href="/">英贝尔</a>
+        </li>
+        <% header_links.forEach( link => { %>
+            <li class="<%='/' + pathObject.pathArr.slice(0,2).join('/') == link.path ? 'active' : ''%>">
+                <a href="<%= link.path %>"><%= link.name %></a>
+            </li>
+        <% }) %>
+    </ul>
+    
+</nav>
+

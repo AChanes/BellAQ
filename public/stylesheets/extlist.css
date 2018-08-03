@@ -1,0 +1,603 @@
+
+.nzkAnalysisWrap{
+    width:1200px;
+    margin:0 auto;
+}
+.nzkSubject{
+    padding-left:20px;
+    font-size:23px;
+    color:#303030;
+    font-weight:bold;
+    height:60px;
+    line-height:60px;
+}
+.nzkSubjectNumber{
+    border-radius:8px;
+}
+.nzkInteractiveWrap{
+    height:60px;
+    background:#f6f6f9;
+    padding:0 30px 0 20px;
+}
+.nzkInteractiveWrap li{
+    float:left;
+}
+.nzkNumber{
+    float:left;
+    margin-left:-10px;
+}
+.nzkNumber li{
+    width:28px;
+    height:28px;
+    background:#fff;
+    border:1px solid #82abff;
+    font-size:20px;
+    color:#82abff;
+    border-radius:4px;
+    text-align:center;
+    margin-left:10px;
+    margin-top:16px;
+}
+.nzkNumber a{
+    width:100%;
+    height:100%;
+    color:#82abff;
+    display:inline-block;
+    text-align:center;
+    line-height:26px;
+}
+.nzkNumber a:hover{
+    background:#82abff;
+    color:#fff;
+}
+.nzkNumber .activeNum{
+  background:#82abff;
+  color:#fff;
+}
+
+.nzkInteractive{
+    float:right;
+}
+.nzkInteractive li{
+    margin-left:28px;
+    margin-top:22px;
+}
+.nzkInteractive a{
+    font-size:14px;
+    color:#adadad;
+    padding:10px;
+    padding-left:30px;
+}
+#nzkBad{
+    background:url("/images/stepone.png") no-repeat left center;
+}
+#nzkGood{
+    background:url("/images/topone.png") no-repeat left center;
+}
+#nzkCollection{
+    background:url("/images/starsone.png") no-repeat left center;
+}
+#nzkCorrection{
+    background:url("/images/closeone.png") no-repeat left center;
+}
+.nzkChoiceQuestionWrap{
+    padding-left:20px;
+    background:#fff;
+    height:390px;
+
+}
+.nzkChoiceQuestion{
+    float:left;
+    width:596px;
+    height:390px;
+    border-right:1px solid #f7f6fb;
+    position:relative;
+    overflow: hidden;
+}
+.nzkChoiceQuestion>div{
+    padding-bottom:30px;
+}
+.nzkNumberOfRuestions{
+    font-size:18px;
+    color:#303030;
+    font-weight:bold;
+    padding-top:14px;
+}
+.nzkNumberOfRuestions a{
+    display:inline-block;
+    width:44px;
+    height:44px;
+    background:url("/images/volumeone.png") no-repeat;
+    vertical-align:middle;
+}
+.nzkStem{
+  padding-right:20px;
+}
+.nzkStem p{
+    font-size:16px;
+    color:#606060;
+    line-height:24px;
+}
+.nzkStem a{
+    display:inline-block;
+    width:44px;
+    height:44px;
+    background:url("/images/headsetone.png") no-repeat;
+    vertical-align:middle;
+}
+.nzkChoice li{
+    font-size:16px;
+    color:#606060;
+    line-height:30px;
+}
+.nzkCorrect{
+    font-size:18px;
+    color:#444444;
+    margin-top:24px;
+}
+.nzkCorrect span{
+    font-size:18px;
+    color:#36cc44;
+}
+.nzkShowInto{
+    margin-left:-16px;
+    margin-top:20px;
+}
+.nzkTable{
+    min-height:166px;
+}
+.nzkChoiceQuestion table{
+    border-collapse:collapse;
+    color:#606060;
+    font-size:16px;
+    border-radius:4px;
+    text-align:center;
+    width:576px;
+}
+.nzkChoiceQuestion th{
+    color:#000;
+}
+.nzkChoiceQuestion th,.nzkChoiceQuestion td,.questionTable th,.questionTable td{
+    border:1px solid #e6e6e6;
+    min-height:40px;
+    padding:6px;
+}
+table img{
+    display:inline-block;
+}
+.th1{
+    max-width:158px;
+}
+.th2,.th3{
+    width:80px;
+}
+.nzkShowInto a{
+    display:inline-block;
+    width:96px;
+    height:32px;
+    border-radius:6px;
+    background:#fff;
+    color:#4773dc;
+    border:1px solid #4773dc;
+    font-size:14px;
+    text-align:center;
+    line-height:32px;
+    margin-left:16px;
+}
+.nzkShowInto a:hover{
+    background:#4773dc;
+    color:#fff;
+}
+.nzkOriginalTitle{
+    float:right;
+    width:582px;
+    height:390px;
+    overflow:auto;
+    position:relative;
+}
+audio{
+    display:none;
+}
+
+.nzkShowBtn{
+    text-align:center;
+    margin-top:36px;
+}
+.nzkShowBtn a{
+    width:80px;
+    height:30px;
+    text-align:center;
+    line-height:30px;
+    background:#fff;
+    color:#4574e0;
+    border:1px solid #e5e5e5;
+    display:inline-block;
+}
+.nzkShowBtn a:nth-child(1){
+    border-radius:15px 0 0 15px;
+    background:#4574de;
+    color:#fff;
+}
+
+.nzkShowBtn a:nth-child(2){
+    border-radius:0 15px 15px 0;
+}
+.nzkVideoDrag{
+    width:576px;
+    margin:0 auto;
+    position:relative;
+}
+.nzkVideoDrag .nzkPlay{
+    display:inline-block;
+    width:34px;
+    height:34px;
+    background:url("/images/play.png") no-repeat;
+    vertical-align:middle;
+}
+.nzkProgress{
+    display:inline-block;
+    width:462px;
+    height:4px;
+    background:#c8c8c8;
+    position:relative;
+}
+.nzkProgress i{
+    width:0%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background:#4874e1;
+}
+.nzkProgress span{
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:50%;
+    left:0;
+    margin-top:-10px;
+    background:#fff;
+    cursor:pointer;
+    -webkit-box-shadow:0px 0px 1px rgba(0,0,0,0.5),0px 0px 1px rgba(0,0,0,0.5);
+    box-shadow:0px 0px 1px rgba(0,0,0,0.5),0px 0px 1px rgba(0,0,0,0.5);
+    border-radius:50%;
+}
+.nzkTime{
+    vertical-align:middle;
+    margin-left:10px;
+    color:#979797;
+    font-size:14px;
+}
+.showaRticle{
+    margin-top:100px;
+}
+#nzkSee{
+    width:100%;
+    height:100%;
+    text-align:center;
+    line-height:100%;
+}
+#nzkSee a{
+    line-height:22px;
+    text-decoration:none;
+    color:#4674de;
+    font-size:18px;
+    font-weight:normal;
+}
+#nzkSee span{
+    background:url("../images/eye.png") no-repeat;
+    display:inline-block;
+    width:26px;
+    height:15px;
+    margin-right:7px;
+}
+#article p{
+    font-size:16px;
+    color:#444;
+    line-height: 26px;
+    margin-top: 10px;
+}
+.nzkShowPicture,#article{
+    padding-bottom:30px;
+}
+.nzkShowPicture{
+    text-align:center;
+}
+.nzkShowPicture img{
+    display:inline-block;
+}
+.nzkContent>div{
+    display:none;
+    padding:20px 15px 30px 10px;
+}
+
+.nzkComment{
+    width:1200px;
+    margin:0 auto;
+    margin-top:22px;
+    padding-bottom:60px;
+}
+.nzkCommentLeft{
+    width:836px;
+    float:left;
+    border-radius:6px;
+    overflow: hidden;
+}
+.nzkDiscuss{
+    padding-left:24px;
+    height:60px;
+    background:#f6f5fa;
+    line-height:60px;
+    border-radius:6px 6px 0 0;
+}
+.nzkDiscuss b{
+    font-size:18px;
+    color:#303030;
+    margin-right:24px;
+}
+.nzkDiscuss span{
+    font-size:16px;
+    color:#adadad;
+}
+.nzkType{
+    display:inline;
+    margin-left:300px;
+}
+.nzkType label{
+    font-size:14px;
+    color:#444;
+    margin-right:24px;
+    cursor:pointer;
+}
+.nzkType input{
+    vertical-align:middle;
+    margin-right:10px;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    -o-appearance:none;
+    appearance: none;
+    width:14px;
+    height:14px;
+    background:url("/images/radioone.png") no-repeat;
+    border-radius:50%;
+    outline:none;
+}
+.nzkType input[type="radio"]:checked{
+    background:url("/images/radiotwo.png") no-repeat;
+}
+.nzkCommentBottom{
+    background:#fff;
+    padding:0 20px 30px 20px;
+}
+.nzkCommentBottom>ul{
+    padding-top:10px;
+}
+.nzkCommentBottom>ul>li{
+    padding-top:12px;
+    padding-bottom:24px;
+    border-bottom:1px solid #f7f7f9;
+}
+.nzkHeadPortrait{
+    float:left;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+.nzkReviewArea{
+    float:left;
+    width:714px;
+    margin-left:30px;
+}
+.nzkReviewArea h6{
+    font-size:16px;
+    color:#000;
+}
+.nzkReviewArea p{
+    font-size:16px;
+    color:#606060;
+    line-height:26px;
+    margin-top:6px;
+}
+.nzkFabulousTime{
+    padding:16px 10px 0px 0;
+}
+.nzkFabulousTime i{
+    font-size:14px;
+    color:#cdcdcd;
+    float:left;
+}
+.nzkFabulousTime a{
+    font-size:14px;
+    color:#cdcdcd;
+    float:right;
+    padding-left:26px;
+    background:url("/images/reviewone.png") no-repeat;
+}
+
+.nzkInputContent textarea{
+    width:748px;
+    height:138px;
+    border:1px solid #f7f7f9;
+    padding:14px;
+    resize: none;
+    font-size:16px;
+    color:#606060;
+    margin-top:10px;
+    outline:none;
+    border-radius:6px;
+}
+.nzkInputContent textarea:focus{
+    border:1px solid #00a4ff;
+}
+.nzkInputContent input::-webkit-input-placeholder,.nzkInputContent textarea::-webkit-input-placeholder {
+    color: #cdcdcd;
+}
+.nzkInputContent input:-moz-placeholder,.nzkInputContent textarea:-moz-placeholder {
+    color:#cdcdcd;
+}
+.nzkInputContent input::-moz-placeholder,.nzkInputContent textarea::-moz-placeholder {
+    color:#cdcdcd;
+}
+.nzkInputContent input:-ms-input-placeholder,.nzkInputContent textarea:-ms-input-placeholder {
+    color:#cdcdcd;
+}
+.nzkContentSubmint{
+    margin-top:24px;
+}
+.nzkContentSubmint span,.nzkContentSubmint label{
+    float:left;
+    font-size:14px;
+    color:#cdcdcd;
+
+}
+.nzkContentSubmint label{
+    cursor:pointer;
+    margin-left:36px;
+}
+.nzkContentSubmint input{
+    vertical-align:middle;
+    margin-right:6px;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    -o-appearance:none;
+    appearance: none;
+    width:14px;
+    height:14px;
+    background:url("/images/radioone.png") no-repeat;
+    border-radius:50%;
+    outline:none;
+}
+.nzkContentSubmint input[type="radio"]:checked{
+    background:url("../images/radiotwo.png") no-repeat;
+}
+.nzkContentSubmint a{
+    float:right;
+    width:96px;
+    height:32px;
+    background:#4574dc;
+    text-align:center;
+    line-height:32px;
+    color:#fff;
+    border-radius:4px;
+    font-size:14px;
+}
+.nzkCommentRight{
+    float:right;
+    width:346px;
+    height:218px;
+
+}
+.nzkCommentRight a img{
+    width:100%;
+    height:100%;
+}
+.nzkCommentRight a{
+    display:block;
+    border-radius:6px;
+    overflow:hidden;
+}
+#page,#pageAnswer{
+    margin-top:10px;
+}
+.page{
+    display:table;
+}
+.nzkChoice input{
+    margin:0 14px 0 3px;
+    vertical-align: middle;
+}
+
+.nzkContentAnalysis{
+    min-height:200px;
+    padding:26px;
+    background:#fff;
+    border-radius:6px;
+    margin-bottom:20px;
+}
+.nzkSeeAnalysis{
+    width:100%;
+    height:100px;
+    position:relative;
+    text-align:center;
+}
+.nzkSeeAnalysis a{
+    line-height:22px;
+    color:#4674de;
+    font-size:18px;
+    padding-top:60px;
+    display:inline-block;
+}
+.nzkSeeAnalysis span{
+    background:url("/images/eye.png") no-repeat;
+    display:inline-block;
+    width:26px;
+    height:15px;
+    margin-right:5px;
+}
+.nzkTeacherAnalysis{
+    display:none;
+}
+.nzkTeacherAnalysis h4{
+    font-size:18px;
+    color:#303030;
+    margin-bottom:12px;
+}
+.nzkTeacherAnalysis p{
+    font-size:16px;
+    color:#979797;
+    line-height:24px;
+}
+
+.nzkChoice input{
+    float:left;
+    margin-top:9px;
+    -webkit-appearance:none;
+    -o-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    width:14px;
+    height:14px;
+    outline:none;
+}
+.nzkChoice input[type=radio]{
+    background:url("/images/radioone.png") no-repeat;
+    border-radius:50%;
+}
+.nzkChoice input[type=radio]:checked{
+    background:url("/images/radiotwo.png") no-repeat;
+}
+.nzkChoice input[type=checkbox]{
+    border:1px solid #ccc;
+}
+.nzkChoice input[type=checkbox]:checked{
+    background:url("/images/checkbox.png") no-repeat;
+}
+.nzkChoice span{
+    float:left;
+    width:540px;
+}
+table th,table td{
+	border:1px solid #e6e6e6;
+	min-height:40px;
+}
+.noData{
+    width:100%;
+    text-align:center;
+}
+.noData img{
+    display:inline-block;
+}
+.noData p{
+    font-size:16px;
+    color:#acacac;
+    margin-top:20px;
+}
+.seeText{
+  position:absolute;
+  right:20px;
+  bottom:-16px;
+  font-size:12px;
+  color:#4674de;
+}

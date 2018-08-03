@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <%- include('../template/head.ejs',{title:'Top练习'}) %>
+        <link rel="stylesheet" href="/stylesheets/extlist.css">
+</head>
+
+<body>
+    <!-- 导航   -->
+    <%- include('../template/header.ejs')  %>
+        <!-- 指南内容 部分  -->
+        <div class="seeEXe_page">
+            <% var str = request.originalUrl.split("/")[2]%>
+                <%var mId=request.session.user.id%>
+                    <div class="nzkAnalysisWrap">
+                        <h5 class="nzkSubject">
+                            <%=material[0].englishTitle ? material[0].englishTitle :material[0].title%>
+                        </h5>
+                        <div class="nzkSubjectNumber">
+                            <div id="empty" style="display: none;"></div>
+                            <div class="nzkInteractiveWrap clearfix" style="margin-left: 0px;">
+                                <ul class="nzkNumber">
+
+                                    <% for(var i=0;i< num;i++){%>
+                                        <li>
+                                            <% if(question[0].numForLM){%>
+                                                <a href="<%=request.originalUrl.split('&')[0]%>&numForLM=<%=(i+1)%>" class="<%=question[0].numForLM==(i+1)?'activeNum':''%>">
+                                                    <%=(i+1)%>
+                                                </a>
+                                                <%}else{%>
+                                                    <a href="<%=request.originalUrl.split('&')[0]%>&numForRM=<%=(i+1)%>" class="<%=question[0].numForRM==(i+1)?'activeNum':''%>">
+                                                        <%=(i+1)%>
+                                                    </a>
+                                                    <%}%>
+                                        </li>
+                                        <%}%>
+
+                                </ul>
+                            </div>
+                            <div class="nzkChoiceQuestionWrap clearfix">
+                                <!--left-->
+                                <div class="nzkChoiceQuestion search_article mCustomScrollbar  mCS_no_scrollbar" id="wrapper-1">
+                                    <div class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;">
+
+
+                                        <% question.forEach(val=>{%>
+
+
+                                            <h5 class="nzkNumberOfRuestions">Question
+                                                <%=val.numForRM%>
+                                                <%if(val.mp4ForQ){%>
+                                                    <a href="javascript:;" class="nzkPlay ruestionsplay" id='qmp4'></a>
+                                                    <audio src="<%=val.mp4ForQ%>" id='audiomp4Q'>
+                                                        您的浏览器不支持 audio 与元素。请升级您的浏览器！
+                                                    </audio>
+                                                    <%}%>
+
+                                            </h5>
+                                            <div class="nzkStem" id="col1" data-coltype="1" data-qntid="5902">
+                                                <p data-qid="23952" data-qpid="27659">
+                                                    <%=val.question%>
+
+                                                </p>
+                                            </div>
+
+
+
+                                            <ul class="nzkChoice">
+
+                                                <li class="clearfix">
+                                                    <input type="radio" name="singleChoice">
+                                                    <span data-qid="23952" data-qpid="27659">A.&nbsp;&nbsp;
+                                                        <%=val.options.A%>
+                                                    </span>
+                                                </li>
+
+                                                <li class="clearfix">
+                                                    <input type="radio" name="singleChoice">
+                                                    <span data-qid="23952" data-qpid="27659">B.&nbsp;&nbsp;
+                                                        <%=val.options.B%>
+                                                    </span>
+                                                </li>
+
+                                                <li class="clearfix">
+                                                    <input type="radio" name="singleChoice">
+                                                    <span data-qid="23952" data-qpid="27659">C.&nbsp;&nbsp;
+                                                        <%=val.options.C%>
+                                                    </span>
+                                                </li>
+
+                                                <li class="clearfix">
+                                                    <input type="radio" name="singleChoice">
+                                                    <span data-qid="23952" data-qpid="27659">D.&nbsp;&nbsp;
+                                                        <%=val.options.D%>
+                                                    </span>
+                                                </li>
+
+                                            </ul>
+                                            <h5 class="nzkCorrect" style="display: none;">正确答案：
+                                                <span>
+                                                    <%=val.rightAnswer%>
+                                                </span>
+                                            </h5>
+                                            <div class="nzkShowInto">
+                                                <a href="javascript:;" class="showAnswer">显示答案</a>
+
+                                                <% var str = request.originalUrl.split("/")[2]%>
+                                                    <%if(str=='listen'){%>
+                                                        <a href="/exercise/listen/translate/first?id=<%=material[0].id%>&mId=<%=mId%>" class="doExercise doExerciseDWT" data-qid="23952"
+                                                            data-type="TL" target="_blank">进入练习</a>
+                                                        <%}else{%>
+                                                            <a href="/exercise/read/translate?id=<%=material[0].id%>&mId=<%=mId%>" class="doExercise doExerciseDWT" data-qid="23952"
+                                                                data-type="TL" target="_blank">进入练习</a>
+                                                            <%}%>
+                                            </div>
+
+                                            <%})%>
+                                                <!-- 1 -->
+
+                                    </div>
+                                    <div id="mCSB_5_scrollbar_vertical" class="mCSB_scrollTools mCSB_5_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                                        style="display: none;">
+                                        <div class="mCSB_draggerContainer">
+                                            <div id="mCSB_5_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; top: 0px;">
+                                                <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+                                            </div>
+                                            <div class="mCSB_draggerRail"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- 2 -->
+
+
+                                <!--right-->
+                                <div class="nzkOriginalTitle mCustomScrollbar _mCS_6 mCS-autoHide" id="nzkScroll">
+                                    <div class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside">
+
+                                        <% material.forEach(val=>{%>
+                                            <% if(val.mp4){%>
+
+                                                <div class="nzkShowBtn">
+                                                    <a href="javascript:;" id='og'>显示原文</a>
+                                                    <a href="javascript:;" id='im'>显示图片</a>
+                                                </div>
+                                                <audio src="<%=val.mp4%>" id="hearingAudio" onended='mytime()'></audio>
+                                                <div class="nzkVideoDrag">
+                                                    <a href="javascript:;" onclick="playPause()" id='play1' class="nzkPlay dragPlay"></a>
+                                                    <div class="nzkProgress" id="progress">
+                                                        <i class="nzkSpeed" id="speed"></i>
+                                                        <span class="ball" id="audoRange"></span>
+                                                    </div>
+
+                                                </div>
+                                                <span class="nzkTime">00:00</span>
+                                                <div class="nzkContent">
+                                                    <div id="imgs">
+                                                        <p>
+                                                            <img src="<%=val.img%>" width="500px" height="300px" class="mCS_img_loaded">
+                                                        </p>
+
+                                                    </div>
+
+                                                    <div style="display:block;">
+                                                        <div class="showaRticle">
+                                                            <h1 id="nzkSee">
+                                                                <a href="javascript:;">
+                                                                    <span></span>点击查看原文</a>
+                                                            </h1>
+                                                        </div>
+                                                        <div id="article" class="search_article" style="display:none;overflow:auto;width: 100%; height: 250px;">
+                                                            <%=val.original%>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                    </div>
+
+
+                                    <%}else{%>
+                                        <div>
+                                            <div class="nzkShowBtn">
+                                                <a href="javascript:;" id='og'>显示原文</a>
+                                                <a href="javascript:;" id='im'>显示中文 </a>
+                                            </div>
+
+                                            <div class="nzkContent">
+                                                <div class="search_article" id="chineseMaterial" style="text-align:left">
+                                                    <%=val.chineseMaterial%>
+
+                                                </div>
+                                                <div style="display:block;">
+                                                    <div class="showaRticle">
+                                                        <h1 id="nzkSee">
+                                                            <a href="javascript:;">
+                                                                <span></span>点击查看原文</a>
+                                                        </h1>
+                                                    </div>
+                                                    <div id="article" class="search_article" style="display:none;">
+                                                        <%=val.englishMaterial%>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%}%>
+                                            <%})%>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <!-- 公共脚页 -->
+        <%- include('../template/footer.ejs')%>
+            <script src="/javascript/seeExe.js"></script>
+            <!-- 脚步公共文件   -->
+</body>
+
+</html>

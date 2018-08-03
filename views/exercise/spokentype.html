@@ -1,0 +1,107 @@
+<html class="ks-webkit537 ks-webkit ks-chrome65 ks-chrome" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        查看听力
+    </title>
+    <link rel="stylesheet" href="/stylesheets/exAll.css">
+    <link rel="stylesheet" href="/stylesheets/tole.css">
+
+</head>
+
+<body>
+    <div class="box">
+        <%var mId=request.session.user.id%>
+            <% material.forEach(val=>{%>
+
+                <input type="text" id='mid' value='<%=mId%>' style="display:none;">
+                <input type="text" id='materialId' value='<%=val.id%>' style="display:none;">
+                <div id="content1" class="tf-navtop">
+                    <div class="nav-box wid1200 margin-auto">
+                        <div class="c top-line pb10">
+                            <div class="left ">
+                                <dl class="nav-logo c">
+                                    <dt>
+                                        <a href="/" class="ziti">
+                                            英贝尔
+                                        </a>
+                                    </dt>
+                                    <dd class="nav-tf">
+                                        <h1>SPOKEN</h1>
+                                        <p id="pName">
+                                            <%=val.title%>
+                                        </p>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="right mt30">
+                                <span id='gorust' href='/exercise/spoken/translate/fourth?mock=<%=mock%>&mockRId=<%=mockRId%>&id=<%=val.id%>&mId=<%=mId%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>'
+                                    style="display:none;"></span>
+                                <span href="javaScript:;" class="y-blu-but but-afont ml10 left posiRa">
+                                    <span class="VOL-blu-bg" id='volume'>VOLUME&nbsp;&nbsp;</span>
+                                    <div id="audoRangeDiv" class="tlvolumeWrapper" >
+                                         <div class="progress" id="tiao">
+                                            <i class="speed" id="jindu" ></i>
+                                            <span class="ball" id="yuan" ></span>
+                                        </div> 
+                                        <span class="triangle"></span>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="c mt10">
+                            <div class="left wid200">
+                                <a href='/exercise/spoken' style='text-decoration: none;' class="ylow-but but-font popbox-link left">
+                                    <dt>退出</dt>
+                                    <dd>练习</dd>
+                                </a>
+
+                            </div>
+                            <div class=" top-nav-tile wid800 left">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="c search_article" id="content" style="height: 472px;">
+                    <div class="center-bao">
+                        <div class="wid800 margin-auto">
+                            <div class="mt10 single-sle pt60 gary-line pb20">
+                                <h1>
+                                    <p>
+                                        <%=val.question%>
+                                    </p>
+                                </h1>
+                                  <!-- <audio id="playad" src="https://quiz-bank-upload.oss-cn-beijing.aliyuncs.com/upload/question/20180523190302200481142.mp3" autoplay></audio> -->
+                                <audio id="playad" src="<%=val.mp4ForQ%>" onended="mytime()" autoplay></audio>
+                            </div>
+                            <div id='luyin' class="pt20 pb20 tcenter wid500 margin-auto" style="display:none;">
+                                <dl class="spk-time c">
+                                    <dt>Preparation time:</dt>
+                                    <dd id="readyTime">15 Seconds</dd>
+                                </dl>
+                                <dl class="spk-time c">
+                                    <dt>Response time:</dt>
+                                    <dd id="rsTime">45 Seconds</dd>
+                                </dl>
+                            </div>
+                            <p class="tcenter pt20 pb20" style="display:none;" id='stop'>
+                                <input class="b-ovl-but" type="button" onclick="funStop()">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+    </div>
+    <%- include('../template/foot.ejs')  %>
+        <script src="/javascript/MP3/recordmp3.js"></script>
+        <script src="/javascript/progress.js"></script>
+        <script src="/javascript/spokenajax.js"></script>
+</body>
+
+</html>

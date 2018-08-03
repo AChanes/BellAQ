@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('tpl/head.html',{title:'首页'}) %>
+</head>
+
+<body>
+    <%- include('tpl/header.html',{ title : '贝尔英语'}) %>
+        <div class="tpl-page-container tpl-page-header-fixed">
+            <%- include('tpl/nav.html' , {user : 'teacher'}) %>
+                <div class="tpl-content-wrapper">
+                    <div class="tpl-content-page-title">
+                        会员推荐详情
+                    </div>
+                    <ol class="am-breadcrumb">
+                        <li>会员推荐文章</li>
+                    </ol>
+                    <div class="tpl-block">
+                        <div class="am-g">
+                            <div class="tpl-form-body tpl-form-line">
+                                <% data.forEach((val , index) => { %>
+                                    <form class="am-form tpl-form-line-form" id='form1' enctype="multipart/form-data" method="POST" action="/backend/questionBank/api/updateMemberR"
+                                        target="hidden-iframe">
+                                        <input type='text' value='<%=val.id%>' name='id' id='idsds' style='display:none;'>
+                                        <input type='text' value='<%=val.img%>' name='imgm' id='imgm' style='display:none;'>
+                                        <input type="number" value="<%= userToken.id %>" name="aId" style="display:none" id="tId">
+                                        <div class="am-form-group">
+                                            <label for="user-name" class="am-u-sm-3 am-form-label">标题
+                                                <span class="tpl-form-line-small-title"></span>
+                                            </label>
+                                            <div class="am-u-sm-9">
+                                                <input type="text" class="tpl-form-input" id="user-name" value='<%=val.title%>' minlength='1' maxlength="50" name="title"
+                                                    placeholder="请输入标题文字">
+                                                <small>标题长度不超过50个字母。</small>
+                                            </div>
+                                        </div>
+                                        <div class="am-form-group">
+                                            <label for="user-phone" class="am-u-sm-3 am-form-label">文章类型
+                                                <span class="tpl-form-line-small-title"></span>
+                                            </label>
+                                            <div class="am-u-sm-9">
+                                                <select data-am-selected="" name="tyId" class="nan">
+                                                    <option value="1" <%if(val.tyId=='1' ){%>selected
+                                                        <%}%>>口语</option>
+                                                    <option value="2" <%if(val.tyId=='2' ){%>selected
+                                                        <%}%>>阅读</option>
+                                                    <option value="3" <%if(val.tyId=='3' ){%>selected
+                                                        <%}%>>听力</option>
+                                                    <option value="4" <%if(val.tyId=='4' ){%>selected
+                                                        <%}%>>写作</option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="am-form-group">
+
+                                            <label for="user-weibo" class="am-u-sm-3 am-form-label">添加口语图片
+                                                <span class="tpl-form-line-small-title"></span>
+                                            </label>
+                                            <div class="am-u-sm-9">
+                                                 <div class="tpl-form-file-img">
+                                                    <img src="<%= val.img%>" alt="" id='yulian'>
+                                                </div>
+                                                <div class="am-form-group am-form-file">
+                                                    <button class="am-btn am-btn-primary">
+                                                        <i class="am-icon-cloud-upload"></i>请选择你要上传的图片</button>
+                                                    <input type="file" name="img"  onchange="change(this)" multiple="multiple" id="img" accept="image/*" />
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="am-form-group">
+                                            <label for="editor_1" class="am-u-sm-3 am-form-label">摘要
+                                                <span class="tpl-form-line-small-title"></span>
+                                            </label>
+                                            <div class="am-u-sm-9">
+                                                <script id="editor_1" type="text/plain" style="width:700px;height:100px;" name="digest"></script>
+
+                                            </div>
+                                        </div>
+                                        <div class="am-form-group">
+                                            <label for="editor" class="am-u-sm-3 am-form-label">发布内容
+                                                <span class="tpl-form-line-small-title"></span>
+                                            </label>
+                                            <div class="am-u-sm-9">
+                                                <script id="editor" type="text/plain" style="width:700px;height:400px;" name="content"></script>
+                                            </div>
+                                        </div>
+                                        <div class="am-form-group">
+                                            <div class="am-u-sm-9 am-u-sm-push-3">
+                                                <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success " id="go">保存</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <%})%>
+                                        <iframe name="hidden-iframe" style="display: block; width: 650px;height: 200px;overflow: hidden; background-color: pink;display: none"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        </div>
+
+        <%- include('tpl/foot.html') %>
+
+            <script src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.js"></script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js">
+            </script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js">
+            </script>
+            <input type="hidden" id="data_rowsStr" value="<%=dataStr %>">
+            <script>
+                var data = JSON.parse(unescape($('#data_rowsStr').val()));
+                var tId = $('#tId').val();
+                var imgm = $('#imgm').val();
+                var ue = UE.getEditor('editor');
+                var ue_1 = UE.getEditor('editor_1');
+                $("#go").attr("disabled", false);
+                ue.ready(function () { //编辑器初始化完成再赋值  
+                    if (data[0].content != null) {
+                        ue.setContent(data[0].content); //赋值给UEditor  
+
+                    }
+                });
+                ue_1.ready(function () { //编辑器初始化完成再赋值  
+                    if (data[0].digest != null) {
+                        ue_1.setContent(data[0].digest); //赋值给UEditor  
+                    }
+                });
+                $(function () {
+                    $("#form1").ajaxForm(function (data) {
+                        if (data == 'success') {
+                            window.location.href = '/backend/questionBank/recomList/?aId=' + tId;
+                        }
+                    });
+                });
+                $('#form1').on("change", function () {
+
+                    if ($("#user-name").val() && $(".nan").val() && ue.getContentTxt() && ue_1.getContentTxt()) {
+
+                        $("#go").attr("disabled", false);
+                    } else {
+                        $("#go").attr("disabled", true);
+                    }
+                });
+                ue.addListener('selectionchange', function (e) {
+                    if ($("#user-name").val() && $(".nan").val() && ue.getContentTxt() && ue_1.getContentTxt()) {
+
+                        $("#go").attr("disabled", false);
+                    } else {
+                        $("#go").attr("disabled", true);
+                    }
+                });
+                ue_1.addListener('selectionchange', function (e) {
+                    if ($("#user-name").val() && $(".nan").val() && ue.getContentTxt() && ue_1.getContentTxt()) {
+
+                        $("#go").attr("disabled", false);
+                    } else {
+                        $("#go").attr("disabled", true);
+                    }
+                });
+            </script>
+
+</body>
+
+</html>

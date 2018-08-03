@@ -1,0 +1,126 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <%- include('./template/head.ejs',{title:'做题记录'}) %>
+    <!-- 做题记录样式 -->
+    <link rel="stylesheet" href="/stylesheets/userRecord.css">
+</head>
+
+<body>
+        <%- include('./template/header.ejs')  %>
+        <!-- 做题记录 -->
+        <div class="centerMainTwo clearfix">
+            <!--左侧-->
+            <div class="left fl">
+                <ul>
+                    <li>
+                        <a href="javascript;" class="selected">练习记录</a>
+                    </li>
+                    <!-- <li>
+                        <a href="/user/to/my/toefl/mock.shtml">模考记录</a>
+                    </li>
+                    <li>
+                        <a href="/user/to/my/toefl/wrong.shtml">错题本</a>
+                    </li> -->
+                </ul>
+            </div>
+            <!--左侧结束-->
+            <div class="right fr">
+                <div class="titleWrap">
+                    <a href="javascript:;" class="title">题目记录
+                        <span></span>
+                    </a>
+                </div>
+                <div class="testConditionsWrap">
+                    <div class="testConditions">
+                        <% 
+                            var urls = URLUtils.getUrlLevelArray(request.originalUrl);
+                             const recordType_links =  [
+                                { path : '/user/userRecord', name : '全部' },
+                                { path : '/user/userRecord/read', name : '阅读' },
+                                { path : '/user/userRecord/listen', name : '听力' },
+                                { path : '/user/userRecord/spoke', name : '口语' },
+                                { path : '/user/userRecord/write', name : '写作' },
+                            ];
+                        %>
+                        <% if(urls.pathArr.length < 3){%>
+                            <a href="<%=recordType_links[0].path%>" class="active"
+                                <%=recordType_links[0].name%>
+                            </a>  
+                        <% }%> 
+                        <% 
+                             recordType_links.forEach( record_link => { %>
+                                <a href="<%=record_link.path%>" class="testConditionsType <%=record_link.path.split("/").pop() == urls.pathArr[urls.pathArr.length - 1] ? 'active' : ''%>">
+                                    <%=record_link.name%>
+                                </a>
+                        <%      
+                            })
+                         %>
+                    </div>
+                </div>
+                <div class="workBookWrap">
+                    <% userRecordData.forEach((record_data) => { %>
+                        <div class="workBookList">
+                            <div class="testTitle">
+                                <span><%= record_data.materialTitle %></span>
+                                <i>
+                                    <i>难度：<%=record_data.level%></i>
+                                </i>
+                                <b>答题时间：
+                                    <%= new Date(record_data.startTime * 1000).toLocaleString(); %>
+                                </b>
+                            </div>
+                            <ul class="testInfo clearfix">
+                                <li>
+                                    <span>总分数</span>
+                                    <i><%= record_data.totalScore||record_data.score %></i>
+                                </li>
+                                <li>
+                                    <span>获得分数</span>
+                                    <i><%= record_data.isRight == 1? record_data.score : 0 %></i>
+                                </li>
+                                <li>
+                                    <span>结果</span>
+                                    <i><%=record_data.isRight =='1' ? '正确' : '错误' %></i>
+                                </li>
+                                <li>
+                                    <span>总耗时</span>
+                                    <i><%= (record_data.endTime - record_data.startTime) %> s</i>
+                                </li>
+                            </ul>
+                            <div class="operate">
+                                <%if(record_data.tyId == 1){%>
+                                    <a href="/exercise/spoken/preview?id=<%=record_data.materialId%>" target="_blank">查看题目</a>
+                                <%}else if(record_data.tyId == 2){%>
+                                    <a href="/exercise/read/preview?id=<%=record_data.materialId%>" target="_blank">查看题目</a>
+                                <%}else if(record_data.tyId == 3){%>
+                                    <a href="/exercise/listen/preview?id=<%=record_data.materialId%>" target="_blank">查看题目</a>
+                                <%}else if(record_data.tyId == 4){%>
+                                    <a href="/exercise/write/preview?id=<%=record_data.materialId%>" target="_blank">查看题目</a>
+                                <%}%>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+                <div class="page clearfix hide" id="page" style="display: table; margin: 26px 0px 0px 26px;">
+                    <a href="/user/userRecord?page=<%= ~~(userRecordDataCount/20)%>" class="first fr">末页</a>
+                    <ul class="pagingUl">
+                        <% for(var i = 0 ; i < ~~(userRecordDataCount/20); i++){ %>
+                            <li>
+                                <a href="/user/userRecord?page=<%=i+1%>" class="<%= i+1 == page ? 'active' : '' %>"><%= (i+1) %></a>
+                            </li>
+                            <% } %>
+                        </ul>
+                        <a href="/user/userRecord?page=1" class="last fr">首页</a>
+                </div>
+            </div>
+        </div>
+   
+
+        <!-- 公共脚页 -->
+        <%- include('./template/footer.ejs')%>
+</body>
+
+</html>

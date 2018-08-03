@@ -1,0 +1,81 @@
+<html class="ks-webkit537 ks-webkit ks-chrome65 ks-chrome" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        查看模考
+    </title>
+    <link rel="stylesheet" href="/stylesheets/exAll.css">
+    <link rel="stylesheet" href="/stylesheets/tole.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <%var mId=request.session.user.id;%>
+        <div id="content1" class="tf-navtop">
+            <div class="nav-box wid1200 margin-auto">
+                <div class="c top-line pb10">
+                    <div class="left ">
+                        <dl class="nav-logo c">
+                            <dt>
+                                <a href="/" class="ziti">
+                                   英贝尔
+                                </a>
+                            </dt>
+                            <dd class="nav-tf">
+                                <h1>TOEFL iBT</h1>
+                                <p>Complete Practice Test TPO 51</p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="right">
+                        <a href="/mock/second?mock=<%=mock%>&mockRId=<%=mockRId%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>" class="blu-but but-afont mt30">CONTINUE</a>
+                    </div>
+                </div>
+        
+                <div class="c mt10">
+                    <a href='/mock' style='text-decoration: none;' class="ylow-but but-font popbox-link left">
+                        <dt>退出</dt>
+                        <dd>练习</dd>
+                    </a>
+                </div>
+            </div>
+        
+        </div>
+        <div class="wid1200 margin-auto">
+            <div class="cont-mage" id="content" style="height: 580px;">
+                <h2>General Test Information</h2>
+                <p>This test measures your ability to use English in an academic context. There are 4 sections. </p>
+                <p>In the
+                    <b>Reading</b> section, you will read several passages and answer questions about them.</p>
+                <p>In the
+                    <b>Listening</b> section, you will hear several conversations and lectures and answer questions about them.
+                </p>
+                <p>In the
+                    <b>Speaking</b> section, you will answer 6 questions. Some of the questions ask you to speak about your own experience.
+                    Other questions ask you to speak about lectures and reading passages.</p>
+                <p>In the
+                    <b>Writing</b> section, you will answer 2 questions. The first question asks you to write about the relationship
+                    between a lecture you will hear and a passage you will read. The second question asks you to write an essay about
+                    a topic of general interest based on your experience.</p>
+                <p>During this practice test, you may click the
+                    <b>Pause</b> icon at any time. This will stop the test until you decide to continue. You may continue the test in
+                    a few minutes, or at any time during the period that your test is activated.</p>
+                <p>There will be directions for each section which explain how to answer the questions in that section.</p>
+                <p>You should work quickly but carefully on the Reading and Listening questions. Some questions are more difficult than
+                    others, but try to answer every one to the best of your ability. If you are not sure of the answer to a question,
+                    make the best guess that you can. The questions that you answer by speaking and by writing are each separately
+                    timed. Try to answer every one of these questions as completely as possible in the time allowed.</p>
+                <p>Click on
+                    <b>Continue</b> to go on.</p>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

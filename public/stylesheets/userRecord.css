@@ -1,0 +1,479 @@
+/*我的托福-练习记录-题目记录*/
+
+/*
+.myTOEFLHead{ height: 91px; background: #fff; border-bottom: 1px solid #dcdcdc;}
+.myTOEFLHead .wrap{ width:1200px; height: 100%; margin:0 auto; padding-left: 20px;}
+.myTOEFLHead .title{ float: left; line-height: 90px; font-size: 18px; color: #303030; padding-right: 50px;}
+.myTOEFLHead .title.active, .myTOEFLHead .title:hover{ color: #4674dd;}
+*/
+
+.centerMainTwo {
+    margin: 20px auto 105px;
+    width: 1200px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.centerMainTwo .left {
+    width: 230px;
+}
+
+.centerMainTwo .left li {
+    height: 68px;
+    line-height: 68px;
+    font-size: 18px;
+}
+
+.centerMainTwo .left li a {
+    display: inline-block;
+    width: 158px;
+    height: 68px;
+    color: #909090;
+    padding-left: 72px;
+}
+
+.centerMainTwo .left li a:hover {
+    color: #00a4ff;
+}
+
+.centerMainTwo .left li a.selected {
+    background: #00a4ff;
+    color: #fff;
+}
+
+.centerMainTwo .right {
+    width: 970px;
+    border-left: 1px solid #f1f0f6;
+    min-height: 800px;
+    box-sizing: border-box;
+}
+
+.centerMainTwo .right .titleWrap {
+    padding-left: 50px;
+    height: 68px;
+    width: 970px;
+    background: #fafafa;
+    line-height: 68px;
+    font-size: 18px;
+    color: #515151;
+}
+
+.centerMainTwo .right .title {
+    float: left;
+    padding-right: 64px;
+    text-align: center;
+    color: #515151;
+}
+
+.centerMainTwo .right .title.actvie,
+.centerMainTwo .right .title:hover {
+    color: #00a4ff;
+}
+
+.centerMainTwo .right .title.actvie span {
+    width: 100%;
+    height: 4px;
+    background: #00a4ff;
+    display: block;
+    margin: -14px auto 0;
+}
+
+.centerMainTwo .right b.title:hover {
+    color: #515151;
+}
+
+/*错题本等不需要hover效果的*/
+
+.centerMainTwo .right .testConditionsWrap {
+    padding: 0 42px 0 50px;
+}
+
+.centerMainTwo .right .testConditions:first-child {
+    border-top: none;
+    height: 68px;
+}
+
+.centerMainTwo .right .testConditions {
+    height: 69px;
+    border-top: 1px solid #e9e9e9;
+    line-height: 68px;
+}
+
+.centerMainTwo .right .testConditionsTitle,
+.centerMainTwo .right .testConditionsType {
+    float: left;
+}
+
+.centerMainTwo .right .testConditionsTitle {
+    font-size: 18px;
+    color: #909090;
+}
+
+.centerMainTwo .right .testConditionsType {
+    font-size: 14px;
+    color: #606060;
+    margin: 20px 15px 0 30px;
+    padding: 0 16px;
+    text-align: center;
+    display: inline-block;
+    line-height: 28px;
+    background: #fff;
+    border-radius: 16px;
+}
+
+.centerMainTwo .right .testConditionsType.active {
+    background: #5f9fff;
+    color: #fff !important;
+}
+
+/*.centerMainTwo .right .testConditionsType:hover{ color: #4674dd;}*/
+
+.centerMainTwo .right .topicContentWrap {
+    padding-top: 24px;
+}
+
+.centerMainTwo .right .topicContent {
+    font-size: 16px;
+    color: #303030;
+    border-top: 1px solid #efeff4;
+    padding: 20px 42px 20px 50px;
+}
+
+.centerMainTwo .right .topicContentTop {
+    height: 22px;
+    line-height: 22px;
+}
+
+.centerMainTwo .right .topicContentTop .titleLink {
+    color: #303030;
+}
+
+.centerMainTwo .right .topicContentTop .titleLink:hover {
+    color: #4674dd;
+}
+
+.centerMainTwo .right .topicContentTop .collect {
+    color: #606060;
+    width: 102px;
+    padding-left: 38px;
+    line-height: 24px;
+}
+
+.centerMainTwo .right .topicContentTop .uncollect {
+    background: url(../img/collect_the_subject.png) no-repeat;
+}
+
+.centerMainTwo .right .topicContentTop .collected {
+    background: url(../img/have_been_collected.png) no-repeat;
+}
+
+.centerMainTwo .right .topicContentInfo {
+    margin: 12px 0 20px 0;
+    line-height: 24px;
+}
+
+.centerMainTwo .right .topicContentBottom {
+    height: 20px;
+    line-height: 20px;
+    color: #c3c3c3;
+}
+
+.centerMainTwo .right .topicContentBottom .ml20 {
+    margin-left: 20px;
+}
+
+.centerMainTwo .right .topicContentBottom .error {
+    color: #ff3333;
+}
+
+.centerMainTwo .right .topicContentBottom .correct {
+    color: #3dbe3d;
+}
+
+/*我的托福 练习册*/
+
+.workBookList {
+    background: #f3f3f3;
+    border-radius: 6px;
+    margin: 0 24px 10px 24px;
+    padding: 21px 20px 28px 20px;
+    position: relative;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.workBookList .testTitle {
+    font-size: 18px;
+    color: #303030;
+}
+
+.workBookList .testTitle span {
+    margin-right: 22px;
+}
+
+.workBookList .testTitle i {
+    color: #a4a4a4;
+    margin-right: 40px;
+}
+
+.workBookList .testTitle b {
+    color: #a4a4a4;
+}
+
+.workBookList .testTitle a {
+    font-size: 16px;
+    color: #909090;
+    float: right;
+    padding-left: 28px;
+}
+
+.workBookList .testTitle .down {
+    background: url(../img/down.png) no-repeat;
+}
+
+.workBookList .testTitle .blackout {
+    background: url(../img/blackout.png) no-repeat;
+}
+
+.workBookList .testInfo {
+    margin-top: 28px;
+}
+
+.workBookList li {
+    float: left;
+    margin-right: 52px;
+}
+
+.workBookList li span {
+    display: block;
+    font-size: 14px;
+    color: #a4a4a4;
+    text-align: center;
+}
+
+.workBookList li i {
+    display: block;
+    font-size: 24px;
+    color: #606060;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.workBookList .operate {
+    position: absolute;
+    right: 20px;
+    bottom: 26px;
+}
+
+.workBookList .operate a {
+    display: inline-block;
+    width: 90px;
+    height: 28px;
+    border: 1px solid #4674dd;
+    font-size: 14px;
+    color: #4674dd;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 8px;
+    border-radius: 30px;
+    background: #fff;
+}
+
+/*我的托福 我的收藏文章*/
+
+.centerMainTwo .right .articleContent {
+    font-size: 16px;
+    color: #303030;
+    border-bottom: 1px solid #efeff4;
+    padding: 20px 0px 20px 50px;
+    width: 942px;
+}
+
+.centerMainTwo .right .topicContentTop {
+    height: 22px;
+    line-height: 22px;
+}
+
+.centerMainTwo .right .topicContentInfo {
+    margin: 12px 0 20px 0;
+    position: relative;
+    line-height: 1.4em;
+    height: 2.8em;
+    overflow: hidden;
+}
+
+.centerMainTwo .right .topicContentTitle {
+    margin: 12px 0 20px 0;
+    position: relative;
+    line-height: 1.4em;
+    height: 1.4em;
+}
+
+.centerMainTwo .right .topicContentTitle p {
+    line-height: 1.4em;
+    height: 1.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.centerMainTwo .right .topicContentInfo::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-right: 0.2em;
+    content: '...';
+}
+
+.topicContentInfo p {
+    display: inline;
+}
+
+.centerMainTwo .right .topicContentBottom {
+    height: 20px;
+    line-height: 20px;
+    color: #c3c3c3;
+    padding-top: 10px;
+}
+
+.centerMainTwo .right .articleInfo {
+    width: 662px;
+}
+
+.centerMainTwo .right .topicContentTop .read {
+    padding: 4px 8px;
+    background: #ccc;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 3px;
+    margin-left: 12px;
+}
+
+.centerMainTwo .topicContentBottom .collect {
+    color: #606060;
+    width: 102px;
+    padding-left: 38px;
+    line-height: 24px;
+}
+
+.centerMainTwo .topicContentBottom .uncollect {
+    background: url(../img/collect_the_subject.png) no-repeat;
+}
+
+.centerMainTwo .topicContentBottom .collected {
+    background: url(../img/have_been_collected.png) no-repeat;
+}
+
+.centerMainTwo .articleContent .readingNum {
+    background: url(../img/open.png) no-repeat;
+    font-size: 14px;
+    color: #cdcdcd;
+    padding-left: 34px;
+    background-position: left center;
+}
+
+.centerMainTwo .articleContent .articleImg {
+    width: 190px;
+    height: 120px;
+}
+
+/*消息中心*/
+
+.centerMainThree {
+    margin: 20px auto 0 auto;
+    width: 1200px;
+    min-height: 680px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+}
+
+.messageTitle {
+    background: #f6f6f9;
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.messageTitle a {
+    display: inline-block;
+    width: 455px;
+    color: #303030;
+    font-size: 18px;
+}
+
+.messageTitle a:first-child {
+    text-align: right;
+    padding-right: 100px;
+}
+
+.messageTitle a:last-child {
+    text-align: left;
+    padding-left: 100px;
+}
+
+.messageTitle a.active {
+    color: #4674dd;
+}
+
+.messageList li {
+    width: 100%;
+    height: 83px;
+    position: relative;
+    border: 1px solid #fff;
+    border-bottom: none;
+}
+
+.messageList li .bluePoint {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00a4ff;
+    top: 50%;
+    margin-top: -4px;
+    left: 26px;
+}
+
+.messageList li .messageInfo {
+    width: 1110px;
+    margin-left: 44px;
+    height: 84px;
+    line-height: 84px;
+    font-size: 16px;
+    color: #606060;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.messageList li .messageInfo a,
+.messageList li .messageInfo span {
+    color: #606060;
+    display: inline-block;
+    width: 920px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.messageList li .messageInfo i {
+    float: right;
+    margin-right: 0px;
+}
+
+.messageList li:hover {
+    border: 1px solid #82bdff;
+}
+
+.messageList li:hover .messageInfo {
+    border-bottom: none;
+}
+
+.messageList li:hover .messageInfo a {
+    color: #4674dd;
+}

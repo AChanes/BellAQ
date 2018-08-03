@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('tpl/head.html',{title : '登录-注册'}) %>
+</head>
+
+<body data-type="login">
+  <div class="am-g myapp-login">
+	<div class="myapp-login-logo-block  tpl-login-max">
+		<div class="myapp-login-logo-text">
+			<div class="myapp-login-logo-text">
+				贝尔<span> 登录</span> <i class="am-icon-skyatlas"></i>
+			</div>
+		</div>
+
+        <div class="am-u-sm-10 login-am-center">
+            
+            <form class="am-form" id="login" action="/backend/login" method="post">
+				<fieldset>
+					<div class="am-form-group">
+						<input type="text" class="" id="doc-ipt-email-1" name="username" placeholder="输入账号">
+					</div>
+					<div class="am-form-group">
+						<input type="password" class="" id="doc-ipt-pwd-1" name="userpass" placeholder="输入密码">
+					</div>
+					<p><button type="submit" class="am-btn am-btn-default">登录</button></p>
+				</fieldset>
+            </form>
+		</div>
+	</div>
+</div>
+
+  <%- include('tpl/foot.html') %>
+</body>
+
+</html>

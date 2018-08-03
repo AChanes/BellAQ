@@ -1,0 +1,112 @@
+<html class="ks-webkit537 ks-webkit ks-chrome65 ks-chrome" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        查看口语结果
+    </title>
+    <link rel="stylesheet" href="/stylesheets/exAll.css">
+    <link rel="stylesheet" href="/stylesheets/pop.css">
+    <link rel="stylesheet" href="/stylesheets/tole.css">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/dati.css">
+    <link rel="stylesheet" href="/stylesheets/retu.css">
+
+
+</head>
+
+<body>
+    <div class="box">
+        <%  material.forEach(val=>{%>
+            <div id="content1" class="tf-navtop">
+                <div class="wid1200 margin-auto">
+                    <div class="c pb10">
+                        <div class="left ">
+                            <dl class="Tn-nav-lfont c">
+                                <dt>
+                                    <a href="/" class="ziti">
+                                       英贝尔
+                                    </a>
+                                </dt>
+                                <dd class="Tn-navfont">
+                                    <h2>做题结果： <%=val.title%></h2>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="right Tn-rr-bsolo">
+                            <a href= '/exercise/spoken' class="Tn-witbut ml10" style="font-size:12px;">退出练习</a>
+                        </div>
+                    </div>
+            
+                </div>
+            
+            </div>
+       
+        <div class="margin-auto search_article" id="demo">
+            <div id="examples" class="c">
+                <div id="content-top" class="content light Tn-witbg wid1200 margin-auto mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar"
+                    style="height: 655px; overflow: visible;">
+                    <div id="mCSB_1">
+                        <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y mCS_x_hidden mCS_no_scrollbar_x"
+                            style="position: relative; top: 0px; left: 0px; width: 100%;" dir="ltr">
+                            <div class="Tn-langbox Tnlang-qall">
+                                <h1>题目信息</h1>
+                                <p>Question: <%=val.question%></p>
+                            </div>
+                            <div class="Tn-langbox">
+                                <h1 class="Tnlangtitle">我的回答</h1>
+                                <div id="removeAudio" style="display:none;text-align:center;font-size: 17px;color: #ddd;">
+                                    <span>录音已被您移除</span>
+                                </div>
+                                <div class="tn-bggroy" id="myReply">
+                                    <div class="Tn-bgwid margin-auto">
+                                        <div class="Tn-wit-box position">
+                                            
+                                            <audio src="<%=mp4[0].mp4%>" id="hearingAudio"  onended="mytime()" controls>
+                                                您的浏览器不支持 audio 与元素。请升级您的浏览器！
+                                            </audio>
+                                            <div class="audioWrap position">
+                                                <img src="/images/y_z.png" id='img' width="934" height="76" class="mCS_img_loaded">
+                                                <span class="Tn-erdline" id="drag">
+                                                    <i></i>
+                                                    <a href="javascript:;" class="Tn-herdrag"></a>
+                                                </span>
+                                               
+                                            </div>
+                                            <a href="javascript:;" title="播放" id="paly" onclick='playPause();' data-id="big" class="Tn-herplay Tn-herrou playPau"></a>
+                                            <div class="nzk_voWrap">
+                                                <a href="javascript:;" title="音量" id="volume" class="Tn-hervolume Tn-herrou"></a>
+                                                <p class="Tn-hertime" style="right:52px">00:00</p>
+                                                <div class="tlvolumeWrapper">
+                                                    <div class="progress" id="progress">
+                                                        <i class="speed" id="speed" style="width: 50%;"></i>
+                                                        <span class="ball" id="audoRange" style="left: 53px;"></span>
+                                                    </div>
+                                                    <span class="triangle"></span>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              
+                </div>
+            </div>
+        </div>
+
+    <%})%>
+    
+    </div>
+    <%- include('../template/foot.ejs')  %>
+    <script src="/javascript/spokenR.js"></script>
+    <script src="/javascript/spokenRemoveS.js"></script>
+    
+
+</body>
+
+</html>

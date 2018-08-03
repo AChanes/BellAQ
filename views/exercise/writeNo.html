@@ -1,0 +1,112 @@
+<html class="ks-webkit537 ks-webkit ks-chrome65 ks-chrome" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        查看写作
+    </title>
+    <link rel="stylesheet" href="/stylesheets/exAll.css">
+    <link rel="stylesheet" href="/stylesheets/tole.css">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/dati.css">
+
+</head>
+
+<body>
+    <div class="box">
+        <%var mId=request.session.user.id%>
+        <% material.forEach(val=>{%>
+            <div id="content1" class="tf-navtop">
+                <input type="button" id='id' value='<%=val.id%>' style="display:none;">
+                <input type="button" id='mid' value='<%=mId%>' style="display:none;">
+                <div class="nav-box wid1200 margin-auto">
+                    <div class="c top-line pb10">
+                    <div class="left ">
+                        <dl class="nav-logo c">
+                            <dt><a href="/" class="ziti">
+                                英贝尔
+                            </a>
+                        </dt>
+                            <dd class="nav-tf">
+                                <h1>WRITE</h1>
+                                <p><%=val.title%></p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="right mt30" id="mainright">
+					<span href="javascript:void(0);" class="y-blu-but but-afont ml10 posiRa" style="display: none;">
+                	<span class="VOL-blu-bg" onclick="showVolume()">VOLUME</span>
+                	<div id="audoRangeDiv" class="tlvolumeWrapper" style="display: none;">
+						<!-- <input class="tlinput" id="audoRange" type="range" value="50" onchange="changeRange(this)" /> -->
+						<div class="progress" id="progress">
+							<i class="speed" id="nzkSpeed" style="width: 50%;"></i>
+							<span class="ball" id="audoRange" style="left: 50%;"></span>
+						</div>
+						<span class="triangle"></span>
+					</div>
+	           	</span>
+                <a  class="y-blu-but but-afont ml10"><span id="next"  href="/exercise/write/translate/fourth?mock=<%=mock%>&mockRId=<%=mockRId%>&mId=<%=mId%>&id=<%=val.id%>&sId=<%=sId%>&rId=<%=rId%>&lId=<%=lId%>&wId=<%=wId%>" class="NEXT-blu-bg">NEXT</span></a>
+            </div>
+            <!-- 音量滑块 -->
+            
+        </div>
+        <div class="c mt10">
+            <a href='/exercise/write' style='text-decoration: none;' class="ylow-but but-font popbox-link left">
+                <dt>退出</dt>
+                <dd>练习</dd>
+            </a>
+
+        </div>
+    </div>
+ </div>
+        <div id="maindiv" class="wid1200 margin-auto search_article">
+            <div>
+                <div class="margin-auto pb10 pt10 ft16">
+                    <p class="r-bg-word plr10 ft16">Directions: You have 20 minutes to plan and write your response. Your response will be judged on the basis of
+                        the quality of your writing and on how well your response presents the points in the lecture and their relationship
+                        to the reading passage. Typically, an effective response will be 150 to 225 words.</p>
+                    <p class="plr10 ft16">Question: </p>
+                    <p><%=val.question%></p>
+                  
+        
+        
+                </div>
+                
+            </div>
+        
+            <div class="c" id="content" style="height: 500px;">
+                <div class="wid600 left dl-cboxrd">
+                    <div class="article-box">
+                       <%=val.original;%>
+    
+                    </div>
+                </div>
+                <div id="answer" style="display:block;" class="wid595 right dr-cboxrd">
+                    <div class="single-sle">
+                        <div class="d-zd-contbox c">
+                            <ul class="d-float left">
+                                <li class="ml10 pt5 ">
+                                   WRITING
+                                </li>
+                               
+                            </ul>
+                            <div class="right ft12 pt5 pr10">Word Count:
+                                <span role="wc_val"></span>
+                            </div>
+                        </div>
+                        <div class="p10" style="overflow-y: scroll;">
+                            <div id="wtTextArea" contenteditable="true" style="outline: none;min-height: 100px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <%})%>
+    </div>
+<%- include('../template/foot.ejs')  %>
+    <script src="/javascript/writeajax.js"></script>
+</body>
+
+</html>

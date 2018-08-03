@@ -1,0 +1,223 @@
+<!-- 左侧导航模板 -->
+
+<%
+
+    /**
+     *    teahcer ->  /questionBank  
+                  ->  childs:
+                        口语
+                        写作
+                        阅读
+                        听力
+           admin  ->  /members  
+
+           sadmin ->  /questionBank + /members 
+                  ->  /managerAdmin
+
+     */
+    var NavList = {
+        public  :  [
+            {
+                path : '/selfManager',
+                name : '个人信息',
+                icon : 'system'
+            }
+        ],
+        admin   :  [
+            {
+                path : '/members',
+                name : '会员管理',
+                icon : 'users'
+            }
+        ],
+        sadmin  :  [
+            {
+                path : '/members',
+                name : '会员管理',
+                icon : 'users',
+            },
+            {
+                path : '/questionBank',
+                name : '题库编辑',
+                icon : 'server'
+            },
+            {
+                path : '/sadmin',
+                name : '管理员编辑',
+                icon : 'server'
+            }
+        ],
+        teacher :  [
+            {
+                path : '/questionBank',
+                name : '题库编辑',
+                icon : 'server'
+            }
+        ]
+    }
+%>
+
+<div class="tpl-left-nav tpl-left-nav-hover">
+    <div class="tpl-left-nav-title">
+       导航 
+    </div>
+    <div class="tpl-left-nav-list">
+        <ul class="tpl-left-nav-menu">
+            <li class="tpl-left-nav-item">
+                <a href="/backend" class="nav-link">
+                    <i class="am-icon-home"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <% 
+                var nav = NavList[userToken.role];
+                nav.forEach((n , index) => { 
+                    
+            %>
+                <li class="tpl-left-nav-item">
+                    <% if(n.name=='题库编辑'){ %>
+                    <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                    <%}%>
+                    <% if(n.name=='会员管理'){%>
+                    <a href="/backend<%= n.path %>" class="nav-link <%= location == n.path ? 'active' : '' %>">
+                        <%}%>
+                        <% if(n.name=='管理员编辑'){%>
+                            <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                                <%}%>
+                        <i class="am-icon-<%= n.icon %>"></i>
+                        <span><%= n.name %></span>
+                    </a>
+                    <% if(n.name=='管理员编辑'){%>
+                    <ul class="tpl-left-nav-sub-menu ">
+                        <li class="tpl-left-nav-item">
+                            <a href="/backend/sadmin/teacher" class="nav-link tpl-left-nav-link-list">
+                                <i class="am-icon-square"></i>
+                                <span>老师编辑</span>
+                            </a>
+                        </li>
+                        <li class="tpl-left-nav-item">
+                            <a href="/backend/sadmin/admin" class="nav-link tpl-left-nav-link-list">
+                                <i class="am-icon-table"></i>
+                                <span>会员管理编辑</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <%}%>
+                    <% if(n.name=='题库编辑'){ %>
+                    
+                    <ul class="tpl-left-nav-sub-menu " >
+                            <li class="tpl-left-nav-item">
+                                <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                                    <i class="am-icon-square"></i>
+                                    <span>发布题目</span>
+                                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                                   
+                                </a>
+                                <ul class="tpl-left-nav-sub-menu">
+                                    <li>
+                                        <a href="/backend/questionBank/spoken">
+                                            <i class="am-icon-angle-right"></i>
+                                            <span>发布口语</span>
+                                         
+                                        </a>
+                            
+                                        <a href="/backend/questionBank/listen">
+                                            <i class="am-icon-angle-right"></i>
+                                            <span>发布听力</span>
+                                           
+                            
+                                            <a href="/backend/questionBank/read">
+                                                <i class="am-icon-angle-right"></i>
+                                                <span>发布阅读</span>
+
+                                                <a href="/backend/questionBank/write">
+                                                    <i class="am-icon-angle-right"></i>
+                                                    <span>发布写作</span>
+                            
+                                                </a>
+                                                <a href="/backend/questionBank/recommend">
+                                                        <i class="am-icon-angle-right"></i>
+                                                        <span>发布推荐</span>
+                                                    
+                                                </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tpl-left-nav-item">
+                                <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                                    <i class="am-icon-square"></i>
+                                    <span>修改题目</span>
+                                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                            
+                                </a>
+                                <ul class="tpl-left-nav-sub-menu">
+                                    <li>
+                                        <a href="/backend/questionBank/subject/?tId=<%=userToken.id %>&tyId=1">
+                                            <i class="am-icon-angle-right"></i>
+                                            <span>修改口语</span>
+                            
+                                        </a>
+                            
+                                        <a href="/backend/questionBank/subject/?tId=<%=userToken.id %>&tyId=3">
+                                            <i class="am-icon-angle-right"></i>
+                                            <span>修改听力</span>
+                            
+                            
+                                            <a href="/backend/questionBank/subject/?tId=<%=userToken.id %>&tyId=2">
+                                                <i class="am-icon-angle-right"></i>
+                                                <span>修改阅读</span>
+                            
+                                                <a href="/backend/questionBank/subject/?tId=<%=userToken.id %>&tyId=4">
+                                                    <i class="am-icon-angle-right"></i>
+                                                    <span>修改写作</span>
+                            
+                                                </a>
+                                                <a href="/backend/questionBank/recomList/?aId=<%=userToken.id%>">
+                                                    <i class="am-icon-angle-right"></i>
+                                                    <span>修改推荐</span>
+                            
+                                                </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tpl-left-nav-item">
+                                <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                                    <i class="am-icon-square"></i>
+                                    <span>模考</span>
+                                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                            
+                                </a>
+                                <ul class="tpl-left-nav-sub-menu">
+                                    <li>
+                                        <a href="/backend/questionBank/mock">
+                                            <i class="am-icon-angle-right"></i>
+                                            <span>发布模考</span>
+                                            </a>                 
+                                            <a href="/backend/questionBank/mockxiu?tId=<%= userToken.id %>">
+                                                <i class="am-icon-angle-right"></i>
+                                                <span>修改模考</span>
+                                
+                                            </a>
+                                        </li>
+                                </ul>
+                            </li>
+                            <li class="tpl-left-nav-item">
+                    <a href="/backend/questionBank/findAllWriteNoScore" class="nav-link">
+                    <i class="am-icon-check"></i>
+                    <span>作文打分</span>
+                </a>
+            </li>
+                    </ul>
+                    <% } %>
+                </li>
+            <% }) %>
+
+            <li class="tpl-left-nav-item">
+                <a href="/backend/selfManager/<%= userToken.id %>" class="nav-link">
+                    <i class="am-icon-user"></i>
+                    <span>个人信息</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

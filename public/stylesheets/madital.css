@@ -1,0 +1,821 @@
+.nzkDetailsWrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.nzkDetailsTitles {
+    font-size: 16px;
+    color: #8d8d8d;
+    padding-left: 14px;
+    line-height: 50px;
+    font-weight: normal;
+}
+
+.nzkDetailsTitles a:visited {
+    color: #000;
+}
+
+.nzkContent {
+    float: left;
+    width: 870px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.nzkContentTop {
+    padding: 30px 40px 30px 30px;
+    background: #fff;
+}
+
+.nzkContentTop img {
+    width: 100%;
+    display: inline-block;
+}
+
+.nzkContentTop p {
+    font-size: 16px;
+    color: #6b6b6b;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.nzkContentTop strong,
+.nzkContentTop b {
+    font-weight: bold;
+}
+
+.nzkInteractiveLeft {
+    float: left;
+}
+
+.nzkContentTitle strong {
+    font-size: 24px;
+    color: #303030;
+    font-weight: bold;
+}
+
+.nzkContentTitle i {
+    font-size: 12px;
+    color: #fff;
+    width: 40px;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
+    display: inline-block;
+    background: #ccc;
+    margin-left: 10px;
+}
+
+.nzkCreateTime {
+    margin-top: 6px;
+}
+
+.nzkCreateTime em {
+    font-size: 14px;
+    color: #cdcdcd;
+}
+
+.nzkCreateTime span {
+    font-size: 14px;
+    color: #cdcdcd;
+    padding-left: 24px;
+    line-height: 10px;
+   
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nzkInteractiveRight {
+    float: right;
+    margin-top: 6px;
+}
+
+.nzkInteractiveRight a {
+    display: inline-block;
+    font-size: 14px;
+    color: #adadad;
+    margin-right: 20px;
+    line-height: 24px;
+    padding-left: 26px;
+}
+
+.collection {
+  
+}
+
+.errorCorrection {
+    background-size: 20px 20px;
+}
+
+.nzkStem {
+    font-size: 16px;
+    color: #6b6b6b;
+    line-height: 24px;
+    margin-top: 20px;
+    margin-bottom: 16px;
+    padding-right: 30px;
+}
+
+.videoWrap {
+    width: 770px;
+    height: 480px;
+}
+
+.nzkRead {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.nzkRead a,
+.nzkRead span {
+    width: 96px;
+    height: 32px;
+    background: #4674dd;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 32px;
+    display: inline-block;
+    border-radius: 6px;
+}
+
+.nzkRead span {
+    background: #ccc;
+    display: none;
+}
+
+.nzkNotice {
+    width: 790px;
+    height: 142px;
+    margin-top: 20px;
+}
+
+.nzkNotice img {
+    width: 100%;
+    height: 100%;
+}
+
+.nzkContext {
+    height: 50px;
+    line-height: 50px;
+    background: #f6f6f9;
+    padding: 0 24px;
+}
+
+.nzkContext label {
+    font-size: 14px;
+    color: #adadad;
+}
+
+.nzkContext a {
+    font-size: 14px;
+    color: #4674dd;
+}
+
+.preArticle {
+    float: left;
+}
+
+.nextArticle {
+    float: right;
+}
+
+.nzkProposalWrap {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nzkProposal {
+    width: 380px;
+    height: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -190px;
+    margin-left: -170px;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.nzkProposal h4 {
+    font-size: 18px;
+    color: #909090;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background: #f6f6f9;
+    margin-bottom: 20px;
+}
+
+.nzkProposal div {
+    font-size: 16px;
+    color: #606060;
+}
+
+.optionInformation {
+    width: 244px;
+    font-size: 16px;
+    color: #606060;
+    height: 24px;
+    outline: none;
+    border: 1px solid #ededed;
+}
+
+.proposalCon {
+    padding: 12px 10px;
+    width: 226px;
+    height: 118px;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 14px;
+    color: #adadad;
+    background: #efeff4;
+    line-height: 20px;
+    vertical-align: text-top;
+}
+
+.nzkDescribe {
+    margin-top: 14px;
+    margin-bottom: 20px;
+}
+
+.nzkSubmit {
+    width: 95px;
+    height: 32px;
+    color: #fff;
+    background: #4674dd;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 32px;
+    border-radius: 5px;
+}
+
+.nzkClose {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 20px;
+    color: #adadad;
+}
+
+.nzkClose::before {
+    content: '\2716';
+}
+.nzkDetailsWrap{
+    width:1200px;
+    margin:0 auto;
+}
+.nzkDetailsTitles{
+    font-size:16px;
+    color:#8d8d8d;
+    padding-left:14px;
+    line-height:50px;
+    font-weight:normal;
+}
+.nzkDetailsTitles a:visited{
+    color:#000;
+}
+.nzkContent{
+    float:left;
+    width:870px;
+    border-radius:5px;
+    overflow:hidden;
+}
+.nzkContentTop{
+    padding:30px 40px 30px 30px;
+    background:#fff;
+    min-height: 400px;
+}
+.nzkContentTop img{
+    width:100%;
+    display:inline-block;
+}
+.nzkContentTop p{
+    font-size:16px;
+    color:#6b6b6b;
+    line-height:24px;
+    margin-bottom:10px;
+}
+.nzkContentTop strong,.nzkContentTop b{
+    font-weight:bold;
+}
+.nzkInteractiveLeft{
+    float:left;
+}
+.nzkContentTitle strong{
+    font-size:24px;
+    color:#303030;
+    font-weight:bold;
+}
+.nzkContentTitle i{
+    font-size:12px;
+    color:#fff;
+    width:40px;
+    height:22px;
+    text-align:center;
+    line-height:22px;
+    display:inline-block;
+    background:#ccc;
+    margin-left:10px;
+}
+.nzkCreateTime{
+    margin-top:6px;
+}
+.nzkCreateTime em{
+    font-size:14px;
+    color:#cdcdcd;
+}
+.nzkCreateTime span{
+    font-size:14px;
+    color:#cdcdcd;
+    padding-left:24px;
+    line-height:10px;
+  
+    display:inline-block;
+    margin-left:20px;
+}
+.nzkInteractiveRight{
+    float:right;
+    margin-top:6px;
+}
+.nzkInteractiveRight a{
+    display:inline-block;
+    font-size:14px;
+    color:#adadad;
+    margin-right:20px;
+    line-height:24px;
+    padding-left:26px;
+}
+
+.errorCorrection{
+
+    background-size: 20px 20px;
+}
+.nzkStem{
+    font-size:16px;
+    color:#6b6b6b;
+    line-height:24px;
+    margin-top:20px;
+    margin-bottom:16px;
+    padding-right:30px;
+}
+.videoWrap{
+    width:770px;
+    height:480px;
+}
+.nzkRead{
+    margin-top:20px;
+    text-align:center;
+}
+.nzkRead a,.nzkRead span{
+    width:96px;
+    height:32px;
+    background:#4674dd;
+    color:#fff;
+    font-size:14px;
+    text-align:center;
+    line-height:32px;
+    display:inline-block;
+    border-radius:6px;
+}
+.nzkRead span{
+    background:#ccc;
+    display:none;
+}
+.nzkNotice{
+    width:790px;
+    height:142px;
+    margin-top:20px;
+}
+.nzkNotice img{
+    width:100%;
+    height:100%;
+}
+.nzkContext{
+    height:50px;
+    line-height:50px;
+    background:#f6f6f9;
+    padding:0 24px;
+}
+.nzkContext label{
+    font-size:14px;
+    color:#adadad;
+}
+.nzkContext a{
+    font-size:14px;
+    color:#4674dd;
+}
+.preArticle{
+    float:left;
+}
+.nextArticle{
+    float:right;
+}
+.nzkProposalWrap{
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    position:fixed;
+    top:0;
+    left:0;
+}
+.nzkProposal{
+    width:380px;
+    height:350px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-190px;
+    margin-left:-170px;
+    background:#fff;
+    border-radius:5px;
+    overflow:hidden;
+    text-align:center;
+}
+.nzkProposal h4{
+    font-size:18px;
+    color:#909090;
+    height:70px;
+    line-height:70px;
+    text-align:center;
+    background:#f6f6f9;
+    margin-bottom:20px;
+}
+.nzkProposal div{
+    font-size:16px;
+    color:#606060;
+}
+.optionInformation{
+    width:244px;
+    font-size:16px;
+    color:#606060;
+    height:24px;
+    outline:none;
+    border:1px solid #ededed;
+}
+.proposalCon{
+    padding:12px 10px;
+    width:226px;
+    height:118px;
+    border:none;
+    outline:none;
+    resize:none;
+    font-size:14px;
+    color:#adadad;
+    background:#efeff4;
+    line-height:20px;
+    vertical-align:text-top;
+}
+.nzkDescribe{
+    margin-top:14px;
+    margin-bottom:20px;
+}
+.nzkSubmit{
+    width:95px;
+    height:32px;
+    color:#fff;
+    background:#4674dd;
+    display:inline-block;
+    text-align:center;
+    font-size:16px;
+    line-height:32px;
+    border-radius:5px;
+}
+.nzkClose{
+    width:20px;
+    height:20px;
+    position:absolute;
+    right:10px;
+    top:6px;
+    font-size:18px;
+    text-align:center;
+    line-height:20px;
+    color:#adadad;
+}
+.nzkClose::before{
+    content:'\2716';
+}
+body {
+    padding-bottom: 60px;
+}
+
+.nzkProforma {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.nzkProformaBtn {
+    /*margin-left:-50px;*/
+}
+
+.nzkProformaBtn li {
+    float: left;
+    height: 56px;
+    position: relative;
+    margin-right: 40px;
+}
+
+.nzkProformaBtn a {
+    font-size: 16px;
+    color: #333;
+    line-height: 56px;
+    display: inline-block;
+    text-align: center;
+}
+
+.nzkProformaBtn a:hover {
+    color: #00a4ff;
+}
+
+.nzkProformaBtn i {
+    position: absolute;
+    bottom: 13px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    /*background:#4674dd;*/
+    display: none;
+}
+
+.nzkProformaBtn a:hover+i {
+    display: block;
+}
+
+.nzkProformaBtn .activeBtn {
+    color: #00a4ff;
+}
+
+.nzkProformaBtn .active {
+    display: block;
+}
+
+.nzkDetailsLink {
+    margin-left: -18px;
+}
+
+.nzkDetailsLink li {
+    width: -webkit-calc(1158px / 3);
+    width: -moz-calc(1158px / 3);
+    width: -o-calc(1158px / 3);
+    width: -ms-calc(1158px / 3);
+    width: calc(1158px / 3);
+    height: 240px;
+    border-radius: 5px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    margin-left: 20px;
+}
+
+.nzkDetailsLink img {
+    width: 100%;
+    height: 100%;
+}
+
+.nzkDetailsLink a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nzkDetailsLink div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 82px;
+  
+}
+
+.nzkDetailsLink span {
+    font-size: 18px;
+    color: #fff;
+    margin-left: 20px;
+    float: left;
+    margin-top: 34px;
+    width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.nzkDetailsLink strong {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #e7ecf1;
+    float: right;
+    margin-top: 30px;
+    margin-right: 14px;
+    text-align: center;
+    line-height: 38px;
+    position: relative;
+}
+
+.nzkDetailsLink b {
+    width: 0;
+    height: 0;
+    background: transparent;
+    border-left: 12px solid #5d5e60;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -7px;
+}
+
+.nzkDetailsWrap {
+    margin-top: 20px;
+}
+
+.nzkDetailsBox {
+    background: #fff;
+    padding-bottom: 30px;
+    float: left;
+    border-radius: 6px;
+}
+
+.nzkDetailsBox>ul>li {
+    padding: 30px 20px 26px 20px;
+    border-bottom: 1px solid #efeff4;
+    width: 866px;
+    position: relative;
+}
+
+.nzkDetailsLeft {
+    width: 610px;
+    float: left;
+}
+
+.nzkDetailsRight {
+    width: 197px;
+    height: 120px;
+    float: right;
+    border-radius: 6px;
+}
+
+.nzkTitle {
+    margin-bottom: 20px;
+}
+
+.nzkTitle span a {
+    font-size: 16px;
+    color: #333;
+}
+
+.nzkTitle i {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    font-size: 12px;
+    color: #fff;
+    background: #cccccc;
+    text-align: center;
+    line-height: 20px;
+    margin-left: 8px;
+}
+
+.nzkDetailsTitle {
+    font-size: 16px;
+    color: #999;
+    line-height: 1.2em;
+    height: 2.4em;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+    padding-right: 0.6em;
+}
+
+.nzkDetailsTitle::after {
+    position: absolute;
+    right: 0em;
+    bottom: 0;
+    content: '...';
+    font-size: 20px;
+}
+
+.nzkCollection span {
+    font-size: 14px;
+    color: #cdcdcd;
+    float: left;
+    padding-left: 24px;
+    line-height: 11px;
+
+}
+
+.nzkCollection a {
+    float: right;
+    font-size: 16px;
+    color: #00a4ff;
+
+    padding-left: 30px;
+    line-height: 24px;
+    height: 24px;
+    position: relative;
+    z-index: 3;
+}
+
+.nzkArticleWrap {
+    float: right;
+    width: 310px;
+}
+
+.Advertisement {
+    width: 310px;
+    height: 128px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.Advertisement img {
+    width: 100%;
+    height: 100%;
+}
+
+.nzkArticleBox {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.nzkArticleBox>h3 {
+    padding-left: 20px;
+    line-height: 56px;
+    height: 56px;
+    background: #f6f6f9;
+    font-size: 16px;
+    color: #333;
+    font-weight: normal;
+}
+
+.nzkArticle {
+    background: #fff;
+    padding-bottom: 20px;
+}
+
+.nzkArticle li {
+    border-bottom: 1px solid #efeff4;
+    padding: 20px 20px 16px 20px;
+}
+
+.nzkArticle li:last-child {
+    border-bottom: none;
+}
+
+.nzkArticle a {
+    display: block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -o-ms-sizing: border-box;
+}
+
+.nzkArticle p {
+    font-size: 14px;
+    color: #999;
+    line-height: 18px;
+    margin-bottom: 20px;
+}
+
+.nzkArticle span {
+    font-size: 14px;
+    color: #cdcdcd;
+    float: left;
+    padding-left: 24px;
+    line-height: 10px;
+ 
+}
+
+.nzkArticle i {
+    float: right;
+    font-size: 14px;
+    color: #00a4ff;
+}
+
+.page {
+    margin-top: 20px;
+    display: table;
+    margin-left: 30px;
+}
+
+.linkPosi {
+    display: block;
+}

@@ -1,0 +1,182 @@
+<html class="ks-webkit537 ks-webkit ks-chrome65 ks-chrome" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        查看阅读
+    </title>
+    <link rel="stylesheet" href="/stylesheets/exAll.css">
+    <link rel="stylesheet" href="/stylesheets/pop.css">
+    <link rel="stylesheet" href="/stylesheets/tole.css">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/dati.css">
+    <link rel="stylesheet" href="/stylesheets/retu.css">
+    <style>
+        /* stylesheet for demo and examples */
+
+        #demo {
+            position: relative;
+            line-height: 20px;
+            z-index: 10;
+        }
+
+        #examples {
+            overflow: hidden;
+        }
+
+        .content {
+            overflow: auto;
+            position: relative;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        @media only screen and (min-width: 1229px) {
+            .showcase .horizontal-images.content {
+                width: 1060px;
+            }
+        }
+
+        @media only screen and (min-width: 1629px) {
+            .showcase .horizontal-images.content {
+                width: 700px;
+            }
+        }
+    </style>
+</head>
+
+<body class="">
+    <div class="box">
+        <div id="content1" class="tf-navtop">
+            <div class="wid1200 margin-auto">
+                <div class="c pb10">
+                    <div class="left ">
+                        <dl class="Tn-nav-lfont c">
+                            <dt>
+                                <a href="/" class="ziti">
+                                    英贝尔
+                                </a>
+                            </dt>
+                            <dd class="Tn-navfont">
+                                <h2>做题结果：
+                                    <%console.log(result)%>
+                                    <%=result[0].englishTitle%>
+                                </h2>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="right Tn-rr-bsolo">
+                        <a href='/exercise/read' style="font-size:12px;" class="Tn-witbut ml10">退出练习</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="margin-auto" id="demo">
+            <div id="examples" class="c search_article">
+
+                <div class=" witbg left leftwitbox" style="height: 501px;">
+                    <!--左侧题目 -->
+
+                    <div id="content-md" class="content light wid615 right mr20 mCustomScrollbar _mCS_1 mCS-autoHide" dir="ltr">
+
+
+                        <ul class="c Tn-Numquestions">
+
+                            <% for(var i=0;i< num;i++){%>
+                                
+                                    <li>
+                                        <a href="/exercise/read/result?numForRM=<%=(i+1)%>&id=<%=result[0].materialId%>&mId=<%=mId%>" class="<%=question[0].numForRM==(i+1)?'tn-redNum-hover':'tn-groyNum'%>">
+                                            <%=(i+1)%>
+                                        </a>
+                                    </li>
+                                    <%}%>
+
+                        </ul>
+                        <div class="Tn-allcont">
+                            <div class="Tn-contentfont">
+
+                                <h1>
+                                    <%=question[0].question%>
+                                </h1>
+
+                                <p>A.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <%=question[0].options.A%>
+                                </p>
+
+                                <p>B.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <%=question[0].options.B%>
+                                </p>
+
+                                <p>C.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <%=question[0].options.C%>
+                                </p>
+
+                                <p>D.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <%=question[0].options.D%>
+                                </p>
+
+                                <!-- <p><span class="Tn-groyNum">D  supported</span></p> -->
+                            </div>
+                            <ol class="c Tn-answer">
+                                <li class="left">我的答案
+
+                                    <span class="Tn-f-red">
+
+                                        <%=result[0].mAnswer%>
+
+                                    </span>
+
+
+                                </li>
+                                <li class="left ml50">正确答案
+                                    <span class="Tn-f-grenn">
+                                        <%=question[0].rightAnswer%>
+                                    </span>
+                                </li>
+
+                            </ol>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <!--右侧内容-->
+                <div class="witbg left leftgrybox" style="height: 501px;">
+                    <div class="content light wid590 Tn-rcontbox left ml25 mCustomScrollbar _mCS_2 mCS-autoHide" style="overflow: visible; height: 501px;">
+                        <div class="Tn-rfontall">
+                            <div style="text-align: center;">
+                                <strong>
+                                    <%=result[0].englishTitle%>
+                                </strong>
+                            </div>
+                            <div id="article_1">
+                                <!-- <img src="/images/dl.png" width="12" height="14" style="margin-top:6px;" class="mCS_img_loaded"> -->
+
+                                <%=result[0].englishMaterial%>
+
+                            </div>
+                            <p>
+                                <br>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <%- include('../template/foot.ejs')  %>
+        <script src="/javascript/readR.js"></script>
+
+</body>
+
+</html>

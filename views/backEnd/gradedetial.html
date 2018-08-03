@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('tpl/head.html',{title:'首页'}) %>
+</head>
+
+<body data-type="generalComponents">
+
+    <%- include('tpl/header.html',{ title : '贝尔英语'}) %>
+
+        <div class="tpl-page-container tpl-page-header-fixed">
+
+
+            <%- include('tpl/nav.html' , {user : 'teacher'}) %>
+
+
+                <div class="tpl-content-wrapper">
+                    <div class="tpl-content-page-title">
+                        作文批改
+                    </div>
+
+                    <div class="tpl-portlet-components">
+                        <div class="portlet-title">
+                            <div class="caption font-green bold">
+                                <span class="am-icon-code"></span> 写作详情
+                            </div>
+
+                        </div>
+                        <article class="am-article">
+                            <div class="am-article-hd">
+                                <h1 class="am-article-title">
+                                    <%=data[0]. materialTitle%>
+                                </h1>
+                                <p class="am-article-meta">
+                                    <span>难度：
+                                        <%=data[0].level%>
+                                    </span>
+                                </p>
+                                <p class="am-article-meta">
+                                    <span>完成时间:
+                                        <%=new Date(data[0].endTime*1000).toLocaleDateString()%>
+                                    </span>
+                                </p>
+                                <p class="am-article-meta">
+                                    <span>总分数:
+                                           <%=data[0].score%>
+                                    </span>
+                                </p>
+
+
+                            </div>
+
+                            <div class="am-article-bd" style="min-height: 200px">
+                                <%=data[0].wContent%>
+                            </div>
+                        </article>
+
+                        <div class="tpl-alert"></div>
+                        <form class="am-form-inline" id='form1' role="form" method="POST" action="/backend/questionBank/api/addScore">
+                            <input type="text"  name='id' value='<%=data[0].id%>' style="display:none">
+                            <div class="am-form-group am-form-error am-form-icon am-form-feedback">
+                                <input type="text" class="am-form-field" name='score' placeholder="请输入分数">
+                                <span class="am-icon-check"></span>
+                            </div>
+
+                            <button type="submit" class="am-btn am-btn-secondary" id='sub'>提交</button>
+                        </form>
+                    </div>
+                    <input type="text" id='score' value="<%=data[0].score%>" style="display: none">
+                </div>
+
+        </div>
+
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.js"></script>    
+        <script src="/assets/js/amazeui.min.js"></script>
+        <script src="/assets/js/app.js"></script>
+
+
+        <input type="hidden" id="data_rowsStr" value="<%=data%>">
+
+        <script >
+            window.onload=function(){
+            $('.am-article-bd').html($('.am-article-bd').text())
+               $("#sub").attr("disabled", true);
+            }
+             $(function () {
+                    $("#form1").ajaxForm(function (data) {
+                        
+                        if (data == 'success') {
+                            window.location.href='/backend/questionBank/findAllWriteNoScore';
+                        }
+                    });
+                });
+        $('.am-form-field').on('change',function(){
+
+            if($(this).val()){
+                if($(this).val()*1>=$('#score').val()*1){
+                    $("#sub").attr("disabled", true);
+                }else{
+                $("#sub").attr("disabled", false);
+                }
+            }
+     
+            })
+
+            
+        </script>
+
+
+
+</body>
+
+</html>

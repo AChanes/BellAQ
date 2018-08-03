@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('tpl/head.html',{title:'首页'}) %>
+    
+</head>
+
+<body>
+    <%- include('tpl/header.html',{ title : '贝尔英语'}) %>
+        <div class="tpl-page-container tpl-page-header-fixed">
+            <%- include('tpl/nav.html' , {user : 'teacher'}) %>
+                <div class="tpl-content-wrapper">
+                    <div class="tpl-content-page-title">
+                        发布题目口语
+
+                    </div>
+                    <ol class="am-breadcrumb">
+                        <li>
+                            <a href="http://localhost:3000/backend/questionBank/spoken">口语</a>
+                        </li>
+                        <li>
+                            <a style="color:black;" href="http://localhost:3000/backend/questionBank/listen">听力</a>
+                        </li>
+                        <li>
+                            <a style="color:black;" href="http://localhost:3000/backend/questionBank/read">阅读</a>
+                        </li>
+                        <li>
+                            <a style="color:black;" href="http://localhost:3000/backend/questionBank/write">写作</a>
+                        </li>
+
+                    </ol>
+                    <div class="tpl-portlet-components">
+                        <div class="portlet-title">
+                                 <div class="caption font-green bold">
+                            <span class="am-icon-code"></span> 口语
+                        </div>
+                   
+
+                 </div>
+                    <div class="tpl-block">
+                        <div class="am-g">
+                            <div class="tpl-form-body tpl-form-line">
+                                <form class="am-form tpl-form-line-form" id='form1' enctype="multipart/form-data" method="POST" action="/backend/questionBank/api/TaddSpeakMaterial"
+                                    target="hidden-iframe">
+                                    <input type="number" value="<%= userToken.id %>" name="tId" style="display:none" id="tId">
+                                    <div class="am-form-group">
+                                        <label for="user-name" class="am-u-sm-3 am-form-label">标题
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" class="tpl-form-input" id="user-name" minlength='1' maxlength="50" name="title" placeholder="请输入标题文字">
+                                            <small>标题长度不超过50个字母。</small>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-phone" class="am-u-sm-3 am-form-label">难度
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="" name="dId" class="nan">
+                                                <option value="1">高中</option>
+                                                <option value="2">四级</option>
+                                                <option value="3">六级</option>
+                                                <option value="4">托福</option>
+                                                <option value="5">托福TPO5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">添加口语图片
+                                            <span class="tpl-form-line-small-title"></span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <div class="am-form-group am-form-file">
+                                                <button class="am-btn am-btn-primary">
+                                                    <i class="am-icon-cloud-upload"></i>请选择你要上传的图片</button>
+                                                <input type="file" name="img" onchange="change(this)" multiple="multiple" id="img" accept="image/*" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">添加原文MP4
+                                            <span class="tpl-form-line-small-title"></span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <div class="am-form-group am-form-file">
+                                                <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                                    <i class="am-icon-cloud-upload"></i> 选择要上传的MP4</button>
+                                                <input id="fileId1" type="file" onchange="change(this)" class="am-btn am-btn-primary" accept="audio/*,video/*" name="mp4ForO" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">添加要求录音MP4
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <div class="am-form-group am-form-file">
+                                                <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                                    <i class="am-icon-cloud-upload"></i> 选择要上传的MP4</button>
+                                                <input id="fileId2" type="file"  onchange="change(this)" class="am-btn am-btn-primary" accept="audio/*,video/*" name="mp4ForA" />
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">添加问题录音MP4
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <div class="am-form-group am-form-file">
+                                                <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                                    <i class="am-icon-cloud-upload"></i> 选择要上传的MP4</button>
+                                                <input id="fileId3" type="file" onchange="change(this)" class="am-btn am-btn-primary" accept="audio/*,video/*" name="mp4ForQ" />
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">添加情景分类
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="" name="topicId" id="op">
+                                                <option value="1">生物</option>
+                                                <option value="2">历史</option>
+                                                <option value="3">地质</option>
+                                                <option value="4">艺术</option>
+                                                <option value="5">心理</option>
+                                                <option value="6">坏境科学</option>
+                                                <option value="7">生态</option>
+                                                <option value="8">考古</option>
+                                                <option value="9">天文</option>
+                                                <option value="10">教育</option>
+                                                <option value="11">其他</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label for="user-intro" class="am-u-sm-3 am-form-label">题目问题
+                                            <span class="tpl-form-line-small-title">※</span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <textarea class="" rows="5" id="user-intro" name="question" placeholder="请输入问题详情"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="editor_1" class="am-u-sm-3 am-form-label">阅读材料
+                                            <span class="tpl-form-line-small-title"></span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            
+                                            <script id="editor_1" type="text/plain" style="width:700px;height:400px;" name="material"></script>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="editor" class="am-u-sm-3 am-form-label">原文内容
+                                            <span class="tpl-form-line-small-title"></span>
+                                        </label>
+                                        <div class="am-u-sm-9">
+                                            <script id="editor" type="text/plain" style="width:700px;height:400px;" name="original"></script>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <div class="am-u-sm-9 am-u-sm-push-3">
+                                            <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success " id="go">上传</button>
+                                            <span class="tpl-form-line-small-title">带※项为必填项，请填写完毕后再点击上传</span>
+                                        </div>
+                                    </div>
+                                </form>
+                                <iframe name="hidden-iframe" style="display: block; width: 650px;height: 200px;overflow: hidden; background-color: pink;display: none"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        </div>
+        <%- include('tpl/foot.html') %>
+            <script src="/javascript/sajax.js"></script>
+            <script src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.js"></script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js">
+            </script>
+            <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+            <script>
+                
+                var ue = UE.getEditor('editor');
+                var ue_1 = UE.getEditor('editor_1');
+                $("#go").attr("disabled", true);
+                /** 验证文件是否导入成功 */
+
+                $(function () {
+                    $("#form1").ajaxForm(function (data) {
+                        if (data[0].id) {
+                            var tId = $("#tId").val()
+                            $('input').val('');
+                            $('textarea').val('');
+                            ue.setContent("");
+                            ue_1.setContent("");
+                            $("#tId").val(tId);
+                            $("#go").attr("disabled", true);
+                        }
+                    });
+                });
+                $('#form1').on("change", function () {
+                    if ($("#user-name").val() && $(".nan").val() && $("#fileId2").val() && $("#fileId3").val() &&
+                        $("#op").val() && $("#user-intro").val()) {
+                        $("#go").attr("disabled", false);
+                    } else {
+                        $("#go").attr("disabled", true);
+                    }
+                });
+            </script>
+</body>
+
+</html>
